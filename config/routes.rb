@@ -1,8 +1,13 @@
 Kntu::Application.routes.draw do
-
   get "main/index"
-
+  
+  authenticated :user do
+    root :to => 'home#index'
+  end
+  
   root :to => 'main#index'
+
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
