@@ -6,6 +6,23 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :capabilities_mask
   # attr_accessible :title, :body
+  
+  scope :with_capability, lambda { |capability| {:conditions => "capabilities_mask & #{2**CAPABILITIES.index(capability.to_s)} > 0 "} }
+
+  CAPABILITIES = %w[manage_students_n_groups manage_all_subjects manage_own_subjects manage_articles write_articles]
+
+  def capabilities=(capability)
+    self.capabilities_mask = (capability & CAPABILITIES).map { |r| 2**CAPABILITIES.index(r) }.sum
+  end
+
+  def capabilities
+    CAPABILITIES.reject { |r| ((capabilities_mask || 0) & 2**CAPABILITIES.index(r)).zero? }
+  end
+
+  def has_capability?(capability)
+    capabilities.include? capability.to_s
+  end
+  
 end
