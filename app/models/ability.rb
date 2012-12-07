@@ -8,12 +8,14 @@ class Ability
     can :read, :all
     
     if user.has_capability? 'write_articles'
-      can :create, :all
-      can :update, :all # ??
+      can :create, Article
+      can :update, Article do |article|
+        article.try(:user) == user
+      end
     end
       
     if user.has_capability? 'manage_articles'
-      can :manage, :all # ??
+      can :manage, Article
     end
     
     # Define abilities for the passed in user here. For example:

@@ -1,4 +1,7 @@
 Kntu::Application.routes.draw do
+  resources :articles
+
+
   get "main/index"
   
   root :to => 'main#index'

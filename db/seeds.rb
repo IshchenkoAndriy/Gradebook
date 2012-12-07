@@ -8,5 +8,5 @@
 User.delete_all
 
 admin = User.create(email: 'admin@mail.com', password: 'adminpass')
-admin.capabilities = ['manage_students_n_groups', 'manage_all_subjects', 'manage_articles']
+admin.capabilities = ['manage_users', 'manage_students_n_groups', 'manage_all_subjects', 'manage_articles']
 admin.save

@@ -1,4 +1,12 @@
 <%= link_to "KNTU Statistic Server", root_path, :class => 'brand' %>
+<ul class="nav">
+  <% if can? :read, Article %>
+	<li>
+	<%= link_to('News', articles_path) %>
+	</li>
+  <% end %>
+</ul>
+
 <ul class="nav pull-right">
   <% if user_signed_in? %>
     <li>

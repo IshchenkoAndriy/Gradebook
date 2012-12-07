@@ -9,9 +9,11 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :capabilities_mask
   # attr_accessible :title, :body
   
+  has_many :articles
+  
   scope :with_capability, lambda { |capability| {:conditions => "capabilities_mask & #{2**CAPABILITIES.index(capability.to_s)} > 0 "} }
 
-  CAPABILITIES = %w[manage_students_n_groups manage_all_subjects manage_own_subjects manage_articles write_articles]
+  CAPABILITIES = %w[manage_users manage_students_n_groups manage_all_subjects manage_own_subjects manage_articles write_articles]
 
   def capabilities=(capability)
     self.capabilities_mask = (capability & CAPABILITIES).map { |r| 2**CAPABILITIES.index(r) }.sum
