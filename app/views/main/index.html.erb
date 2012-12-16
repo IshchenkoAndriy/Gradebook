@@ -22,10 +22,31 @@
 	
 	<div class="row">
 		<div id="main-user-form" class="span6">
-			<span> User Log in/Sign Up </span>
+			<% if user_signed_in? %>
+				<span> Settings </span>
+			<% else %>
+				<%= render 'main/signin' %>
+			<% end %>
 		</div>
 		<div id="main-articles-form" class="span6">
-			<span> News </span>
+			<table>
+			<% @articles.each do |article| %>
+			  <tr>
+			    <td><%= article.user.email %></td>
+			    <td><%= article.title %></td>
+			    <td><%= article.text %></td>
+			    <% if can? :read, article %>
+			    	<td><%= link_to 'Show', article %></td>
+			    <% end %>
+			    <% if can? :edit, article %>
+			    	<td><%= link_to 'Edit', edit_article_path(article) %></td>
+			    <% end %>
+			    <% if can? :destroy, article %>
+			    	<td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			    <% end %>
+			  </tr>
+			<% end %>
+			</table>
 		</div>
 	</div>
 </div>
