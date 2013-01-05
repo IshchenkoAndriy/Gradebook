@@ -22,7 +22,7 @@ body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;font-size:
 
 /* blog & articles */
 .article{margin-bottom:20px;*zoom:1}
-.article:before,..article:after{display:table;content:"";line-height:0}
+.article:before,.article:after{display:table;content:"";line-height:0}
 .article:after{clear:both}
 .article:hover{background:#f5f5f5}
 .article-info{background:#f5f5f5;font-size:12px;padding:5px;margin-top:-10px}
