@@ -1,21 +1,11 @@
-<h1>Listing articles</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<h1>News</h1>
 <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.user.email %></td>
-    <td><%= article.title %></td>
-    <td><%= article.text %></td>
-    <% if can? :read, article %>
+<div class="article">
+<h3><%= article.title %></h3>
+<div class="article-info">
+<%= article.user.email %>
+<div class="pull-right">
+<% if can? :read, article %>
     	<td><%= link_to 'Show', article %></td>
     <% end %>
     <% if can? :edit, article %>
@@ -23,13 +13,13 @@
     <% end %>
     <% if can? :destroy, article %>
     	<td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
 <% end %>
-</table>
-
-<br />
+</div>
+</div>
+<div class="article-text"><%= article.text %></div>
+</div>
+<% end %>
 
 <% if can? :create, Article %>
-	<%= link_to 'New Article', new_article_path %>
+	<div class="article-add"><%= link_to 'New Article', new_article_path %></div>
 <% end %>
