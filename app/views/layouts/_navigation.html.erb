@@ -1,29 +1,33 @@
-<div class="c_3 logo"><%= link_to "KNTU Statistic Server", root_path %></div>
+<div class="c_3 logo"><%= link_to t(:app_logo), root_path %></div>
 <div class="c_9 navigation"><ul>
   <% if can? :read, Article %>
 	<li>
-	<%= link_to('News', articles_path) %>
+	<%= link_to(t(:news), articles_path) %>
 	</li>
   <% end %>
+  
+  <li><%= link_to "uk", root_path(:locale => :uk) %></li>
+  <li><%= link_to "ru", root_path(:locale => :ru) %></li>
+  <li><%= link_to "en", root_path(:locale => :en) %></li>
 </ul>
 
 <ul class="pull-right">
   <% if user_signed_in? %>
     <li>
-    <span>Приветствуем,<br> <%= current_user.email  %></span>  
+    <span> <%= t :wellcome %> <br> <%= current_user.email  %></span>  
     </li>
 	<li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
+    <%= link_to(t(:logout), destroy_user_session_path, :method=>'delete') %>        
     </li>
 	<li>
-    <%= link_to('Edit account', edit_user_registration_path) %>
+    <%= link_to(t(:edit_account), edit_user_registration_path) %>
     </li>
   <% else %>
     <li>
-    <%= link_to('Login', new_user_session_path)  %>  
+    <%= link_to(t(:login), new_user_session_path)  %>  
     </li>
 	<li>
-    <%= link_to('Sign up', new_user_registration_path)  %>
+    <%= link_to(t(:sign_up), new_user_registration_path)  %>
     </li>
   <% end %>
 </ul>

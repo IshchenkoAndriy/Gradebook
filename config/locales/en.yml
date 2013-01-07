@@ -2,4 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  app_logo: "KNTU Statistic"
+  wellcome: "Hello"
+  news: "News"
+  logout: "Logout"
+  edit_account: "Edit account"
+  login: "Login"
+  sign_up: "Sign up"
+  app_copyright: "All rights reserved. KNTU 2013"
+  app_author: "Ishchenko A.O KI(PM)-12M"
+  app_description: "Software development dynamics analysis of student achievement in the educational process"
+  
+  forgot_password: "Forgot your password?"
+  didnt_recive_confirm: "Didn't receive confirmation instructions?"
+  didnt_recive_unlock: "Didn't receive unlock instructions?"
