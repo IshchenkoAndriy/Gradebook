@@ -9,6 +9,10 @@ slider_img/navigation-previous.png: slider_img/navigation-previous-80edec43ea3e0
 slider_img/navigation-previous/index.png: slider_img/navigation-previous-80edec43ea3e020791bbbd42be1dcc08.png
 slider_img/pagination.png: slider_img/pagination-057f2ef78dce4578d5b021f77a70db60.png
 slider_img/pagination/index.png: slider_img/pagination-057f2ef78dce4578d5b021f77a70db60.png
+slides/slide-1.jpg: slides/slide-1-54866266d35434d9f0295091ab4eb666.jpg
+slides/slide-1/index.jpg: slides/slide-1-54866266d35434d9f0295091ab4eb666.jpg
+slides/slide-2.jpg: slides/slide-2-f9fa38c1d9120ac2ca6e53827dd73167.jpg
+slides/slide-2/index.jpg: slides/slide-2-f9fa38c1d9120ac2ca6e53827dd73167.jpg
 application.js: application-1f4891d5be0115f3eacb5bf61f95bc23.js
 application/index.js: application-1f4891d5be0115f3eacb5bf61f95bc23.js
 application.css: application-676930883954c615ddf87b10caec2970.css
