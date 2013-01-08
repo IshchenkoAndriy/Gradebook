@@ -34,7 +34,7 @@
 			  <tr>
 			    <td><%= article.user.email %></td>
 			    <td><%= article.title %></td>
-			    <td><%=  truncate(article.text, :length => 40) %></td>
+			    <td><%=  raw truncate(article.text, :length => 40) %></td>
 			    <% if can? :read, article %>
 			    	<td><%= link_to 'Show', article %></td>
 			    <% end %>

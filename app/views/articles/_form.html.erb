@@ -1,8 +1,8 @@
-<%= simple_form_for(@article, :html => {:class => 'form-horizontal' }) do |f| %>
+<%= simple_form_for(@article, :html => {:class => 'form-vertical' }) do |f| %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :text %>
+    <%= f.input :title, :label => false, :placeholder => t(:article_title) %>
+    <%= f.cktext_area :text, :ckeditor => {:toolbar => 'Full', :language => I18n.locale} %>
   </div>
 
   <div class="form-actions">

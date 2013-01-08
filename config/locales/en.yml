@@ -17,3 +17,5 @@ en:
   forgot_password: "Forgot your password?"
   didnt_recive_confirm: "Didn't receive confirmation instructions?"
   didnt_recive_unlock: "Didn't receive unlock instructions?"
+  
+  article_title: "Title"

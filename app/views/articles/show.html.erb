@@ -1,18 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
   <%= @article.user.email %>
 </p>
 
 <p>
-  <b>Title:</b>
   <%= @article.title %>
 </p>
 
 <p>
-  <b>Text:</b>
-  <%= @article.text %>
+  <%= raw @article.text %>
 </p>
 
 <% if can? :update, @article %>
