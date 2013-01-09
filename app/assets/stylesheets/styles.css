@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic-ext);
 html {height:100%}
-body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;font-size:14px;line-height:20px;color:#555;height: auto !important;min-height:100%;position:relative}
+body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;color:#555}
 #navbar,#footer{background:#333;color:#999;font-size:12px}
 #footer{position:absolute;width:100%;bottom:0}
 .navigation{margin:0;padding:0}
@@ -13,9 +13,14 @@ body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;font-size:
 .logo{padding:0}
 .logo a{display:block;color:#ccc;font-size:24px;font-weight:300;line-height:25px;padding:10px 5px;text-decoration:none;text-shadow:0px 1px 0px #000;}
 .logo a:hover{background:#595E7B;color:#eee;text-decoration:none;text-shadow:none}
+#lang a{background-position:0 -15px;opacity:0.6;padding:0;margin:15px 0 15px 10px;height:15px;overflow:hidden;width:20px;color:transparent;-webkit-transition:opacity 0.15s linear;-moz-transition:opacity 0.15s linear;-o-transition:opacity 0.15s linear;transition:opacity 0.15s linear}
+#lang a:hover{background-position:0 0;opacity:1}
+#en{background:url('en.png')}
+#ru{background:url('ru.png')}
+#uk{background:url('uk.png')}
 #main{padding-bottom:60px}
 .content {background:#fff;-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);box-shadow: 0 1px 2px rgba(0,0,0,.15)}
-#footer-description {text-align:right}
+#footer-description {text-align:right;height:60px}
 #main-slider {text-align:center}
 #main-user-form {text-align:center}
 #main-articles-form {text-align:center;overflow:hidden}
