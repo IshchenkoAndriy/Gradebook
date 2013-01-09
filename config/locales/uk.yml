@@ -17,6 +17,8 @@ uk:
   
   article_title: "Заголовок"
   
+  select_lang: "Виберіть мову"
+  
   unauthorized:
     default: "Ви не авторизовані для доступу до цієї сторінки."
   

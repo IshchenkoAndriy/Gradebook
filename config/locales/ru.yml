@@ -16,6 +16,8 @@ ru:
   didnt_recive_unlock: "Не получили инструкции разблокировки?"
 
   article_title: "Заголовок"
+  
+  select_lang: "Выберите ваш язык"
 
   unauthorized:
     default: "Вы не авторизованы для доступа к этой странице."
