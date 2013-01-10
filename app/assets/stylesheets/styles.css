@@ -4,17 +4,21 @@ body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;color:#555
 #navbar,#footer{background:#333;color:#999;font-size:12px}
 #footer{position:absolute;width:100%;bottom:0}
 .navigation{margin:0;padding:0}
-.navigation ul{list-style:none outside none;padding:0;margin:0}
-.navigation ul > li {float:left}
-.navigation ul > li  > a,.navigation ul > li  > span{display:block;line-height:25px;padding:10px;}
-.navigation ul > li  > a{color:#ccc;font-size:14px;text-decoration:none}
-.navigation ul > li  > a:hover{background:#595E7B;color:#eee}
-.navigation ul > li  > span{line-height:12.5px}
+.navigation>ul{list-style:none outside none;padding:0;margin:0}
+.navigation>ul > li {float:left}
+.navigation>ul > li  > a,.navigation ul > li  > span{display:block;line-height:25px;padding:10px;}
+.navigation>ul > li  > a{color:#ccc;font-size:14px;text-decoration:none}
+.navigation>ul > li  > a:hover{background:#595E7B;color:#eee}
+.navigation>ul > li  > span{line-height:12.5px}
 .logo{padding:0}
 .logo a{display:block;color:#ccc;font-size:24px;font-weight:300;line-height:25px;padding:10px 5px;text-decoration:none;text-shadow:0px 1px 0px #000;}
 .logo a:hover{background:#595E7B;color:#eee;text-decoration:none;text-shadow:none}
-#lang a{background-position:0 -15px;opacity:0.6;padding:0;margin:15px 0 15px 10px;height:15px;overflow:hidden;width:20px;color:transparent;-webkit-transition:opacity 0.15s linear;-moz-transition:opacity 0.15s linear;-o-transition:opacity 0.15s linear;transition:opacity 0.15s linear}
-#lang a:hover{background-position:0 0;opacity:1}
+#lang{margin:15px 0 15px 10px}
+#lang a{display:block;float:left;opacity:0.6;padding:0;height:15px;overflow:hidden;width:20px;color:transparent;-webkit-transition:opacity 0.15s linear;-moz-transition:opacity 0.15s linear;-o-transition:opacity 0.15s linear;transition:opacity 0.15s linear}
+#lang a:hover{opacity:1}
+#lang ul{list-style:none outside none;padding:0;margin:0}
+#lang ul li{display:block;margin-bottom:10px}
+#lang .popover{width:140px}
 #en{background:url('en.png')}
 #ru{background:url('ru.png')}
 #uk{background:url('uk.png')}
@@ -29,7 +33,7 @@ body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;color:#555
 .article{margin-bottom:20px;*zoom:1}
 .article:before,.article:after{display:table;content:"";line-height:0}
 .article:after{clear:both}
-.article:hover{background:#f5f5f5}
-.article-info{background:#f5f5f5;font-size:12px;padding:5px;margin-top:-10px}
+.article:hover{background:#eee}
+.article-info{background:#eee;color:#888;font-size:12px;padding:5px;margin-top:-10px}
 .article-text{padding:10px 0}
 .article-add{position:absolute;top:20px;right:10px}
