@@ -21,3 +21,9 @@ en:
   article_title: "Title"
   
   select_lang: "Select language"
+  
+  languages:
+    uk: "Українська"
+    ru: "Русский"
+    en: "English"
+  

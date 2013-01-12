@@ -15,6 +15,8 @@ body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;color:#555
 .logo a:hover{background:#595E7B;color:#eee;text-decoration:none;text-shadow:none}
 #lang{margin:15px 0 15px 10px}
 #lang a{display:block;float:left;opacity:0.6;padding:0;height:15px;overflow:hidden;width:20px;color:transparent;-webkit-transition:opacity 0.15s linear;-moz-transition:opacity 0.15s linear;-o-transition:opacity 0.15s linear;transition:opacity 0.15s linear}
+#lang .popover li{line-height: 17px;}
+#lang .popover a{margin-right: 10px;}
 #lang a:hover{opacity:1}
 #lang ul{list-style:none outside none;padding:0;margin:0}
 #lang ul li{display:block;margin-bottom:10px}

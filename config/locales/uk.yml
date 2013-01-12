@@ -19,6 +19,11 @@ uk:
   
   select_lang: "Виберіть мову"
   
+  languages:
+    uk: "Українська"
+    ru: "Русский"
+    en: "English"
+  
   unauthorized:
     default: "Ви не авторизовані для доступу до цієї сторінки."
   

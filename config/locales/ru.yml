@@ -18,6 +18,11 @@ ru:
   article_title: "Заголовок"
   
   select_lang: "Выберите язык"
+  
+  languages:
+    uk: "Українська"
+    ru: "Русский"
+    en: "English"
 
   unauthorized:
     default: "Вы не авторизованы для доступа к этой странице."
