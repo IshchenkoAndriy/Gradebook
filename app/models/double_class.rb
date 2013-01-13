@@ -9,5 +9,5 @@ class DoubleClass < ActiveRecord::Base
   has_many :marks, :dependent => :destroy
   has_many :presences, :dependent => :destroy
   
-  validates :study_semester, :double_class_type, :subject, :teacher, :presences => true
+  validates :study_semester, :double_class_type, :subject, :teacher, :presence => true
 end
