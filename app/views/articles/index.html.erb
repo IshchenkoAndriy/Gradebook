@@ -1,4 +1,4 @@
-<h1><%= t :news %></h1>
+<h1><%= t 'article.news' %></h1>
 <% @articles.each do |article| %>
 <div class="article">
 <h3><%= article.title %></h3>
@@ -6,13 +6,13 @@
 <%= article.user.email %>
 <div class="pull-right">
 <% if can? :read, article %>
-    	<td><%= link_to 'Show', article %></td>
+    	<td><%= link_to t('article.show.action'), article %></td>
     <% end %>
     <% if can? :edit, article %>
-    	<td><%= link_to 'Edit', edit_article_path(article) %></td>
+    	<td><%= link_to t('article.update.action'), edit_article_path(article) %></td>
     <% end %>
     <% if can? :destroy, article %>
-    	<td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    	<td><%= link_to t('article.destroy.action'), article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>
 </div>
 </div>
@@ -21,5 +21,5 @@
 <% end %>
 
 <% if can? :create, Article %>
-	<div class="article-add"><%= link_to 'New Article', new_article_path %></div>
+	<div class="article-add"><%= link_to t('article.create.action'), new_article_path %></div>
 <% end %>

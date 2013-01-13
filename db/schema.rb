@@ -176,8 +176,8 @@ ActiveRecord::Schema.define(:version => 20130112194901) do
   end
 
   create_table "students_in_groups", :force => true do |t|
-    t.integer  "study_semester_id"
-    t.integer  "student_id"
+    t.integer  "study_semester_id",                    :null => false
+    t.integer  "student_id",                           :null => false
     t.boolean  "scholarship",       :default => false, :null => false
     t.boolean  "hostel",            :default => false, :null => false
     t.integer  "subgroup",          :default => 0,     :null => false
@@ -210,6 +210,17 @@ ActiveRecord::Schema.define(:version => 20130112194901) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "subject_translations", :force => true do |t|
+    t.integer  "subject_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "subject_translations", ["locale"], :name => "index_subject_translations_on_locale"
+  add_index "subject_translations", ["subject_id"], :name => "index_subject_translations_on_subject_id"
+
   create_table "subject_type_translations", :force => true do |t|
     t.integer  "subject_type_id"
     t.string   "locale"
@@ -226,6 +237,13 @@ ActiveRecord::Schema.define(:version => 20130112194901) do
     t.boolean  "is_rated",   :default => false, :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "subjects", :force => true do |t|
+    t.string   "name",            :null => false
+    t.integer  "subject_type_id", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|

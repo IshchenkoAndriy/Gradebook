@@ -1,0 +1,44 @@
+en:
+  wellcome: "Hello"
+  
+  app:
+    logo: "KNTU Statistic"
+    copyright: "All rights reserved. KNTU 2013"
+    author: "Ishchenko A.O KI(PM)-12M"
+    description: "Software development dynamics analysis of student achievement in the educational process"
+
+  languages:
+    select: "Select language"
+    uk: "Українська"
+    ru: "Русский"
+    en: "English"
+    
+ru:
+  wellcome: "Приветствуем"
+  
+  app:
+    logo: "КНТУ Статистика"
+    copyright: "Все права защищены. КНТУ 2013"
+    author: "Ищенко А.А. КИ(ПМ)-12М"
+    description: "Разработка программного обеспечения анализа динамики успеваемости студентов в учебном процессе"
+  
+  languages:
+    select: "Выберите язык"
+    uk: "Українська"
+    ru: "Русский"
+    en: "English"
+    
+uk:
+  wellcome: "Привіт"
+  
+  app:
+    logo: "КНТУ Статистика"
+    copyright: "Всі права захищено. КНТУ 2013"
+    author: "Іщенко А.О. КІ(ПМ)-12М"
+    description: "Розробка програмного забезпечення аналізу динаміки успішності студентів в учбовому процесі"
+  
+  languages:
+    select: "Виберіть мову"
+    uk: "Українська"
+    ru: "Русский"
+    en: "English"

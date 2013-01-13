@@ -15,12 +15,13 @@ uk:
       defaults:
         password: 'Пароль'
         password_confirmation: 'Підтвердження пароля'
-        email: 'Електронна почта'
+        email: 'Електронна пошта'
+        current_password: 'Поточний пароль'
       user:
         new:
-          email: 'Електронна почта'
+          email: 'Електронна пошта'
         edit:
-          email: 'Електронна почта'
+          email: 'Електронна пошта'
     # hints:
     #   defaults:
     #     username: 'User name to sign in.'

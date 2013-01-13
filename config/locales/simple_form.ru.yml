@@ -15,12 +15,13 @@ ru:
       defaults:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
-        email: 'Электронный адрес'
+        email: 'Электронная почта'
+        current_password: 'Текущий пароль'
       user:
         new:
-          email: 'Электронный адрес'
+          email: 'Электронная почта'
         edit:
-          email: 'Электронный адрес'
+          email: 'Электронная почта'
     # hints:
     #   defaults:
     #     username: 'User name to sign in.'

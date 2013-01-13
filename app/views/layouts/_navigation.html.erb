@@ -1,8 +1,8 @@
-<div class="c_3 logo"><%= link_to t(:app_logo), root_path %></div>
+<div class="c_3 logo"><%= link_to t('app.logo'), root_path %></div>
 <div class="c_9 navigation"><ul>
   <% if can? :read, Article %>
 	<li>
-	<%= link_to(t(:news), articles_path) %>
+	<%= link_to(t('article.news'), articles_path) %>
 	</li>
   <% end %>
 </ul>
@@ -30,7 +30,7 @@
 	<% case I18n.locale %>
 	<% when :uk %>
 	<%= link_to "", "#", :id => :uk, :class => "lang_popover", 
-		"data-original-title" => t(:select_lang),
+		"data-original-title" => t('languages.select'),
 		:rel => "popover",
 		"data-content" => "<ul role='menu'>" +
 							"<li>#{ link_to '', url_for(:locale => :ru), :id => :ru } #{t 'languages.ru'}</li>" +
@@ -39,7 +39,7 @@
 	%>
 	<% when :ru %>
 	<%= link_to "", "#", :id => :ru, :class => "lang_popover", 
-		"data-original-title" => t(:select_lang),
+		"data-original-title" => t('languages.select'),
 		:rel => "popover",
 		"data-content" => "<ul role='menu'>" +
 							"<li>#{ link_to '', url_for(:locale => :uk), :id => :uk } #{t 'languages.uk'}</li>" +
@@ -49,7 +49,7 @@
 	
 	<% when :en %>
   	<%= link_to "", "#", :id => :en, :class => "lang_popover", 
-		"data-original-title" => t(:select_lang),
+		"data-original-title" => t('languages.select'),
 		:rel => "popover",
 		"data-content" => "<ul role='menu'>" +
 							"<li>#{ link_to "", url_for(:locale => :uk), :id => :uk } #{t 'languages.uk'}</li>" +

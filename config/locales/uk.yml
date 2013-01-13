@@ -1,29 +1,4 @@
 uk:
-  app_logo: "КНТУ Статистика"
-  wellcome: "Привіт"
-  news: "Новини"
-  logout: "Вийти"
-  edit_account: "Редагувати"
-  login: "Увійти"
-  sign_up: "Зареєструватися"
-  app_copyright: "Всі права захищено. КНТУ 2013"
-  app_author: "Іщенко А.О. КІ(ПМ)-12М"
-  app_description: "Розробка програмного забезпечення аналізу динаміки успішності студентів в учбовому процесі"
-  remember_me: "Запам'ятати мене"
-  
-  forgot_password: "Забули пароль?"
-  didnt_recive_confirm: "Не отримали підтверджувальні інструкції?"
-  didnt_recive_unlock: "Не отримали інструкції розблокування?"
-  
-  article_title: "Заголовок"
-  
-  select_lang: "Виберіть мову"
-  
-  languages:
-    uk: "Українська"
-    ru: "Русский"
-    en: "English"
-  
   unauthorized:
     default: "Ви не авторизовані для доступу до цієї сторінки."
   
@@ -202,7 +177,6 @@ uk:
       create: 'Створити %{model}'
       update: 'Зберегти %{model}'
       submit: 'Зберегти %{model}'
-
 
   errors:
     format: "%{attribute} %{message}"
