@@ -1,6 +1,5 @@
 class Subject < ActiveRecord::Base
   attr_accessible :name, :subject_type_id
-  translates :name
   
   belongs_to :subject_type
   has_many :double_classes, :dependent => :destroy
