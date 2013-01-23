@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '~> 3.2.11'
 
 gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'
 gem "carrierwave"
 gem "mini_magick"
 
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -1,0 +1,32 @@
+en:
+  formtastic:
+    :yes: 'Yes'
+    :no: 'No'
+    :create: 'Create %{model}'
+    :update: 'Update %{model}'
+    :submit: 'Submit %{model}'
+    :cancel: 'Cancel %{model}'
+    :reset: 'Reset %{model}'
+    :required: 'required'
+    
+ru:
+  formtastic:
+    :yes: 'Yes'
+    :no: 'No'
+    :create: 'Create %{model}'
+    :update: 'Update %{model}'
+    :submit: 'Submit %{model}'
+    :cancel: 'Cancel %{model}'
+    :reset: 'Reset %{model}'
+    :required: 'required'
+    
+uk:
+  formtastic:
+    :yes: 'Так'
+    :no: 'Ні'
+    :create: 'Створити %{model}'
+    :update: 'Зберегти %{model}'
+    :submit: 'Зберегти %{model}'
+    :cancel: 'Відмінити'
+    :reset: 'Скинути'
+    :required: "обов'язкове"

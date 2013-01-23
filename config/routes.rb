@@ -1,4 +1,8 @@
 Kntu::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :articles
