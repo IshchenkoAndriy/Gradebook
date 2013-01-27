@@ -1,6 +1,6 @@
-class CreateStudySemesters < ActiveRecord::Migration
+class CreateStudyGroups < ActiveRecord::Migration
   def change
-    create_table :study_semesters do |t|
+    create_table :study_groups do |t|
       t.references :semester, :null => false
       t.references :group, :null => false
       t.references :teacher, :null => false

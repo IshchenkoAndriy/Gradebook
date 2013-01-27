@@ -5,10 +5,8 @@ class CreateDoubleClassTypes < ActiveRecord::Migration
 
       t.timestamps
     end
-    DoubleClassType.create_translation_table! :name => :string
   end
   def down
     drop_table :double_class_types
-    DoubleClassType.drop_translation_table!
   end
 end

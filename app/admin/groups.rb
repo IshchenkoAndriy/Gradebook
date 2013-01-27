@@ -1,12 +1,8 @@
-I18n.reload!
-
 ActiveAdmin.register Group do
-   filter :name, :label => I18n.t('active_admin.admin_page.search_name')
-   filter :created_at
-   filter :updated_at
+   filter :name, :label => I18n.t('active_admin.group.search_name')
    
    index do
-    selectable_column
+    #selectable_column
     column :name
     column :created_at
     column :updated_at

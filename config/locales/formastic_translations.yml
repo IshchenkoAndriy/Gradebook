@@ -22,6 +22,9 @@ ru:
     
 uk:
   formtastic:
+    # actions:
+      # group:
+       # create: "Створити групу"
     :yes: 'Так'
     :no: 'Ні'
     :create: 'Створити %{model}'

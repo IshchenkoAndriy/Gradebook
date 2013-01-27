@@ -6,10 +6,8 @@ class CreateSubjects < ActiveRecord::Migration
 
       t.timestamps
     end
-    Subject.create_translation_table! :name => :string
   end
   def down
     drop_table :subjects
-    Subject.drop_translation_table!
   end
 end

@@ -11,10 +11,8 @@ class CreatePeople < ActiveRecord::Migration
 
       t.timestamps
     end
-    Person.create_translation_table! :first_name => :string, :second_name => :string, :patronymic => :string
   end
   def down
     drop_table :science_degrees
-    Person.drop_translation_table!
   end
 end

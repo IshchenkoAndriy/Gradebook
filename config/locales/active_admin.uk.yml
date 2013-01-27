@@ -1,20 +1,58 @@
 uk:
   activerecord: 
     models:
+      admin_user:
+        one:  "Адмінітсратор" 
+        few:  "Адмінітсраторів" 
+        many: "Адмінітсраторів" 
+        other: "Адмінітсратори"
       group:
-        one:  "Групу" 
+        one:  "Група" 
         few:  "Груп" 
-        many: "Групи" 
-        other: "Групи" 
+        many: "Групу" 
+        other: "Групи"
+      semester:
+        one:  "Семестр" 
+        few:  "Семестрів" 
+        many: "Семестрів" 
+        other: "Семестри"
+      student:
+        one:  "Студент" 
+        few:  "Студентів" 
+        many: "Студентів" 
+        other: "Студенти"
+      teacher:
+        one:  "Викладач" 
+        few:  "Викладачів" 
+        many: "Викладачів" 
+        other: "Викладачі"
+      study_group:
+        one:  "Навчальна група" 
+        few:  "Навчальних груп" 
+        many: "Навчальних груп" 
+        other: "Навчальні групи"
     attributes:
       group:
         name: "Назва" 
         created_at: "Створена"
         updated_at: "Змінена"
+      semester:
+        semester_type: "Тип семестру"
+        begin_date: "Дата початку навчання"
+        end_date: "Дата закінчення навчання"
+        
+      study_group:
+        group: "Група"
+        semester: "Семестр"
+        teacher: "Куратор"
   
   active_admin:
-    admin_page:
+    group:
       search_name: "назві"
+      
+    semester:
+      group_header: "Групи"
+      group_link: "Список груп"
       
     dashboard: Dashboard
     dashboard_welcome:
@@ -24,7 +62,7 @@ uk:
     edit: "Змінити"
     delete: "Видалити"
     delete_confirmation: "Ви впевнені, що хочете видалити це?"
-    new_model: "Створити %{model}"
+    new_model: "New %{model}"
     create_model: "Створити %{model}"
     edit_model: "Змінити %{model}"
     update_model: "Змінити %{model}"
@@ -56,7 +94,7 @@ uk:
       entry:
         one: "запис"
         other: "записів"
-    any: "Будь"
+    any: "Будь який"
     blank_slate:
       content: "Поки немає %{resource_name}."
       link: "Створити"

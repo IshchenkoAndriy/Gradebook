@@ -70,17 +70,6 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
-  create_table "double_class_type_translations", :force => true do |t|
-    t.integer  "double_class_type_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
-  add_index "double_class_type_translations", ["double_class_type_id"], :name => "index_double_class_type_translations_on_double_class_type_id"
-  add_index "double_class_type_translations", ["locale"], :name => "index_double_class_type_translations_on_locale"
-
   create_table "double_class_types", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at", :null => false
@@ -88,7 +77,7 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
   end
 
   create_table "double_classes", :force => true do |t|
-    t.integer  "study_semester_id",     :null => false
+    t.integer  "study_group_id",        :null => false
     t.integer  "double_class_type_id",  :null => false
     t.integer  "subject_id",            :null => false
     t.integer  "teacher_id",            :null => false
@@ -99,17 +88,6 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
   end
-
-  create_table "group_translations", :force => true do |t|
-    t.integer  "group_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "group_translations", ["group_id"], :name => "index_group_translations_on_group_id"
-  add_index "group_translations", ["locale"], :name => "index_group_translations_on_locale"
 
   create_table "groups", :force => true do |t|
     t.string   "name",       :null => false
@@ -143,19 +121,6 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
     t.string   "type",                              :null => false
   end
 
-  create_table "person_translations", :force => true do |t|
-    t.integer  "person_id"
-    t.string   "locale"
-    t.string   "first_name"
-    t.string   "second_name"
-    t.string   "patronymic"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "person_translations", ["locale"], :name => "index_person_translations_on_locale"
-  add_index "person_translations", ["person_id"], :name => "index_person_translations_on_person_id"
-
   create_table "presences", :force => true do |t|
     t.integer  "student_id",      :null => false
     t.integer  "double_class_id", :null => false
@@ -166,33 +131,11 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "science_degree_translations", :force => true do |t|
-    t.integer  "science_degree_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
-
-  add_index "science_degree_translations", ["locale"], :name => "index_science_degree_translations_on_locale"
-  add_index "science_degree_translations", ["science_degree_id"], :name => "index_science_degree_translations_on_science_degree_id"
-
   create_table "science_degrees", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "semester_type_translations", :force => true do |t|
-    t.integer  "semester_type_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  add_index "semester_type_translations", ["locale"], :name => "index_semester_type_translations_on_locale"
-  add_index "semester_type_translations", ["semester_type_id"], :name => "index_semester_type_translations_on_semester_type_id"
 
   create_table "semester_types", :force => true do |t|
     t.string   "name",       :null => false
@@ -218,7 +161,7 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
     t.datetime "updated_at",                           :null => false
   end
 
-  create_table "study_semesters", :force => true do |t|
+  create_table "study_groups", :force => true do |t|
     t.integer  "semester_id", :null => false
     t.integer  "group_id",    :null => false
     t.integer  "teacher_id",  :null => false
@@ -226,44 +169,11 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "study_type_translations", :force => true do |t|
-    t.integer  "study_type_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "study_type_translations", ["locale"], :name => "index_study_type_translations_on_locale"
-  add_index "study_type_translations", ["study_type_id"], :name => "index_study_type_translations_on_study_type_id"
-
   create_table "study_types", :force => true do |t|
     t.string   "name",       :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "subject_translations", :force => true do |t|
-    t.integer  "subject_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "subject_translations", ["locale"], :name => "index_subject_translations_on_locale"
-  add_index "subject_translations", ["subject_id"], :name => "index_subject_translations_on_subject_id"
-
-  create_table "subject_type_translations", :force => true do |t|
-    t.integer  "subject_type_id"
-    t.string   "locale"
-    t.string   "name"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
-  add_index "subject_type_translations", ["locale"], :name => "index_subject_type_translations_on_locale"
-  add_index "subject_type_translations", ["subject_type_id"], :name => "index_subject_type_translations_on_subject_type_id"
 
   create_table "subject_types", :force => true do |t|
     t.string   "name",                          :null => false
