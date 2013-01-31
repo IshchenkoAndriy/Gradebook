@@ -7,12 +7,10 @@ class CreatePeople < ActiveRecord::Migration
       t.string :birth_day, :null => false, :default => ""
       t.string :phone, :null => false, :default => ""
       t.string :email, :null => false, :default => ""
-      t.references :science_degree
 
       t.timestamps
     end
   end
   def down
-    drop_table :science_degrees
   end
 end

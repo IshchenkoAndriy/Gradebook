@@ -22,18 +22,7 @@ StudyType.create!(name: "Лабораторна робота")
 StudyType.create!(name: "Практична робота")
 StudyType.create!(name: "Індивідуальне завдання")
 StudyType.create!(name: "Стаття")
-StudyType.create!(name: "Контрольна робота")
-
-# Addind science degree types
-ScienceDegree.delete_all
-
-ScienceDegree.create!(name: "Викладач")                     
-ScienceDegree.create!(name: "Старший викладач")             
-ScienceDegree.create!(name: "Кандидат наук")                
-ScienceDegree.create!(name: "Доктор наук")                  
-ScienceDegree.create!(name: "Старший науковий співробітник")
-ScienceDegree.create!(name: "Доцент")                       
-ScienceDegree.create!(name: "Професор")                     
+StudyType.create!(name: "Контрольна робота")                  
 
 # Addidng subjects types
 SubjectType.delete_all

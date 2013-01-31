@@ -109,16 +109,15 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
   end
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",                        :null => false
-    t.string   "second_name",                       :null => false
-    t.string   "patronymic",                        :null => false
-    t.string   "birth_day",         :default => "", :null => false
-    t.string   "phone",             :default => "", :null => false
-    t.string   "email",             :default => "", :null => false
-    t.integer  "science_degree_id"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
-    t.string   "type",                              :null => false
+    t.string   "first_name",                  :null => false
+    t.string   "second_name",                 :null => false
+    t.string   "patronymic",                  :null => false
+    t.string   "birth_day",   :default => "", :null => false
+    t.string   "phone",       :default => "", :null => false
+    t.string   "email",       :default => "", :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+    t.string   "type",                        :null => false
   end
 
   create_table "presences", :force => true do |t|
@@ -129,12 +128,6 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
     t.integer  "scores",          :null => false
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-  end
-
-  create_table "science_degrees", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "semester_types", :force => true do |t|
