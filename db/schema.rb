@@ -152,13 +152,13 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
   end
 
   create_table "students_in_groups", :force => true do |t|
-    t.integer  "study_semester_id",                    :null => false
-    t.integer  "student_id",                           :null => false
-    t.boolean  "scholarship",       :default => false, :null => false
-    t.boolean  "hostel",            :default => false, :null => false
-    t.integer  "subgroup",          :default => 0,     :null => false
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
+    t.integer  "study_group_id",                    :null => false
+    t.integer  "student_id",                        :null => false
+    t.boolean  "scholarship",    :default => false, :null => false
+    t.boolean  "hostel",         :default => false, :null => false
+    t.integer  "subgroup",       :default => 0,     :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "study_groups", :force => true do |t|

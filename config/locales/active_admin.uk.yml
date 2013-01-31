@@ -31,6 +31,26 @@ uk:
         few:  "Навчальних груп" 
         many: "Навчальних груп" 
         other: "Навчальні групи"
+      students_in_group:
+        one:  "Студент в групі" 
+        few:  "Студентів в групі" 
+        many: "Студентів в групі" 
+        other: "Студени в групі"
+      subject_type:
+        one:  "Форма семестрового контролю" 
+        few:  "Форми семестрового контролю" 
+        many: "Форми семестрового контролю" 
+        other: "Форми семестрового контролю"
+      subject:
+        one:  "Навчальна дисципліна" 
+        few:  "Навчальні дисципліни" 
+        many: "Навчальні дисципліни" 
+        other: "Навчальні дисципліни"
+      study_type:
+        one:  "Тип роботи" 
+        few:  "Типів робіт" 
+        many: "Типів робіт" 
+        other: "Тип робіт"
     attributes:
       group:
         name: "Назва" 
@@ -49,11 +69,16 @@ uk:
   active_admin:
     group:
       search_name: "назві"
+      students_in_group_header: "Студенти"
+      students_in_group_link: "Список студентів"
       
     semester:
       group_header: "Групи"
       group_link: "Список груп"
-      
+    
+    students_in_group:
+      new_action: "Додати студента до групи"
+           
     dashboard: Dashboard
     dashboard_welcome:
       welcome: "Ласкаво просимо в Active Admin. Це стандартна сторінка управління сайтом."
@@ -62,7 +87,7 @@ uk:
     edit: "Змінити"
     delete: "Видалити"
     delete_confirmation: "Ви впевнені, що хочете видалити це?"
-    new_model: "New %{model}"
+    new_model: "Новий %{model}"
     create_model: "Створити %{model}"
     edit_model: "Змінити %{model}"
     update_model: "Змінити %{model}"
@@ -94,9 +119,9 @@ uk:
       entry:
         one: "запис"
         other: "записів"
-    any: "Будь який"
+    any: "Всі"
     blank_slate:
-      content: "Поки немає %{resource_name}."
+      content: "Поки немає записів."
       link: "Створити"
     batch_actions:
       button_label: "Групові операції"

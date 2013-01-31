@@ -1,0 +1,8 @@
+  table_for assigns[:students_in_groups], :class => "index_table index" do
+    column :study_group
+    column :student
+    column :scholarship
+    column :hostel
+    column :subgroup
+  end
+  

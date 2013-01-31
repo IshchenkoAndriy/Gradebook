@@ -11,4 +11,9 @@ class Semester < ActiveRecord::Base
   def name
     self.semester_type.name + " | " + self.begin_date.to_s() + " - " + self.end_date.to_s() 
   end
+  
+  def study_date
+    "%s \\ %s" % [self.begin_date.to_s(), self.end_date.to_s()]
+  end
+  
 end

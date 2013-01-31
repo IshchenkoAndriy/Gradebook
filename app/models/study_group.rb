@@ -10,4 +10,8 @@ class StudyGroup < ActiveRecord::Base
   has_many :double_classes, :dependent => :destroy
   
   validates :semester, :group, :teacher, :presence => true
+  
+  def name
+    self.semester.name + " | " + self.group.name
+  end
 end
