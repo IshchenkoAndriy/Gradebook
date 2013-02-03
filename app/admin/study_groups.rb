@@ -25,7 +25,7 @@ ActiveAdmin.register StudyGroup do
     
     column I18n.t("active_admin.group.double_class_header") do |study_group|
       link_to(I18n.t("active_admin.group.double_class_link"), 
-               admin_semester_study_group_double_classes_path(study_group.group, :semester_id => study_group.semester.id)) if study_group
+               admin_semester_study_group_double_classes_path(study_group, :semester_id => study_group.semester.id)) if study_group
     end
     default_actions
   end

@@ -1,5 +1,5 @@
 ActiveAdmin.register DoubleClass do
-  belongs_to :study_group
+   controller.belongs_to :semester, :study_group
   
   config.batch_actions = false
   
@@ -9,11 +9,11 @@ ActiveAdmin.register DoubleClass do
   
   config.clear_action_items!
   action_item only:[:index, :show] do
-    link_to I18n.t("active_admin.double_class.new_action"), new_admin_study_group_double_class_path
+    link_to I18n.t("active_admin.double_class.new_action"), new_admin_semester_study_group_double_class_path
   end
   
   action_item only:[:show] do
-    link_to I18n.t("active_admin.double_class.edit_action"), edit_admin_study_group_double_class_path(:study_group_id => resource.study_group_id, :id => resource.id)
+    link_to I18n.t("active_admin.double_class.edit_action"), edit_admin_semester_study_group_double_class_path(:study_group_id => resource.study_group_id, :id => resource.id)
   end
   
   index :download_links => false, :title => I18n.t("active_admin.double_class.title_index") do
