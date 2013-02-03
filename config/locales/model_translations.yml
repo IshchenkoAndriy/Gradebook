@@ -105,6 +105,7 @@ uk:
         updated_at: "Змінена"
       subject:
         name: "Назва"
+        subject_type: "Форма семестрового контролю"
         created_at: "Створена"
         updated_at: "Змінена"
       student:

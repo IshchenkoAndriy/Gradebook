@@ -17,12 +17,14 @@ ActiveAdmin.register Subject do
   
   index :download_links => false, :title => I18n.t("active_admin.subject.title_index") do
     column :name
+    column :subject_type
     default_actions
   end
   
   form do |f|
     f.inputs I18n.t("active_admin.subject.details") do
       f.input :name
+      f.input :subject_type
     end
     f.actions
   end
@@ -30,6 +32,7 @@ ActiveAdmin.register Subject do
   show :title => :name do
     attributes_table do
       row :name
+      row :subject_type
       row :created_at
       row :updated_at
     end
