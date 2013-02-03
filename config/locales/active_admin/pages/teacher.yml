@@ -1,0 +1,11 @@
+uk:
+  active_admin:
+    teacher:
+      menu: "Викладачі"
+      title_index: "Список викладачів"
+      details: "Інформація про викладача"
+      new_action: "Додати викладача"
+      edit_action: "Редагувати інформацію"
+      search_first_name: "прізвищу"
+      search_second_name: "імені"
+      

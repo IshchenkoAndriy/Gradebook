@@ -10,4 +10,8 @@ class DoubleClass < ActiveRecord::Base
   has_many :presences, :dependent => :destroy
   
   validates :study_group, :double_class_type, :subject, :teacher, :presence => true
+  
+  def name
+    self.subject.name
+  end
 end

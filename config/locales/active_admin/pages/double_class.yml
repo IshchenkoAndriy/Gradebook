@@ -1,0 +1,7 @@
+uk:
+  active_admin:
+    double_class:
+      title_index: "Список пар"
+      details: "Інформація про пару"
+      new_action: "Додати нову пару"
+      edit_action: "Редагувати інформацію"

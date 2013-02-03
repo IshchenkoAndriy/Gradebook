@@ -1,0 +1,10 @@
+uk:
+  active_admin:
+    student:
+      menu: "Студенти"
+      title_index: "Список студентів"
+      details: "Інформація про студента"
+      new_action: "Додати студента"
+      edit_action: "Редагувати інформацію"
+      search_first_name: "прізвищу"
+      search_second_name: "імені"

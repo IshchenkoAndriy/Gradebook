@@ -22,14 +22,11 @@ ru:
     
 uk:
   formtastic:
-    # actions:
-      # group:
-       # create: "Створити групу"
     :yes: 'Так'
     :no: 'Ні'
-    :create: 'Створити %{model}'
-    :update: 'Зберегти %{model}'
-    :submit: 'Зберегти %{model}'
+    :create: 'Створити'
+    :update: 'Зберегти'
+    :submit: 'Зберегти'
     :cancel: 'Відмінити'
     :reset: 'Скинути'
     :required: "обов'язкове"

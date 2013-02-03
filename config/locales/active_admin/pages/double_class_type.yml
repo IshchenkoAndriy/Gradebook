@@ -1,0 +1,9 @@
+uk:
+  active_admin:
+    double_class_type:
+      menu: "Типи занять"
+      title_index: "Список типів занять"
+      details: "Інформація про тип занять"
+      new_action: "Додати тип занять"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"

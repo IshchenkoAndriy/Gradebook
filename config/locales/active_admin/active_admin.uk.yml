@@ -1,85 +1,6 @@
 uk:
-  activerecord: 
-    models:
-      admin_user:
-        one:  "Адмінітсратор" 
-        few:  "Адмінітсраторів" 
-        many: "Адмінітсраторів" 
-        other: "Адмінітсратори"
-      group:
-        one:  "Група" 
-        few:  "Груп" 
-        many: "Групу" 
-        other: "Групи"
-      semester:
-        one:  "Семестр" 
-        few:  "Семестрів" 
-        many: "Семестрів" 
-        other: "Семестри"
-      student:
-        one:  "Студент" 
-        few:  "Студентів" 
-        many: "Студентів" 
-        other: "Студенти"
-      teacher:
-        one:  "Викладач" 
-        few:  "Викладачів" 
-        many: "Викладачів" 
-        other: "Викладачі"
-      study_group:
-        one:  "Навчальна група" 
-        few:  "Навчальних груп" 
-        many: "Навчальних груп" 
-        other: "Навчальні групи"
-      students_in_group:
-        one:  "Студент в групі" 
-        few:  "Студентів в групі" 
-        many: "Студентів в групі" 
-        other: "Студени в групі"
-      subject_type:
-        one:  "Форма семестрового контролю" 
-        few:  "Форми семестрового контролю" 
-        many: "Форми семестрового контролю" 
-        other: "Форми семестрового контролю"
-      subject:
-        one:  "Навчальна дисципліна" 
-        few:  "Навчальні дисципліни" 
-        many: "Навчальні дисципліни" 
-        other: "Навчальні дисципліни"
-      study_type:
-        one:  "Тип роботи" 
-        few:  "Типів робіт" 
-        many: "Типів робіт" 
-        other: "Тип робіт"
-    attributes:
-      group:
-        name: "Назва" 
-        created_at: "Створена"
-        updated_at: "Змінена"
-      semester:
-        semester_type: "Тип семестру"
-        begin_date: "Дата початку навчання"
-        end_date: "Дата закінчення навчання"
-        
-      study_group:
-        group: "Група"
-        semester: "Семестр"
-        teacher: "Куратор"
-  
   active_admin:
-    group:
-      search_name: "назві"
-      students_in_group_header: "Студенти"
-      students_in_group_link: "Список студентів"
-      
-    semester:
-      group_header: "Групи"
-      group_link: "Список груп"
-    
-    students_in_group:
-      new_action: "Додати студента до групи"
-           
-    dashboard: Dashboard
+    dashboard: "Головна"
     dashboard_welcome:
       welcome: "Ласкаво просимо в Active Admin. Це стандартна сторінка управління сайтом."
       call_to_action: "Щоб додати сюди небудь загляньте в 'app/admin/dashboards.rb'"
@@ -87,9 +8,9 @@ uk:
     edit: "Змінити"
     delete: "Видалити"
     delete_confirmation: "Ви впевнені, що хочете видалити це?"
-    new_model: "Новий %{model}"
+    new_model: "Створити"
     create_model: "Створити %{model}"
-    edit_model: "Змінити %{model}"
+    edit_model: "Змінити"
     update_model: "Змінити %{model}"
     delete_model: "Видалити %{model}"
     details: "%{model} докладніше"
@@ -122,7 +43,7 @@ uk:
     any: "Всі"
     blank_slate:
       content: "Поки немає записів."
-      link: "Створити"
+      link: "Додати"
     batch_actions:
       button_label: "Групові операції"
       delete_confirmation: "Ви впевнені, що хочете видалити %{plural_model}? Ви не зможете це відмінити."

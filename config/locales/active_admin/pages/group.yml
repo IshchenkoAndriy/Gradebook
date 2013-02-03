@@ -1,0 +1,13 @@
+uk:
+  active_admin:
+    group:
+      menu: "Групи"
+      title_index: "Список груп"
+      details: "Інформація про прупу"
+      new_action: "Створити групу"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"
+      students_in_group_header: "Студенти"
+      students_in_group_link: "Список студентів"
+      double_class_header: "Пари"
+      double_class_link: "Список пар"

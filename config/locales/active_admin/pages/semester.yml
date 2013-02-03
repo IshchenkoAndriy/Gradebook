@@ -1,0 +1,10 @@
+uk:
+  active_admin:
+    semester:
+      menu: "Семестри"
+      title_index: "Список семестрів"
+      details: "Інформація про семестр"
+      new_action: "Додати новий семестр"
+      edit_action: "Редагувати інформацію"
+      group_header: "Групи"
+      group_link: "Список груп"

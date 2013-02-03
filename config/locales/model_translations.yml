@@ -1,0 +1,138 @@
+uk:
+  activerecord:
+    models:
+      admin_user:
+        one:  "Адмінітсратор" 
+        few:  "Адмінітсраторів" 
+        many: "Адмінітсраторів" 
+        other: "Адмінітсратори"
+      group:
+        one:  "Група" 
+        few:  "Груп" 
+        many: "Групу" 
+        other: "Групи"
+      semester:
+        one:  "Семестр" 
+        few:  "Семестрів" 
+        many: "Семестрів" 
+        other: "Семестри"
+      student:
+        one:  "Студент" 
+        few:  "Студентів" 
+        many: "Студенти" 
+        other: "Студенти"
+      teacher:
+        one:  "Викладач" 
+        two:  "Викладача"
+        few:  "Викладачів" 
+        many: "Викладачa" 
+        other: "Викладачі"
+      study_group:
+        one:  "Навчальна група" 
+        few:  "Навчальних груп" 
+        many: "Навчальних груп" 
+        other: "Навчальні групи"
+      students_in_group:
+        one:  "Студент в групі" 
+        few:  "Студентів в групі" 
+        many: "Студентів в групі" 
+        other: "Студени в групі"
+      subject_type:
+        one:  "Форма семестрового контролю" 
+        few:  "Форми семестрового контролю" 
+        many: "Форми семестрового контролю" 
+        other: "Форми семестрового контролю"
+      subject:
+        one:  "Навчальна дисципліна" 
+        few:  "Навчальні дисципліни" 
+        many: "Навчальних дисциплін" 
+        other: "Навчальні дисципліни"
+      study_type:
+        one:  "Тип роботи" 
+        few:  "Типів робіт" 
+        many: "Типів робіт" 
+        other: "Тип робіт"
+      double_class_type:
+        one:  "Тип заняття" 
+        few:  "Типи занять" 
+        many: "Типів занять" 
+        other: "Типи занять"
+      double_class:
+        one:  "Пара" 
+        few:  "Пари" 
+        many: "Пар" 
+        other: "Пари"
+    attributes:
+      admin_user:
+        email: "Електронна пошта"
+        last_sign_in_at: "Час останього входу"
+        current_sign_in_at: "Час поточного входу"
+        sign_in_count: "Кількість входів"
+        last_sign_in_ip: "ІР адреса останього входу"
+        current_sign_in_ip: "ІР адреса поточного входу"
+        password: "Пароль"
+        password_confirmation: "Підтвердження паролю"
+        created_at: "Створений"
+        updated_at: "Змінений"
+      semester:
+        semester_type: "Тип семестру"
+        begin_date: "Дата початку навчання"
+        end_date: "Дата закінчення навчання"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      teacher:
+        first_name: "Прізвище"
+        second_name: "Ім'я"
+        patronymic: "По-батькові"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      group:
+        name: "Назва"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      students_in_group:
+        student: "Студент"
+        scholarship: "Стипендія"
+        hostel: "Гуртожиток"
+        subgroup: "Підгрупа"
+        created_at: "Створений"
+        updated_at: "Змінений"
+      study_group:
+        group: "Група"
+        semester: "Семестр"
+        teacher: "Куратор"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      subject:
+        name: "Назва"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      student:
+        first_name: "Прізвище"
+        second_name: "Ім'я"
+        patronymic: "По-батькові"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      study_type:
+        name: "Назва"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      double_class_type:
+        name: "Назва"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      subject_type:
+        name: "Назва"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      double_class:
+        study_group: "Група"
+        double_class_type: "Тип"
+        subject: "Навчальна дисципліна"
+        teacher: "Викладач"
+        subgroup: "Підгрупа"
+        numerator_denominator: "Чисельник/Знаменник"
+        double_class_number: "Номер пари"
+        day_of_week: "День тижня"
+        created_at: "Створена"
+        updated_at: "Змінена"

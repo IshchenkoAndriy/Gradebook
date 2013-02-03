@@ -1,0 +1,9 @@
+uk:
+  active_admin:
+    study_type:
+      menu: "Типи робіт"
+      title_index: "Список типів робіт"
+      details: "Інформація про тип роботи"
+      new_action: "Додати тип роботи"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"

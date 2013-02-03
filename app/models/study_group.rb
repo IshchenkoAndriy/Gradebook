@@ -12,6 +12,6 @@ class StudyGroup < ActiveRecord::Base
   validates :semester, :group, :teacher, :presence => true
   
   def name
-    self.semester.name + " | " + self.group.name
+    self.group.name
   end
 end

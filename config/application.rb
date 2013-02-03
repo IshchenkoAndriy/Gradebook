@@ -61,19 +61,11 @@ module Kntu
     
     config.assets.initialize_on_precompile = false
     
-    # config.after_initialize do |app|
-      # if defined?(ActiveAdmin) and ActiveAdmin.application
-        # # Try enforce reloading after app bootup
-        # Rails.logger.debug("Reloading AA")
-        # ActiveAdmin.application.unload!
-        # I18n.reload!
-        # self.reload_routes!
-      # end
-    # end
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}').to_s]
     
     config.before_configuration do
-      I18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
-      config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+      I18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}').to_s]
+      config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rb,yml}').to_s]
       I18n.reload!
       config.i18n.reload!
     end
