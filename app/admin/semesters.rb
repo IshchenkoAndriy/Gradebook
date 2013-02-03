@@ -4,9 +4,11 @@ ActiveAdmin.register Semester do
   config.batch_actions = false
   
   scope :all, :default => true
-  SemesterType.all.each do |semester_type|
-    self.send(:scope, semester_type.name) do |items|
-      items.where(:semester_type_id => semester_type.id)
+  if SemesterType.table_exists?
+    SemesterType.all.each do |semester_type|
+      self.send(:scope, semester_type.name) do |items|
+        items.where(:semester_type_id => semester_type.id)
+      end
     end
   end
   
