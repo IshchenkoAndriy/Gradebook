@@ -5,6 +5,7 @@ Kntu::Application.routes.draw do
     resources :semesters do
       resources :study_groups do
         resources :double_classes
+        resources :students_in_groups
       end
     end
   end

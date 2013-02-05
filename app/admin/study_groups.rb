@@ -20,7 +20,7 @@ ActiveAdmin.register StudyGroup do
     column :teacher
     column I18n.t("active_admin.group.students_in_group_header") do |study_group|
       link_to(I18n.t("active_admin.group.students_in_group_link"), 
-               admin_group_students_in_groups_path(study_group.group, :semester_id => study_group.semester.id)) if study_group
+               admin_semester_study_group_students_in_groups_path(study_group, :semester_id => study_group.semester.id)) if study_group
     end
     
     column I18n.t("active_admin.group.double_class_header") do |study_group|

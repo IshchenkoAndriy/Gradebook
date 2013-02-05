@@ -19,7 +19,8 @@ ActiveAdmin.register Group do
     column I18n.t("active_admin.group.students_in_group_header") do |group|
       @study_group = group.study_groups.last 
       link_to(I18n.t("active_admin.group.students_in_group_link"), 
-               admin_group_students_in_groups_path(group, :semester_id => @study_group.semester.id)) if @study_group
+        admin_semester_study_group_students_in_groups_path(:study_group_id => @study_group.id, 
+                                                            :semester_id => @study_group.semester_id)) if @study_group
     end
     default_actions
   end
@@ -36,6 +37,29 @@ ActiveAdmin.register Group do
       row :name
       row :created_at
       row :updated_at
+      row I18n.t("active_admin.group.semesters") do |group|
+        table do
+          tbody do
+            study_groups = StudyGroup.where(group_id: group.id)
+            
+            study_groups.each do |study_group|
+              tr do
+                td study_group.semester.name
+                
+                td link_to(I18n.t("active_admin.group.students_in_group_link"),
+                  admin_semester_study_group_students_in_groups_path(
+                    :study_group_id => study_group.id,
+                    :semester_id => study_group.semester_id))
+                    
+                td link_to(I18n.t("active_admin.group.subjects_link"),
+                  admin_semester_study_group_double_classes_path(
+                    :study_group_id => study_group.id,
+                    :semester_id => study_group.semester_id))
+              end
+            end
+          end
+        end
+      end
     end
   end
 end
