@@ -16,4 +16,13 @@ class Semester < ActiveRecord::Base
     "%s \\ %s" % [self.begin_date.to_s(), self.end_date.to_s()]
   end
   
+  def to_hash
+    Hash[
+      :id => self.id,
+      :type_id => self.semester_type_id,
+      :type_name => self.semester_type.name,
+      :begin_date => self.begin_date.to_s(),
+      :end_date => self.end_date.to_s()
+    ]
+  end
 end

@@ -6,4 +6,11 @@ class Person < ActiveRecord::Base
   def name
     self.first_name + " " + self.second_name + " " + self.patronymic
   end
+  
+  def to_hash
+    Hash[
+      :id => self.id,
+      :name => self.name
+    ]
+  end
 end
