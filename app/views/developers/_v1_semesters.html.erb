@@ -1,0 +1,40 @@
+<% samples = [
+	{
+		:title => "Список семестрів", 
+		:descriptions => ["Отримання списку семестрів здійснюється за адресою server_adress/api/v1/semesters"],
+		:request_type_title => "Тип запиту: ",
+		:request_type => "GET",
+		:request_params => [
+			{ :name => "all", :description => "Можливі значення true/false. При вказані цього параметру в true повертаються всі семестри. При цьому параметри offset і limit ігноруються. За-замовчуванням false."},
+			{ :name => "offset", :description => "Цей параметр вказує індекс запису після якого будуть вибиратися записи. За-замовчуванням 0."},
+			{ :name => "limit", :description => "Цей параметр вказує скільки записів сервер вибере з БД і поверне. За-замовчуванням 30."},
+			{ :name => "order", :description => "Цей параметр вказує в якому порядку будуть вісортовані записи. Можливі значення ASC/DESC. За-замовчуванням DESC."},
+			{ :name => "type", :description => "Цей параметр вказує тип семестрів, які будуть повернені."}
+		], 
+		:api_samples => [
+			{
+				:history => "Запит ./api/v1/semesters?offset=0&limit=2&order=ASC поверне перші 2 семестри впорядковані за зростанням.",
+				:file => "./app/views/developers/samples/semesters_1.json"
+			}
+		]
+	},
+	{
+		:title => "Інформація про семестр", 
+		:descriptions => ["Отримання інформації про семестр здійснюється за адресою server_adress/api/v1/semesters/id"],
+		:request_type_title => "Тип запиту: ",
+		:request_type => "GET",
+		:request_params => [
+			{ :name => "id", :description => "Цей параметр вказує ідентифікатор семестру, інформацію про який необхідно отримати."}
+		], 
+		:api_samples => [
+			{
+				:history => "Запит ./api/v1/semesters/1 поверне інформацію про семестр за вказаним ідентифікатором.",
+				:file => "./app/views/developers/samples/semesters_2.json"
+			}
+		]
+	}
+] %>
+
+<% samples.each do |sample| %>
+	<%= render 'request_sample', sample: sample %>
+<% end %>

@@ -1,0 +1,21 @@
+<h3><%= sample[:title] %></h3>
+<% sample[:descriptions].each do |description| %>
+	<div class='api_description'><%= description %></div>
+<% end %>
+<div class='api_request_type'><%= sample[:request_type_title] %><span><%= sample[:request_type] %></span></div>
+<div class='api_request_params'>
+	<%= t('developers.v1.request_params')%>
+	<ul>
+		<% sample[:request_params].each do |request_param| %>
+			<li><span class='request_param_name'><%= request_param[:name] %></span> - <%= request_param[:description] %></li>
+		<% end %>
+	</ul>
+</div>
+<h3 class='api_sample_btn'><%= t('developers.v1.samples')%></h3>
+<div class='api_samples'>
+	<% sample[:api_samples].each do |api_sample| %>
+		<span class='api_sample_history'><%= api_sample[:history] %></span>
+		<%= raw CodeRay.highlight_file("#{api_sample[:file]}") %>
+	<% end %>
+	<br>
+</div>

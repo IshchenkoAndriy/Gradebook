@@ -245,6 +245,7 @@ DEPENDENCIES
   carrierwave
   ckeditor!
   cocoon
+  coderay
   coffee-rails (~> 3.2.1)
   cucumber-rails (>= 1.3.0)
   database_cleaner (>= 0.8.0)

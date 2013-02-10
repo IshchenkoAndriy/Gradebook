@@ -1,4 +1,6 @@
 Kntu::Application.routes.draw do
+  
+
   ActiveAdmin.routes(self)
   
   namespace :admin do
@@ -12,6 +14,8 @@ Kntu::Application.routes.draw do
   
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
+      resources :developers, defaults: {format: 'html'}, :only => [:index]
+      
       resources :semesters, :only => [:index, :show] do
         resources :groups, :only => [:index] do
           resources :students, :only => [:index] do

@@ -1,0 +1,16 @@
+<h1><%= t("developers.#{@version}.title") %></h1>
+<br>
+<h3><%= t("developers.#{@version}.topics.title") %></h3>
+<ul class="topics_list">
+  <% @topics.each do |topic| %>
+    <li><a href="#<%= topic %>"><span class="topic_link"><%= t("developers.#{@version}.topics.#{topic}.title") %></span></a></li>
+  <% end %>
+</ul>
+<hr>
+<br>
+<% @topics.each do |topic| %>
+  <a name="<%= topic %>"></a> <h2><%= t("developers.#{@version}.topics.#{topic}.title") %></h2>
+  <hr>
+  <%= render "%s_%s" % [@version, topic] %>
+  <br>
+<% end %>

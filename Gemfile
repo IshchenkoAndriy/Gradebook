@@ -9,6 +9,8 @@ gem "cocoon"
 gem "carrierwave"
 gem "mini_magick"
 
+gem "coderay"
+
 gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 
 gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'

@@ -1,0 +1,20 @@
+uk:
+  developers:
+    v1:
+      title: "Документація по серверному API версії 1"
+      request_params: "Параметри:"
+      samples: "Приклади"
+      topics:
+        title: "Теми"
+        basic:
+          title: 'Базові принципи'
+        architecture:
+          title: 'Архітектура API'
+        semesters:
+          title: 'Семестри'
+        groups:
+          title: 'Групи'
+        students:
+          title: 'Студенти'
+        subjects:
+          title: 'Предмети'
