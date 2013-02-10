@@ -4,4 +4,11 @@ class DoubleClassType < ActiveRecord::Base
   has_many :double_classes, :dependent => :destroy
   
   validates :name, :presence => true, :uniqueness => true 
+  
+  def to_hash
+    Hash[
+      :id => self.id,
+      :name => self.name
+    ]
+  end
 end

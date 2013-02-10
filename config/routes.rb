@@ -13,9 +13,17 @@ Kntu::Application.routes.draw do
   namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
       resources :semesters, :only => [:index, :show] do
-        resources :groups, :only => [:index, :show]
+        resources :groups, :only => [:index] do
+          resources :students, :only => [:index] do
+            resources :subjects, :only => [:show]
+          end
+          resources :subjects, :only => [:index, :show]
+        end
       end
-      resources :groups, :only => [:index, :show]
+      resources :groups, :only => [:show]
+      resources :students, :only => [:show]
+      resources :search_group, :only => [:index]
+      resources :search_student, :only => [:index]
     end
   end
   

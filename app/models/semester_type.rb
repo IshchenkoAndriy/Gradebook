@@ -4,4 +4,11 @@ class SemesterType < ActiveRecord::Base
   has_many :semesters, :dependent => :destroy
   
   validates :name, :presence => true, :uniqueness => true
+  
+  def to_hash
+    Hash[
+      :id => self.id,
+      :name => self.name
+    ]
+  end
 end

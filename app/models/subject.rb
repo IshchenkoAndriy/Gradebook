@@ -6,4 +6,13 @@ class Subject < ActiveRecord::Base
   
   validates :subject_type, :presence => true
   validates :name, :presence => true, :uniqueness => true
+  
+  def to_hash
+    Hash[
+      :id => self.id,
+      :name => self.name,
+      :type_id => self.subject_type_id,
+      :type_name => self.subject_type.name
+    ]
+  end
 end

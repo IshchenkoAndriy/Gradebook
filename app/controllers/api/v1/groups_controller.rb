@@ -1,5 +1,5 @@
 class Api::V1::GroupsController < ApplicationController
-  respond_to :json
+  respond_to :json, :xml
   
   def index
     if (not params[:all].nil?) && params[:all] == "true"
@@ -9,7 +9,7 @@ class Api::V1::GroupsController < ApplicationController
       else
         @groups = Group.order("created_at #{@order}").all
       end
-      respond_with(@groups.map(&:to_hash))
+      respond_with(@groups.map(&:with_semesters_to_hash))
     else
       @offset = params[:offset].nil? ? 0 : params[:offset].to_i
       @limit = params[:limit].nil? ? 30 : params[:limit].to_i
@@ -19,12 +19,12 @@ class Api::V1::GroupsController < ApplicationController
       else
         @groups = Group.limit(@limit).offset(@offset).order("created_at #{@order}")
       end
-      respond_with(@groups.map(&:to_hash))
+      respond_with(@groups.map(&:with_semesters_to_hash))
     end
   end
   
   def show
     @group = Group.find_by_id(params[:id])
-    respond_with(@group.nil? ? nil : @group.to_hash)
+    respond_with(@group.nil? ? nil : @group.with_semesters_to_hash)
   end
 end

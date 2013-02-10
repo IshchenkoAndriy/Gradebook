@@ -14,4 +14,16 @@ class DoubleClass < ActiveRecord::Base
   def name
     self.subject.name
   end
+  
+  def to_hash
+    Hash[
+      :id => self.id,
+      :teacher => self.teacher.to_hash,
+      :double_class_type => self.double_class_type.to_hash,
+      :day_of_week => self.day_of_week,
+      :double_class_number => self.double_class_number,
+      :numerator_denominator => self.numerator_denominator,
+      :subgroup => self.subgroup
+    ]
+  end
 end

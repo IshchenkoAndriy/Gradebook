@@ -1,5 +1,5 @@
 class Api::V1::SemestersController < ApplicationController
-  respond_to :json
+  respond_to :json, :xml
   
   def index
     if (not params[:all].nil?) && params[:all] == "true"

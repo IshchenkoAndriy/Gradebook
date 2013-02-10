@@ -19,8 +19,7 @@ class Semester < ActiveRecord::Base
   def to_hash
     Hash[
       :id => self.id,
-      :type_id => self.semester_type_id,
-      :type_name => self.semester_type.name,
+      :type => self.semester_type.to_hash,
       :begin_date => self.begin_date.to_s(),
       :end_date => self.end_date.to_s()
     ]
