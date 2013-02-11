@@ -5,4 +5,4 @@
 jQuery ->
   $('.api_samples').hide()
   $('.api_sample_btn').click -> 
-    $(@).next().slideToggle()
+    $(@).toggleClass("active").parent().next().slideToggle()

@@ -2,8 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.api_sample_btn{cursor:pointer;}
+.developers_wrapper{padding:30px;}
+.developers_wrapper div{margin-bottom:5px;}
+.developers_wrapper ul li{margin-bottom:8px;line-height:22px}
+.api_sample_btn_wrapper{margin:18px !important}
+.api_sample_btn{cursor:pointer;padding:10px;color:#CCC;background-color:#444;font-size:20px;margin:10px 0;font-family:inherit;font-weight:300;line-height:25px;text-rendering:optimizelegibility}
+.api_sample_btn.active{background-color:#595E7B}
 .topic_link{font-size:24px;margin:10px 0;font-family:inherit;font-weight:300;line-height:28px;color:inherit;text-rendering:optimizelegibility}
 .request_param_name{color: #880088;}
 .topics_list{list-style: none;}
+.api_request_params ul{padding-left:5px}
 .api_request_type>span{color: #099;}
+.developers_link{white-space: nowrap;margin: 0 2px;padding: 0px 5px;border: 1px solid #EAEAEA;background-color: #F8F8F8;border-radius: 3px;font-size: 14px;font-family: Consolas, "Liberation Mono", Courier, monospace;}

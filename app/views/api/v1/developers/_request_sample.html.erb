@@ -1,21 +1,27 @@
 <h3><%= sample[:title] %></h3>
 <% sample[:descriptions].each do |description| %>
-	<div class='api_description'><%= description %></div>
+	<div class='api_description'><%= description[:text] %><span class="developers_link"><%= description[:url] if description[:url] %></span></div>
 <% end %>
 <div class='api_request_type'><%= sample[:request_type_title] %><span><%= sample[:request_type] %></span></div>
 <div class='api_request_params'>
-	<%= t('developers.v1.request_params')%>
+	<div><%= t('developers.v1.request_params')%></div>
 	<ul>
 		<% sample[:request_params].each do |request_param| %>
 			<li><span class='request_param_name'><%= request_param[:name] %></span> - <%= request_param[:description] %></li>
 		<% end %>
 	</ul>
 </div>
-<h3 class='api_sample_btn'><%= t('developers.v1.samples')%></h3>
-<div class='api_samples'>
-	<% sample[:api_samples].each do |api_sample| %>
-		<span class='api_sample_history'><%= api_sample[:history] %></span>
-		<%= raw CodeRay.highlight_file("#{api_sample[:file]}") %>
-	<% end %>
-	<br>
-</div>
+<% if !sample[:api_samples].nil? and !sample[:api_samples].empty? %>
+	<div class='api_sample_btn_wrapper'><span class='api_sample_btn'><%= t('developers.v1.samples')%></span></div>
+	<div class='api_samples'>
+		<% sample[:api_samples].each do |api_sample| %>
+			<div class='api_sample_history'>
+				<span><%= api_sample[:history][:before_url] %></span> 
+				<span class="developers_link"><%= api_sample[:history][:url] %></span> 
+				<span><%= api_sample[:history][:after_url] %></span>
+			</div>
+			<%= raw CodeRay.highlight_file("#{api_sample[:file]}") %>
+		<% end %>
+		<br>
+	</div>
+<% end %>

@@ -1,7 +1,12 @@
 <% samples = [
 	{
 		:title => "Список семестрів", 
-		:descriptions => ["Отримання списку семестрів здійснюється за адресою server_adress/api/v1/semesters"],
+		:descriptions => [
+			{
+				:text =>"Отримання списку семестрів здійснюється за адресою",
+				:url => "server_adress/api/v1/semesters"
+			}
+		],
 		:request_type_title => "Тип запиту: ",
 		:request_type => "GET",
 		:request_params => [
@@ -13,22 +18,35 @@
 		], 
 		:api_samples => [
 			{
-				:history => "Запит ./api/v1/semesters?offset=0&limit=2&order=ASC поверне перші 2 семестри впорядковані за зростанням.",
+				:history => {
+					:before_url => "Запит",
+					:url => "./api/v1/semesters?offset=0&limit=2&order=ASC",
+					:after_url => "поверне перші 2 семестри впорядковані за зростанням."
+				},
 				:file => "./app/views/api/v1/developers/samples/semesters_1.json"
 			}
 		]
 	},
 	{
 		:title => "Інформація про семестр", 
-		:descriptions => ["Отримання інформації про семестр здійснюється за адресою server_adress/api/v1/semesters/id"],
+		:descriptions => [
+			{
+				:text => "Отримання інформації про семестр здійснюється за адресою",
+				:url => "server_adress/api/v1/semesters/:id"
+			}
+		],
 		:request_type_title => "Тип запиту: ",
 		:request_type => "GET",
 		:request_params => [
-			{ :name => "id", :description => "Цей параметр вказує ідентифікатор семестру, інформацію про який необхідно отримати."}
+			{ :name => ":id", :description => "Цей параметр вказує ідентифікатор семестру, інформацію про який необхідно отримати."}
 		], 
 		:api_samples => [
 			{
-				:history => "Запит ./api/v1/semesters/1 поверне інформацію про семестр за вказаним ідентифікатором.",
+				:history => {
+					:before_url => "Запит",
+					:url => "./api/v1/semesters/1",
+					:after_url => "поверне інформацію про семестр за вказаним ідентифікатором."
+				},
 				:file => "./app/views/api/v1/developers/samples/semesters_2.json"
 			}
 		]
