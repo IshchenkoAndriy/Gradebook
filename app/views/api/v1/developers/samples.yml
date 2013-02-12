@@ -1,0 +1,223 @@
+:semester: 
+  - :title: "Список семестрів"
+    :descriptions:
+      - :text: "Отримання списку семестрів здійснюється за адресою"
+        :url: "server_adress/api/v1/semesters"
+    :request_type_title: "Тип запиту: "
+    :request_type: "GET"
+    :request_params:
+      - :name: "all"
+        :description: "Можливі значення true/false. При вказані цього параметру в true повертаються всі семестри. При цьому параметри offset і limit ігноруються. За-замовчуванням false."
+      - :name: "offset"
+        :description: "Цей параметр вказує індекс запису після якого будуть вибиратися записи. За-замовчуванням 0."
+      - :name: "limit"
+        :description: "Цей параметр вказує скільки записів сервер вибере з БД і поверне. За-замовчуванням 30."
+      - :name: "order"
+        :description: "Цей параметр вказує в якому порядку будуть вісортовані записи. Можливі значення ASC/DESC. За-замовчуванням DESC."
+      - :name: "type"
+        :description: "Цей параметр вказує тип семестрів, які будуть повернені."
+    :api_samples:
+      - :history:
+          :before_url: "Запит"
+          :url: "./api/v1/semesters?offset=0&limit=2&order=ASC"
+          :after_url: "поверне перші 2 семестри впорядковані за зростанням."
+        :file: "./app/views/api/v1/developers/samples/semesters_1.json"
+  - :title: "Інформація про семестр"
+    :descriptions:
+      - :text: "Отримання інформації про семестр здійснюється за адресою"
+        :url: "server_adress/api/v1/semesters/:id"
+    :request_type_title: "Тип запиту: "
+    :request_type: "GET"
+    :request_params:
+      - :name: ":id"
+        :description: "Цей параметр вказує ідентифікатор семестру, інформацію про який необхідно отримати."
+    :api_samples:
+      - :history:
+          :before_url: "Запит"
+          :url: "./api/v1/semesters/1"
+          :after_url: "поверне інформацію про семестр за вказаним ідентифікатором."
+        :file: "./app/views/api/v1/developers/samples/semesters_2.json"
+
+:group:
+  - :title: Список груп
+    :descriptions:
+    - :text: Отримання списку груп, які навчалися в вказаному семестрі здійснюється
+        за адресою
+      :url: server_adress/api/v1/semesters/:semester_id/groups
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: ':semester_id'
+      :description: Цей параметр вказує ідентифікатор семестра, інформацію про групи,
+        якого необхідно отримати.
+    - :name: offset
+      :description: Цей параметр вказує індекс запису після якого будуть вибиратися
+        записи. За-замовчуванням 0.
+    - :name: limit
+      :description: Цей параметр вказує скільки записів сервер вибере з БД і поверне.
+        За-замовчуванням 30.
+    - :name: order
+      :description: Цей параметр вказує в якому порядку будуть вісортовані записи. Можливі
+        значення ASC/DESC. За-замовчуванням DESC.
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: ./api/v1/semesters/1/groups
+        :after_url: поверне групи, які навчалися в вказаному семестрі.
+      :file: ./app/views/api/v1/developers/samples/groups_1.json
+  - :title: Інформація про групу
+    :descriptions:
+    - :text: Отримання інформації про групу здійснюється за адресою
+      :url: server_adress/api/v1/groups/:id
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: ':id'
+      :description: Цей параметр вказує ідентифікатор групи, інформацію про яку необхідно
+        отримати.
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: ./api/v1/groups/1
+        :after_url: поверне інформацію про групу за вказаним ідентифікатором.
+      :file: ./app/views/api/v1/developers/samples/groups_2.json
+  - :title: Пошук груп
+    :descriptions:
+    - :text: Пошук груп здійснюється за адресою
+      :url: server_adress/api/v1/search_group
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: name
+      :description: Цей параметр вказує шаблон для пошуку групи.
+    - :name: order
+      :description: Цей параметр вказує в якому порядку будуть вісортовані записи. Можливі
+        значення ASC/DESC. За-замовчуванням DESC.
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: /api/v1/search_group?name=кі-08
+        :after_url: поверне групи, назва яких містить рядок 'кі-08'.
+      :file: ./app/views/api/v1/developers/samples/groups_3.json
+      
+:student:
+  - :title: Список студентів
+    :descriptions:
+    - :text: Отримання списку студентів, які навчалися в вказаному семестрі і групі
+        здійснюється за адресою
+      :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/students
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: ':semester_id'
+      :description: Цей параметр вказує ідентифікатор семестра, інформацію про студентів,
+        якого необхідно отримати.
+    - :name: ':group_id'
+      :description: Цей параметр вказує ідентифікатор групи, інформацію про студентів,
+        якої необхідно отримати.
+    - :name: order
+      :description: Цей параметр вказує в якому порядку будуть вісортовані записи. Можливі
+        значення ASC/DESC. За-замовчуванням DESC.
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: ./api/v1/semesters/1/groups/1/students
+        :after_url: поверне список спудентів, які навчалися в вказаному семестрі і групі.
+      :file: ./app/views/api/v1/developers/samples/students_1.json
+  - :title: Інформація про студента
+    :descriptions:
+    - :text: Отримання інформації про студента здійснюється за адресою
+      :url: server_adress/api/v1/students/:id
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: ':id'
+      :description: Цей параметр вказує ідентифікатор студента, інформацію про якого
+        необхідно отримати.
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: ./api/v1/students/1
+        :after_url: поверне інформацію про студента за вказаним ідентифікатором.
+      :file: ./app/views/api/v1/developers/samples/students_2.json
+  - :title: Пошук судентів
+    :descriptions:
+    - :text: Пошук студентів здійснюється за адресою
+      :url: server_adress/api/v1/search_student
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: all_fields
+      :description: ! 'Цей параметр вказує шаблон для пошуку студента по всім полям:
+        пізвище, ім''я та по-батькові. Параметри first_name, second_name та patronymic
+        ігноруються.'
+    - :name: first_name
+      :description: Цей параметр вказує шаблон для пошуку студента за пізвищем.
+    - :name: second_name
+      :description: Цей параметр вказує шаблон для пошуку студента за ім'ям.
+    - :name: patronymic
+      :description: Цей параметр вказує шаблон для пошуку студента по-батькові.
+    - :name: order
+      :description: Цей параметр вказує в якому порядку будуть вісортовані записи. Можливі
+        значення ASC/DESC. За-замовчуванням DESC.
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: /api/v1/search_student?second_name=С
+        :after_url: поверне студентів, ім'я яких містить підрядок 'С'.
+      :file: ./app/views/api/v1/developers/samples/students_3.json
+    - :history:
+        :before_url: Запит
+        :url: /api/v1/search_student?second_name=с
+        :after_url: поверне студентів, ім'я яких містить підрядок 'с'.
+      :file: ./app/views/api/v1/developers/samples/students_4.json
+
+:subject:
+  - :title: Список предметів
+    :descriptions:
+    - :text: Отримання списку предметів для групи в вказаному семестрі здійснюється
+        за адресою
+      :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/subjects
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: ':semester_id'
+      :description: Цей параметр вказує ідентифікатор семестра, інформацію про предмети,
+        якого необхідно отримати.
+    - :name: ':group_id'
+      :description: Цей параметр вказує ідентифікатор групи, інформацію про предмети,
+        якої необхідно отримати.
+    :api_samples: []
+  - :title: Інформація про предмет
+    :descriptions:
+    - :text: Отримання інформації про предмет здійснюється за адресою
+      :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/subjects/:id
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: ':id'
+      :description: Цей параметр вказує ідентифікатор предмета, інформацію про який
+        необхідно отримати.
+    - :name: ':semester_id'
+      :description: Цей параметр вказує ідентифікатор семестра, інформацію про предмет,
+        якого необхідно отримати.
+    - :name: ':group_id'
+      :description: Цей параметр вказує ідентифікатор групи, інформацію про предмет,
+        якої необхідно отримати.
+    :api_samples: []
+  - :title: Інформація про оціни і пропуски студента
+    :descriptions:
+    - :text: Отримання інформації про оціни і пропуски студента здійснюється за адресою
+      :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/students/:student_id/subjects/:id
+    :request_type_title: ! 'Тип запиту: '
+    :request_type: GET
+    :request_params:
+    - :name: ':id'
+      :description: Цей параметр вказує ідентифікатор предмета.
+    - :name: ':semester_id'
+      :description: Цей параметр вказує ідентифікатор семестра.
+    - :name: ':group_id'
+      :description: Цей параметр вказує ідентифікатор групи.
+    - :name: ':student_id'
+      :description: Цей параметр вказує ідентифікатор студента.
+    :api_samples: []

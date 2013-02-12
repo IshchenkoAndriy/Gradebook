@@ -1,0 +1,30 @@
+%h3= sample[:title]
+- sample[:descriptions].each do |description|
+  %div.api_description
+    = description[:text] 
+    %span.developers_link= description[:url] if description[:url]
+
+%div.api_request_type
+  = sample[:request_type_title]
+  %span= sample[:request_type]
+%div.api_request_params
+  %div= t('developers.v1.request_params')
+  %ul
+    - sample[:request_params].each do |request_param|
+      %li 
+        %span.request_param_name
+          = request_param[:name]
+        = " - "
+        = request_param[:description]
+
+- if !sample[:api_samples].nil? and !sample[:api_samples].empty?
+  %div.api_sample_btn_wrapper
+    %span.api_sample_btn= t('developers.v1.samples')
+  %div.api_samples
+    - sample[:api_samples].each do |api_sample|
+      %div.api_sample_history
+        %span= api_sample[:history][:before_url]
+        %span.developers_link= api_sample[:history][:url]
+        %span= api_sample[:history][:after_url]
+      = raw CodeRay.highlight_file("#{api_sample[:file]}")
+    %br

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #source "http://bundler-api.herokuapp.com"
 
-gem 'rails', '~> 3.2.11'
+gem 'rails', '>= 3.2.12'
 
 gem "cocoon"
 
@@ -10,6 +10,7 @@ gem "carrierwave"
 gem "mini_magick"
 
 gem "coderay"
+gem "haml-rails", "~> 0.3.5"
 
 gem 'activeadmin'
 

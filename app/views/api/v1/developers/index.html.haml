@@ -1,0 +1,23 @@
+%div.developers_wrapper
+  %h1= t("developers.#{@version}.title")
+  %br
+  %h3= t("developers.#{@version}.topics.title")
+  %ul.topics_list
+    - @topics.each do |topic|
+      %li
+        %a{:href => '#' + "#{topic[:name]}"}
+          %span.topic_link= t("developers.#{@version}.topics.#{topic[:name]}.title")
+
+  %hr
+  %br
+  - @topics.each do |topic|
+    %a{:name => "#{topic[:name]}"}
+    %h2= t("developers.#{@version}.topics.#{topic[:name]}.title")
+    %hr
+    %div.partial
+      - if topic[:has_partial]
+        = render "%s_%s" % [@version, topic[:name]]
+      - else
+        - topic[:topics].each do |sample|
+          = render 'request_sample', sample: sample
+    %br
