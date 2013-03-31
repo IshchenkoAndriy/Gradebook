@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #source "http://bundler-api.herokuapp.com"
 
-gem 'rails', '>= 3.2.12'
+gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => '3-2-stable'
 
 gem "cocoon"
 
@@ -15,8 +15,6 @@ gem "haml-rails", "~> 0.3.5"
 gem 'activeadmin'
 
 gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
 	gem 'mysql2'
