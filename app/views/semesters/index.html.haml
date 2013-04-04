@@ -1,0 +1,6 @@
+= render "statistic_navigation"
+
+%table
+  - @semesters.each do |semester|
+    %tr
+      %td= link_to semester.name, url_for( semester_groups_path(semester) )

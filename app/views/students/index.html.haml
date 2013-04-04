@@ -1,0 +1,6 @@
+= render "statistic_navigation"
+
+%table
+  - @students.each do |student|
+    %tr
+      %td= link_to student.name, "#"

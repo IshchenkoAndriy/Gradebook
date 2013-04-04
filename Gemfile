@@ -17,6 +17,7 @@ gem 'activeadmin'
 gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'
 
 group :development do
+	gem 'webrick', '1.3.1'
 	gem 'mysql2'
 	
 	# tune error page

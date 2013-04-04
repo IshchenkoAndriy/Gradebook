@@ -1,6 +1,5 @@
 Kntu::Application.routes.draw do
   
-
   ActiveAdmin.routes(self)
   
   namespace :admin do
@@ -36,6 +35,11 @@ Kntu::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   
   resources :articles
+  resources :semesters, :only => [:index, :show] do
+    resources :groups, :only => [:index] do
+      resources :students, :only => [:index]
+    end
+  end
   
   get "main/index"
   

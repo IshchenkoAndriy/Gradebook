@@ -1,0 +1,9 @@
+= render "statistic_navigation"
+
+%table
+  - @groups.each do |group|
+    %tr
+      %td= group.name
+      %td= link_to "Студенти", url_for( semester_group_students_path(@semester, group) )
+      %td= link_to group.teacher.name, "#"
+      %td= link_to "Розклад", "#"
