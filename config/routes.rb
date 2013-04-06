@@ -1,6 +1,6 @@
 Kntu::Application.routes.draw do
 
-  get "main/index"
+  resources :main, :only => :index
   root :to => 'main#index'
 
   ActiveAdmin.routes(self)

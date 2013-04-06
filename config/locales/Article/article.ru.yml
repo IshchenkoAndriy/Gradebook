@@ -1,0 +1,29 @@
+ru:
+  article:
+    news: "Новости"
+    title: "Заголовок"
+    back: "Вернуться"
+    show:
+      action: 'Посмотреть'
+    create:
+      action: "Новая новость"
+      notice: 'Новость была успешно создана.'
+    update:
+      action: 'Редактировать'
+      title: "Редактирование новости"
+      notice: 'Новость была успешно обновлена.'
+    destroy:
+      action: 'Удалить'
+      notice: 'Новость была успешно уничтожена.'
+      alert: 'Новость не может быть уничтожена.'
+      
+  activerecord:
+    models:
+      article: "новость"
+      
+  helpers:
+    submit:
+      article:
+        create: "Создать новость"
+        update: "Сохранить новость"
+        submit: "Сохранить новость"

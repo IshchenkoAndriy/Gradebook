@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121180533) do
+ActiveRecord::Schema.define(:version => 20130406154825) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -77,16 +77,12 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
   end
 
   create_table "double_classes", :force => true do |t|
-    t.integer  "study_group_id",        :null => false
-    t.integer  "double_class_type_id",  :null => false
-    t.integer  "subject_id",            :null => false
-    t.integer  "teacher_id",            :null => false
-    t.integer  "numerator_denominator"
-    t.integer  "subgroup"
-    t.string   "double_class_number"
-    t.integer  "day_of_week"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.integer  "study_group_id",       :null => false
+    t.integer  "double_class_type_id", :null => false
+    t.integer  "subject_id",           :null => false
+    t.integer  "teacher_id",           :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "groups", :force => true do |t|
@@ -128,6 +124,16 @@ ActiveRecord::Schema.define(:version => 20130121180533) do
     t.integer  "scores",          :null => false
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "schedules", :force => true do |t|
+    t.integer  "double_class_id",       :null => false
+    t.integer  "numerator_denominator", :null => false
+    t.integer  "subgroup",              :null => false
+    t.integer  "double_class_number",   :null => false
+    t.integer  "day_of_week",           :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
   end
 
   create_table "semester_types", :force => true do |t|

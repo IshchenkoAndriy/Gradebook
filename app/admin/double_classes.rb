@@ -5,7 +5,6 @@ ActiveAdmin.register DoubleClass do
   
   filter :double_class_type
   filter :teacher
-  filter :day_of_week
   
   config.clear_action_items!
   action_item only:[:index, :show] do
@@ -22,41 +21,104 @@ ActiveAdmin.register DoubleClass do
     column :double_class_type
     column :subject
     column :teacher
-    column :subgroup
-    column :numerator_denominator
-    column :double_class_number
-    column :day_of_week
-    
+
     default_actions
   end
-  
-    form do |f|
+
+
+  form do |f|
+
+    def generate_form(form)
+      if form.object.new_record?
+        generate_input_fields form
+      else
+        generate_input_fields form
+        form.input :_destroy, :as=>:boolean, :required => false, :label=> I18n.t('active_admin.has_many_delete')
+      end
+    end
+
+
+    def generate_input_fields(form)
+      form.input :subgroup, :as => :radio, :collection => [1, 2]
+      form.input :numerator_denominator, :as => :radio, :collection => {
+          I18n.t('active_admin.schedule.numerator') => 1,
+          I18n.t('active_admin.schedule.denominator') => 2
+      }
+      form.input :double_class_number, :as => :select, :collection => [1, 2, 3, 4, 5, 6]
+      form.input :day_of_week, :as => :select, :collection => [
+          [I18n.t('active_admin.schedule.days.monday'), 1],
+          [I18n.t('active_admin.schedule.days.tuesday'), 2],
+          [I18n.t('active_admin.schedule.days.wednesday'), 3],
+          [I18n.t('active_admin.schedule.days.thursday'), 4],
+          [I18n.t('active_admin.schedule.days.friday'), 5],
+          [I18n.t('active_admin.schedule.days.saturday'), 6],
+          [I18n.t('active_admin.schedule.days.sunday'), 7]
+      ]
+    end
+
     f.inputs I18n.t("active_admin.double_class.details") do
       f.input :study_group
       f.input :double_class_type
       f.input :subject
       f.input :teacher
-      f.input :subgroup
-      f.input :numerator_denominator
-      f.input :double_class_number
-      f.input :day_of_week
+    end
+
+    f.inputs I18n.t('active_admin.schedule.title_index') do
+      f.has_many :schedules do |schedule|
+        generate_form schedule
+      end
     end
     f.buttons
   end
   
-  show :title => :name do
+  show :title => :name do |double_class|
     attributes_table do
       row :study_group
       row :double_class_type
       row :subject
       row :teacher
-      row :subgroup
-      row :numerator_denominator
-      row :double_class_number
-      row :day_of_week
       
       row :created_at
       row :updated_at
+    end
+
+    panel I18n.t('active_admin.schedule.title_index') do
+      double_class.schedules.each do |schedule|
+        attributes_table_for :schedule do
+          row I18n.t('activerecord.attributes.schedule.subgroup') do schedule.subgroup end
+          row I18n.t('activerecord.attributes.schedule.numerator_denominator') do
+            case schedule.numerator_denominator
+              when 1
+                I18n.t('active_admin.schedule.numerator')
+              when 2
+                I18n.t('active_admin.schedule.denominator')
+              else
+                I18n.t('active_admin.schedule.invalid_value')
+            end
+          end
+          row I18n.t('activerecord.attributes.schedule.double_class_number') do schedule.double_class_number end
+          row I18n.t('activerecord.attributes.schedule.day_of_week') do
+            case schedule.day_of_week
+              when 1
+                I18n.t('active_admin.schedule.days.monday')
+              when 2
+                I18n.t('active_admin.schedule.days.tuesday')
+              when 3
+                I18n.t('active_admin.schedule.days.wednesday')
+              when 4
+                I18n.t('active_admin.schedule.days.thursday')
+              when 5
+                I18n.t('active_admin.schedule.days.friday')
+              when 6
+                I18n.t('active_admin.schedule.days.saturday')
+              when 7
+                I18n.t('active_admin.schedule.days.sunday')
+              else
+                I18n.t('active_admin.schedule.invalid_value')
+            end
+          end
+        end
+      end
     end
   end
 end

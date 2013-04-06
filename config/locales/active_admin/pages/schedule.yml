@@ -1,0 +1,15 @@
+uk:
+  active_admin:
+    schedule:
+      title_index: "Розклад"
+      numerator: "Чисельник"
+      denominator: "Знаменник"
+      days:
+        monday: "Понеділок"
+        tuesday: "Вівторок"
+        wednesday: "Середа"
+        thursday: "Четвер"
+        friday: "П'ятниця"
+        saturday: "Субота"
+        sunday: "Неділя"
+      invalid_value: "Невірне значення"

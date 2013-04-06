@@ -1,0 +1,20 @@
+ru:
+  developers:
+    v1:
+      title: "Документация по серверному API версии 1"
+      request_params: "Параметри:"
+      samples: "Примеры"
+      topics:
+        title: "Темы"
+        basic:
+          title: 'Основные принципи'
+        architecture:
+          title: 'Архитектура API'
+        semesters:
+          title: 'Семестры'
+        groups:
+          title: 'Групы'
+        students:
+          title: 'Студенты'
+        subjects:
+          title: 'Предметы'

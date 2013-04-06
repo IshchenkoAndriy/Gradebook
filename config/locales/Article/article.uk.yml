@@ -1,0 +1,29 @@
+uk:
+  article:
+    news: "Новини"
+    title: "Заголовок"
+    back: "Повернутися"
+    show:
+      action: 'Переглянути'
+    create:
+      action: "Нова новина"
+      notice: 'Новина була успішно створена.'
+    update:
+      action: 'Редагувати'
+      title: 'Редагування новини'
+      notice: 'Новина була успішно оновлена.'
+    destroy:
+      action: 'Видалити'
+      notice: 'Новина була успішно знищена.'
+      alert: 'Новина не може бути знищена.'
+      
+  activerecord:
+    models:
+      article: "новина"
+      
+  helpers:
+    submit:
+      article:
+        create: 'Створити новину'
+        update: 'Зберегти новину'
+        submit: 'Зберегти новину'

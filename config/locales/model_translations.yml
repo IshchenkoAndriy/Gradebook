@@ -62,6 +62,11 @@ uk:
         few:  "Пари" 
         many: "Пар" 
         other: "Пари"
+      schedule:
+        one:  ""
+        few:  ""
+        many: ""
+        other: ""
     attributes:
       admin_user:
         email: "Електронна пошта"
@@ -131,9 +136,10 @@ uk:
         double_class_type: "Тип"
         subject: "Навчальна дисципліна"
         teacher: "Викладач"
+        created_at: "Створена"
+        updated_at: "Змінена"
+      schedule:
         subgroup: "Підгрупа"
         numerator_denominator: "Чисельник/Знаменник"
         double_class_number: "Номер пари"
         day_of_week: "День тижня"
-        created_at: "Створена"
-        updated_at: "Змінена"

@@ -16,7 +16,7 @@
     %hr
     %div.partial
       - if topic[:has_partial]
-        = render "%s_%s" % [@version, topic[:name]]
+        = render '%s_%s' % [@version, topic[:name]]
       - else
         - topic[:topics].each do |sample|
           = render 'request_sample', sample: sample

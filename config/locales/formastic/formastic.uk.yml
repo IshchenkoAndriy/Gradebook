@@ -1,0 +1,10 @@
+uk:
+  formtastic:
+    :yes: 'Так'
+    :no: 'Ні'
+    :create: 'Створити'
+    :update: 'Зберегти'
+    :submit: 'Зберегти'
+    :cancel: 'Відмінити'
+    :reset: 'Скинути'
+    :required: "обов'язкове"

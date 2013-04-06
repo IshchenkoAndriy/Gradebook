@@ -1,0 +1,29 @@
+en:
+  article:
+    news: "News"
+    title: "Title"
+    back: "Back"
+    show:
+      action: 'Show'
+    create:
+      action: "Create news"
+      notice: 'The news was successfully created.'
+    update:
+      action: 'Edit'
+      title: 'Editing news'
+      notice: 'The news was successfully updated.'
+    destroy:
+      action: 'Destroy'
+      notice: 'The news was successfully destroyed.'
+      alert: 'The news can not be destroyed.'
+      
+  activerecord:
+    models:
+      article: "news"
+   
+  helpers:
+    submit:
+      article:
+        create: "Submit News"
+        update: "Save the News"
+        submit: "Save the News"
