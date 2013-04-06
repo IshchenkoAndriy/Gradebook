@@ -1,0 +1,14 @@
+en:
+  wellcome: "Hello"
+  
+  app:
+    logo: "KNTU Statistic"
+    copyright: "All rights reserved. KNTU 2013"
+    author: "Ishchenko A.O KI(PM)-12M"
+    description: "Software development dynamics analysis of student achievement in the educational process"
+
+  languages:
+    select: "Select language"
+    uk: "Українська"
+    ru: "Русский"
+    en: "English"

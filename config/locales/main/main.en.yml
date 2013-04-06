@@ -1,0 +1,32 @@
+en:
+  login: "Login"
+  sign_up: "Sign up"
+  logout: "Logout"
+  edit_account: "Edit account"
+  remember_me: "Remember me"
+  
+  didnt_recive_confirm: "Didn't receive confirmation instructions?"
+  didnt_recive_unlock: "Didn't receive unlock instructions?"
+  
+  devise:
+    back: 'Back'
+    
+    forgot_pass:
+      title: 'Forgot your password?'
+      submit: 'Send me reset password instructions'
+      
+    change_pass:
+      title: 'Change your password'
+      new_pass: 'New password'
+      confirm_pass: 'Confirm your new password'
+      submit: 'Change my password'
+      
+    edit:
+      title: 'Edit'
+      pass_hint: "leave it blank if you don't want to change it"
+      current_pass_hint: 'we need your current password to confirm your changes'
+      submit: 'Update'
+      
+      cancel_acc: 'Cancel my account'
+      unhappy: 'Unhappy?'
+      destroy_confirm: 'Are you sure?'
