@@ -14,13 +14,13 @@ class Api::V1::SearchStudentController < ApplicationController
   private
   
   def first_name_conditions
-    if not params[:first_name].blank?
+    unless params[:first_name].blank?
       ["first_name LIKE ?", "%#{params[:first_name].gsub(/['%_;]/, '')}%"]
     end
   end
 
   def second_name_conditions
-    if not params[:second_name].blank?
+    unless params[:second_name].blank?
       ["second_name LIKE ?", "%#{params[:second_name].gsub(/['%_;]/, '')}%"]
     end
   end
@@ -32,10 +32,10 @@ class Api::V1::SearchStudentController < ApplicationController
   end
   
   def all_fields_conditions
-    if not params[:all_fields].blank?
+    unless params[:all_fields].blank?
       all_fields = params[:all_fields].gsub(/['%_;]/, '')
-      ["first_name LIKE ? AND second_name LIKE ? AND patronymic LIKE ?", 
-        "%#{all_fields}%", "%#{all_fields}%", "%#{all_fields}%"]
+      ["first_name LIKE ? AND second_name LIKE ? AND patronymic LIKE ?",
+       "%#{all_fields}%", "%#{all_fields}%", "%#{all_fields}%"]
     end
   end
 

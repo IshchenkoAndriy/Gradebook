@@ -10,7 +10,7 @@ gem "carrierwave"
 gem "mini_magick"
 
 gem "coderay"
-gem "haml-rails", "~> 0.3.5"
+gem "haml-rails", ">= 0.3.5"
 
 gem 'activeadmin'
 

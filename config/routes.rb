@@ -1,5 +1,8 @@
 Kntu::Application.routes.draw do
-  
+
+  get "main/index"
+  root :to => 'main#index'
+
   ActiveAdmin.routes(self)
   
   namespace :admin do
@@ -40,10 +43,6 @@ Kntu::Application.routes.draw do
       resources :students, :only => [:index]
     end
   end
-  
-  get "main/index"
-  
-  root :to => 'main#index'
   
   devise_for :users
 end
