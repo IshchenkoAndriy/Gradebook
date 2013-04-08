@@ -39,10 +39,15 @@ ActiveAdmin.register DoubleClass do
 
 
     def generate_input_fields(form)
-      form.input :subgroup, :as => :radio, :collection => [1, 2]
+      form.input :subgroup, :as => :radio, :collection => {
+          '1' => 1,
+          '2' => 2,
+          I18n.t('active_admin.schedule.first_n_second_subgroup') => 3}
       form.input :numerator_denominator, :as => :radio, :collection => {
           I18n.t('active_admin.schedule.numerator') => 1,
-          I18n.t('active_admin.schedule.denominator') => 2
+          I18n.t('active_admin.schedule.denominator') => 2,
+          I18n.t('active_admin.schedule.numerator_and_denominator') => 3
+
       }
       form.input :double_class_number, :as => :select, :collection => [1, 2, 3, 4, 5, 6]
       form.input :day_of_week, :as => :select, :collection => [
@@ -85,13 +90,21 @@ ActiveAdmin.register DoubleClass do
     panel I18n.t('active_admin.schedule.title_index') do
       double_class.schedules.each do |schedule|
         attributes_table_for :schedule do
-          row I18n.t('activerecord.attributes.schedule.subgroup') do schedule.subgroup end
+          row I18n.t('activerecord.attributes.schedule.subgroup') do
+            if schedule.subgroup > 2
+              I18n.t('active_admin.schedule.first_n_second_subgroup')
+            else
+              schedule.subgroup
+            end
+          end
           row I18n.t('activerecord.attributes.schedule.numerator_denominator') do
             case schedule.numerator_denominator
               when 1
                 I18n.t('active_admin.schedule.numerator')
               when 2
                 I18n.t('active_admin.schedule.denominator')
+              when 3
+                I18n.t('active_admin.schedule.numerator_and_denominator')
               else
                 I18n.t('active_admin.schedule.invalid_value')
             end

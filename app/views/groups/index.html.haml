@@ -1,4 +1,4 @@
-= render "statistic_navigation"
+= render 'application/statistic_navigation'
 
 %table
   - @groups.each do |group|
@@ -6,4 +6,4 @@
       %td= group.name
       %td= link_to "Студенти", url_for( semester_group_students_path(@semester, group) )
       %td= link_to group.teacher.name, "#"
-      %td= link_to "Розклад", "#"
+      %td= link_to I18n.t('active_admin.schedule.title_index'), url_for( semester_group_group_schedule_index_path(@semester, group) )

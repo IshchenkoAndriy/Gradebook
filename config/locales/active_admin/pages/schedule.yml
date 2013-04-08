@@ -4,6 +4,8 @@ uk:
       title_index: "Розклад"
       numerator: "Чисельник"
       denominator: "Знаменник"
+      numerator_and_denominator: "Чисельник і Знаменник"
+      first_n_second_subgroup: "1 і 2"
       days:
         monday: "Понеділок"
         tuesday: "Вівторок"
