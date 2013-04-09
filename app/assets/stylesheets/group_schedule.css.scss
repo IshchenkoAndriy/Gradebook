@@ -2,7 +2,72 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.schedule_general_table_wrapper {width: 300px; border-bottom-width: 1px;}
-.schedule_general_table {width: 100%}
-.schedule_nested_table {width: 100%}
-.schedule_cell {text-align: center; width: 50%}
+
+.schedule_div {
+  margin: 0 -10px;
+}
+
+table.schedule_table {
+  width: 961px;
+  border-collapse:collapse;
+  border-spacing:0;
+  border-top:1px solid #000;
+  border-bottom:1px solid #000;
+  border-right:1px solid #000;
+  padding:0;
+  margin:0;
+}
+
+.schedule_general_table_wrapper {width: 192px; height: 110px;}
+
+table.schedule_table th {
+  border-left:1px solid #000;
+}
+
+td, th{
+  height:inherit;
+  padding:0;
+  text-align:center;
+}
+
+.left_align_cell { float: left; }
+.top_align_cell { float: top; }
+
+.half_height {
+  -moz-box-sizing: border-box; /* Для Firefox */
+  box-sizing: border-box; /* Ширина блока с полями */
+  height: 55px;
+}
+.half_width {
+  -moz-box-sizing: border-box; /* Для Firefox */
+  box-sizing: border-box; /* Ширина блока с полями */
+  width: 96px;
+}
+
+.top_border {
+  border-top:1px solid #000;
+}
+
+.left_border {
+  border-left:1px solid #000;
+}
+
+.full_width {
+  -moz-box-sizing: border-box; /* Для Firefox */
+  box-sizing: border-box; /* Ширина блока с полями */
+  width: 192px;
+}
+
+.full_height {
+  -moz-box-sizing: border-box; /* Для Firefox */
+  box-sizing: border-box; /* Ширина блока с полями */
+  height: 110px;
+}
+
+.bottom_border {
+  border-bottom:1px solid #000;
+}
+.centered_cell {
+  display: table-cell;
+  vertical-align: middle;
+}

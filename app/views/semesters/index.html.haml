@@ -1,6 +1,6 @@
-= render "statistic_navigation"
+= render 'application/statistic_navigation'
 
-%table
+%table.news_table
   - @semesters.each do |semester|
     %tr
       %td= link_to semester.name, url_for( semester_groups_path(semester) )

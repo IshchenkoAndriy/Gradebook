@@ -156,14 +156,14 @@ a.label:hover,a.badge:hover{color:#fff;text-decoration:none;cursor:pointer}
 .label-inverse[href],.badge-inverse[href]{background:#1a1a1a}
 .btn .label,.btn .badge{position:relative;top:-1px}
 .btn-mini .label,.btn-mini .badge{top:0}
-/*.news_table table{max-width:100%;background:transparent;border-collapse:collapse;border-spacing:0;margin-bottom:20px}*/
-/*.news_table table th,table td{padding:10px;line-height:20px;text-align:left;vertical-align:top;border-top:1px solid #ddd}*/
-/*.news_table table th{font-weight:bold}*/
-/*.news_table table thead th{vertical-align:bottom}*/
-/*.news_table table caption+thead tr:first-child th,table caption+thead tr:first-child td,table colgroup+thead tr:first-child th,table colgroup+thead tr:first-child td,table thead:first-child tr:first-child th,table thead:first-child tr:first-child td{border-top:0}*/
-/*.news_table table tbody+tbody{border-top:2px solid #ddd}*/
-/*.news_table table table{background:#fff}*/
-/*.news_table table tr:hover td,table tr:hover th{background:#f5f5f5}*/
+table.news_table{max-width:100%;background:transparent;border-collapse:collapse;border-spacing:0;margin-bottom:20px}
+table.news_table th,table.news_table td{padding:10px;line-height:20px;text-align:left;vertical-align:top;border-top:1px solid #ddd}
+table.news_table th{font-weight:bold}
+table.news_table thead th{vertical-align:bottom}
+table.news_table caption+thead tr:first-child th,table caption+thead tr:first-child td,table colgroup+thead tr:first-child th,table colgroup+thead tr:first-child td,table thead:first-child tr:first-child th,table thead:first-child tr:first-child td{border-top:0}
+table.news_table tbody+tbody{border-top:2px solid #ddd}
+table.news_table table.news_table{background:#fff}
+table.news_table tr:hover td,table.news_table tr:hover th{background:#f5f5f5}
 .news_table.table-condensed th,.table-condensed td{padding:4px 5px}
 .news_table.table-bordered{border:1px solid #ddd;border-collapse:separate;*border-collapse:collapse;border-left:0;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}
 .news_table.table-bordered th,.table-bordered td{border-left:1px solid #ddd}
