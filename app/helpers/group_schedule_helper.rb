@@ -1,5 +1,52 @@
 module GroupScheduleHelper
 
+  def general_css_classes
+    [:word_wrap]
+  end
+
+  def full_size_cell_css_classes
+    general_css_classes + [:full_width, :full_height, :left_border, :top_border, :centered_cell]
+  end
+
+  def half_width_cell_css_classes
+    general_css_classes + [:full_height, :centered_cell]
+  end
+
+  def half_width_left_align_cell_css_classes
+    [:half_width, :full_height, :left_border, :top_border, :left_align_cell]
+  end
+
+  def half_height_cell_css_class
+    [:half_height, :full_width, :top_border, :left_border, :centered_cell]
+  end
+
+  def quarter_size_cell_css_classes
+    general_css_classes + [:half_height, :half_width]
+  end
+
+  def quarter_size_left_align_cell_css_classes
+    quarter_size_cell_css_classes + [:top_border, :left_border, :left_align_cell]
+  end
+
+  def quarter_size_top_align_cell_css_classes
+    quarter_size_cell_css_classes + [:top_align_cell]
+  end
+
+  def get_font_css_class(text)
+    case text.length
+      when 0..20
+        return [:normal_font]
+
+      when 21..36
+        return [:smaller_font_12]
+
+      when 37..40
+        return [:smaller_font_11]
+      else
+        return [:smaller_font_10]
+    end
+  end
+
   def schedule_for_schedule_cell(day, double_class_number, global_schedule)
     global_schedule.find_all{ |schedule| schedule.day_of_week == day and schedule.double_class_number == double_class_number }
   end
@@ -75,37 +122,5 @@ module GroupScheduleHelper
       '-'
     end
   end
-
-  def get_rows_at_column(column, day_schedule)
-    rows = day_schedule.find_all{ |schedule| schedule.subgroup == column }
-    case rows.count
-      when 0
-        rows = ['-', '-']
-
-      when 1
-        if rows.first.numerator_denominator != 3
-          rows << '-'
-        end
-    end
-
-    rows
-  end
-
-  def get_columns_at_row(row, day_schedule)
-    columns = day_schedule.find_all{ |schedule| schedule.numerator_denominator == row }
-
-    case columns.count
-      when 0
-        columns = ['-', '-']
-
-      when 1
-        if columns.first.numerator_denominator != 3
-          columns << '-'
-        end
-    end
-
-    columns
-  end
-
 
 end
