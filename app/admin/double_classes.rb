@@ -73,7 +73,7 @@ ActiveAdmin.register DoubleClass do
         generate_form schedule
       end
     end
-    f.buttons
+    f.actions
   end
   
   show :title => :name do |double_class|

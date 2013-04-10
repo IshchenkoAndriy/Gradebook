@@ -3,7 +3,7 @@ class Schedule < ActiveRecord::Base
 
   belongs_to :double_class
 
-  validates :double_class, :day_of_week, :double_class_number, :numerator_denominator, :subgroup, :presence => true
+  validates :day_of_week, :double_class_number, :numerator_denominator, :subgroup, :presence => true
 
   validates :day_of_week, :numericality => {
       :only_integer => true,
