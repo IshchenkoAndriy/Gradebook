@@ -1,6 +1,6 @@
 = render 'application/statistic_navigation'
 
-%table.news_table
+%table.table.table-hover
   - @semesters.each do |semester|
     %tr
       %td= link_to semester.name, url_for( semester_groups_path(semester) )

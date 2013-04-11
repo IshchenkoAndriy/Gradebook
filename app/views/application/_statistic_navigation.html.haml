@@ -1,10 +1,10 @@
-.navigation_bar
+%ul.breadcrumb
   - @navigation.each do |navigation_element|
     - if navigation_element[:url].nil?
-      %span.navigation_element.active_element
+      %li.active
         = navigation_element[:name]
     - else
-      %span.navigation_element
+      %li
         = link_to navigation_element[:name], navigation_element[:url]
-      %span.navigation_separator
-        = "  /  "
+        %span.divider
+          = '/'

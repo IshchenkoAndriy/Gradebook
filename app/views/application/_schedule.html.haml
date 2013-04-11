@@ -7,7 +7,7 @@
   -#      %td= double_class_schedule.numerator_denominator
   -#      %td= double_class_schedule.subgroup
 
-  %table.schedule_table
+  %table.schedule_table.table-hover
     - ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'].each do |day_name|
       %th= day_name
     - (1..5).each do |double_class|

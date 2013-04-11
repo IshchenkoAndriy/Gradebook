@@ -16,6 +16,8 @@ gem 'activeadmin'
 
 gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'
 
+gem 'bootstrap-sass'
+
 group :development do
 	gem 'webrick', '1.3.1'
 	gem 'mysql2'

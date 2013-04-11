@@ -1,6 +1,6 @@
 = render "statistic_navigation"
 
-%table
+%table.table.table-bordered.table-hover
   - @students.each do |student|
     %tr
       %td= link_to student.name, "#"

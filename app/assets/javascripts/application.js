@@ -15,3 +15,5 @@
 //= require ckeditor/init
 //= require cocoon
 //= require_tree .
+//= require bootstrap-tooltip
+//= require bootstrap-popover
