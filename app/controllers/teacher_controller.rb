@@ -21,8 +21,7 @@ class TeacherController < ApplicationController
     @teacher = Teacher.find_by_id(params[:id])
     @double_classes = DoubleClass.joins(:study_group).where(:teacher_id => @teacher.id,
                                                             :study_groups => {:semester_id => @semester.id})
-    @schedule = []
-    @schedule = @double_classes.map(&:schedules).flatten! unless @double_classes.nil? or @double_classes.empty?
+    @schedule = [@double_classes.map(&:schedules)].flatten!
 
     @navigation = [
         {name: I18n.t("active_admin.semester.menu"), url: url_for( semesters_path )},
