@@ -1,0 +1,13 @@
+= render 'application/statistic_navigation'
+
+%h3= @teacher.name
+
+%table.table.table-bordered.table-hover
+  - @double_classes.each do |double_class|
+    %tr
+      %td= double_class.name
+      %td= double_class.study_group.group.name
+
+%h4= I18n.t('active_admin.schedule.title_index')
+
+= render 'application/schedule'

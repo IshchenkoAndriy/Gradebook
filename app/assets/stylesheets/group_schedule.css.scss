@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bootstrap/variables";
+
 $table_width: 960px;
 $count_columns: 5;
 
@@ -12,7 +14,7 @@ $column_half_width: $column_width / 2;
 $column_half_height: $column_height / 2;
 
 $border_width: 1px;
-$border_color: #777;
+$border_color: $tableBorder;
 
 .schedule_div {
   margin: 0 -10px;

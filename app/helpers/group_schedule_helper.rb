@@ -110,7 +110,7 @@ module GroupScheduleHelper
     if rows.count != 0
       rows.first
     else
-      '-'
+      ''
     end
   end
 
@@ -119,7 +119,7 @@ module GroupScheduleHelper
     if columns.count != 0
       columns.first
     else
-      '-'
+      ''
     end
   end
 

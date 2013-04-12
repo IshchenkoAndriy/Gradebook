@@ -4,12 +4,7 @@ class GroupScheduleController < ApplicationController
     @semester = Semester.find(params[:semester_id])
     @study_group = @semester.study_groups.find_by_id(params[:group_id])
     @schedule = []
-
-    @study_group.double_classes.each { |double_class|
-      @schedule << double_class.schedules
-    }
-
-    @schedule.flatten!
+    @schedule = @study_group.double_classes.map(&:schedules).flatten! unless @study_group.nil?
 
     @navigation = [
         {name: I18n.t('active_admin.semester.menu'), url: url_for( semesters_path )},

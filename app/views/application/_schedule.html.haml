@@ -19,7 +19,7 @@
             - count_columns = get_count_columns(day_schedule)
             - if count_rows == 0 and count_columns == 0
               %div{class: full_size_cell_css_classes}
-                %div= '-'
+                %div= ''
             - elsif count_rows == 1 and count_columns == 1
               %div{class: full_size_cell_css_classes}
                 %div= day_schedule.first.to_s

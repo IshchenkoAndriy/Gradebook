@@ -43,6 +43,7 @@ Kntu::Application.routes.draw do
       resources :students, :only => [:index]
       resources :group_schedule, :only => [:index]
     end
+    resources :teacher, :only => [:index, :show]
   end
   
   devise_for :users
