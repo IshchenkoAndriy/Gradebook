@@ -7,7 +7,10 @@
 }
 
 .CodeRay pre {
-  margin: 0px;
+  margin: 0;
+  border-width: 0;
+  background-color: #ffffff;
+  font: inherit;
 }
 
 div.CodeRay { }
