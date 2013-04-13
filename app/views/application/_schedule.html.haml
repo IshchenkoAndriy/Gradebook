@@ -31,9 +31,9 @@
                       %div{class: half_width_cell_css_classes}
                         %div= get_rows_for_column(column_index, 1, day_schedule).to_s
                     - when 2
-                      - text = get_rows_for_column(column_index, 1, day_schedule)
+                      - text = get_rows_for_column(column_index, 1, day_schedule).to_s
                       %div{class: quarter_size_top_align_cell_css_classes + get_font_css_class(text) + [:bottom_border]}= text
-                      - text = get_rows_for_column(column_index, 2, day_schedule)
+                      - text = get_rows_for_column(column_index, 2, day_schedule).to_s
                       %div{class: quarter_size_top_align_cell_css_classes + get_font_css_class(text)}= text
 
             - elsif count_columns == 1
@@ -42,7 +42,7 @@
                   - case get_count_columns_for_row(row_index, day_schedule)
                     - when 1
                       %div{class: half_height_cell_css_class}
-                        %div= get_columns_for_row(1, row_index, day_schedule)
+                        %div= get_columns_for_row(1, row_index, day_schedule).to_s
                     - when 2
                       - (1..2).each do |column_index|
                         - text = get_columns_for_row(column_index, row_index, day_schedule).to_s

@@ -15,3 +15,6 @@ uk:
         saturday: "Субота"
         sunday: "Неділя"
       invalid_value: "Невірне значення"
+      error_format_string: '%s / %i пара / %s підгрупа / %s | %s | %s | %s'
+      schedule_exist_for_group: 'Розклад на даний вже день існує для групи: '
+      schedule_exist_for_teacher: 'Розклад на даний вже день існує для викладача: '

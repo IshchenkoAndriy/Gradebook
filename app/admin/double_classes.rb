@@ -70,6 +70,7 @@ ActiveAdmin.register DoubleClass do
 
     f.inputs I18n.t('active_admin.schedule.title_index') do
       f.has_many :schedules do |schedule|
+        schedule.semantic_errors :base
         generate_form schedule
       end
     end

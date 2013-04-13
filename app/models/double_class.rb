@@ -11,6 +11,18 @@ class DoubleClass < ActiveRecord::Base
 
   validates :study_group, :double_class_type, :subject, :teacher, :presence => true
 
+  validate do
+    update_create_schedules = schedules.reject(&:marked_for_destruction?)
+    update_create_schedules.each do |current_schedule|
+      day_schedule = update_create_schedules.find_all{ |schedule|
+        schedule.day_of_week == current_schedule.day_of_week and
+        schedule.double_class_number == current_schedule.double_class_number
+      }
+      day_schedule.delete current_schedule
+      errors[:base] << '' if current_schedule.invalid_schedule?(day_schedule, I18n.t('active_admin.schedule.schedule_exist_for_group'))
+    end
+  end
+
   accepts_nested_attributes_for :schedules, :allow_destroy => true
 
   def name

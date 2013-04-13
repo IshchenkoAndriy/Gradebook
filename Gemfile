@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-#source "http://bundler-api.herokuapp.com"
 
 gem 'rails', :git => 'git://github.com/rails/rails.git', :branch => '3-2-stable'
 
-gem "cocoon"
+gem "squeel"
 
+gem "cocoon"
 
 gem "carrierwave"
 gem "mini_magick"
