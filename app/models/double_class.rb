@@ -5,7 +5,8 @@ class DoubleClass < ActiveRecord::Base
   belongs_to :double_class_type
   belongs_to :subject
   belongs_to :teacher
-  has_many :marks, :dependent => :destroy
+  has_many :additional_marks, :dependent => :destroy
+  has_many :lessons, :dependent => :destroy
   has_many :presences, :dependent => :destroy
   has_many :schedules, :dependent => :destroy
 
