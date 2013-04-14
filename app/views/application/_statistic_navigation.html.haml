@@ -1,5 +1,5 @@
 - breadcrumb_classes = [:breadcrumb]
-- breadcrumb_classes << [:g_9] unless @group_double_classes.nil?
+- breadcrumb_classes << [:g_9] unless @group_double_classes.empty? unless @group_double_classes.nil?
 %ul{:class => breadcrumb_classes }
   - @navigation.each do |navigation_element|
     - if navigation_element[:url].nil?
@@ -12,10 +12,11 @@
           = '/'
 
 - unless @group_double_classes.nil?
-  .btn-group.g_3{:id => :double_classes_dropdown_wrapper}
-    %button.btn.dropdown-toggle{:id => :double_classes_dropdown, 'data-toggle' => 'dropdown'}
-      = I18n.t('active_admin.subject.menu')
-      %span.caret
-    %ul.dropdown-menu{:id => :double_classes_left_side_submenu}
-      - @group_double_classes.each do |double_class|
-        %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name], '#'
+  - unless @group_double_classes.empty?
+    .btn-group.g_3.pull-right{:id => :double_classes_dropdown_wrapper}
+      %button.btn.dropdown-toggle{:id => :double_classes_dropdown, 'data-toggle' => 'dropdown'}
+        = I18n.t('active_admin.subject.menu')
+        %span.caret
+      %ul.dropdown-menu
+        - @group_double_classes.each do |double_class|
+          %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name], '#'
