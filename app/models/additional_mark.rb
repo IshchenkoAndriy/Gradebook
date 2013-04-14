@@ -5,5 +5,5 @@ class AdditionalMark < Mark
   belongs_to :double_class
 
   validates :study_type, :student, :double_class, :date, :mark, :scores, :presence => true
-  validates :study_number, :numericality => { :only_integer => true } unless study_number.blank?
+  validates :study_number, :numericality => { :only_integer => true }, :unless => Proc.new { |mark| mark.study_number.blank? }
 end
