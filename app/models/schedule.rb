@@ -1,50 +1,4 @@
 class ScheduleValidator < ActiveModel::Validator
-  #def verify_schedule(new_schedule, exists_schedules, error_title)
-  #  errors = []
-  #  if new_schedule.always?
-  #    exists_schedules.each do |schedule_record|
-  #      errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #    end
-  #  elsif new_schedule.for_all_group?
-  #    exists_schedules.each do |schedule_record|
-  #      if schedule_record.always?
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.equivalent_with? new_schedule
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.for_every_time?
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.numerator_denominator == new_schedule.numerator_denominator
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      end
-  #    end
-  #  elsif new_schedule.for_every_time?
-  #    exists_schedules.each do |schedule_record|
-  #      if schedule_record.always?
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.equivalent_with? new_schedule
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.for_all_group?
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.subgroup == new_schedule.subgroup
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      end
-  #    end
-  #  else
-  #    exists_schedules.each do |schedule_record|
-  #      if schedule_record.always?
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.equivalent_with? new_schedule
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.for_all_group? and schedule_record.numerator_denominator == new_schedule.numerator_denominator
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      elsif schedule_record.for_every_time? and schedule_record.subgroup == new_schedule.subgroup
-  #        errors << schedule_record.schedule_humanize unless new_schedule.same? schedule_record
-  #      end
-  #    end
-  #  end
-  #  new_schedule.errors[:base] << error_title + errors.to_s unless errors.empty?
-  #end
-
   def validate(new_schedule)
     study_group_id = new_schedule.double_class.study_group_id
     group_schedules = Schedule.joins(:double_class).where{
@@ -226,6 +180,5 @@ class Schedule < ActiveRecord::Base
 
     not errors.empty?
   end
-
 end
 
