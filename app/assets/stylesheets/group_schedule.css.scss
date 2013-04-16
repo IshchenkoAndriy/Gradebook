@@ -91,9 +91,7 @@ table.schedule_table td:first-child div:first-child {
   border-bottom:$border_width solid $border_color;
 }
 .centered_cell {
-  //vertical-align: middle;
-  //display: inline-block;
-  vertical-align: middle;
+  vertical-align: middle !important;
   display: table-cell;
 }
 

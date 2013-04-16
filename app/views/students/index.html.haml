@@ -1,6 +1,21 @@
 = render 'application/statistic_navigation'
 
-%table.table.table-bordered.table-hover
-  - @students.each do |student|
+- unless @choosed_double_class.nil?
+
+  %h2.horizontal_centered= @choosed_double_class.subject.name
+  %h4= @choosed_double_class.double_class_type.name
+  %h4= @choosed_double_class.teacher.name
+
+
+%table.table.table-bordered.table-hover.marks_table
+  - unless @choosed_double_class.nil?
+    %th= I18n.t('active_admin.student.menu')
+    - @choosed_double_class.lessons.each_with_index do |lesson, index|
+      %th= '%s №%i %s' % [@choosed_double_class.double_class_type.name, index + 1, lesson.date]
+  - @students_in_group.each do |student_in_group|
     %tr
-      %td= link_to student.name, "#"
+      %td= link_to student_in_group.name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
+      - unless @choosed_double_class.nil?
+        - @choosed_double_class.lessons.each do |lesson|
+          - student_mark = lesson.lesson_marks.find_by_student_id(student_in_group.student_id)
+          %td.horizontal_centered.centered_cell= student_mark.score unless student_mark.nil?

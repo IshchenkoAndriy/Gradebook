@@ -15,8 +15,11 @@
   - unless @group_double_classes.empty?
     .btn-group.g_3.pull-right{:id => :double_classes_dropdown_wrapper}
       %button.btn.dropdown-toggle{:id => :double_classes_dropdown, 'data-toggle' => 'dropdown'}
-        = I18n.t('active_admin.subject.menu')
+        - if @choosed_double_class.nil?
+          = I18n.t('active_admin.subject.menu')
+        - else
+          = @choosed_double_class.subject.name
         %span.caret
       %ul.dropdown-menu
         - @group_double_classes.each do |double_class|
-          %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name], '#'
+          %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name], url_for( semester_group_students_path(@semester, @study_group, :double_class_id => double_class.id) )

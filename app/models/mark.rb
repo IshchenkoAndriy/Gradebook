@@ -1,8 +1,8 @@
 class Mark < ActiveRecord::Base
-  attr_accessible :date, :scores, :student_id
+  attr_accessible :date, :score, :student_id
 
   belongs_to :student
   
-  validates :student, :date, :scores, :presence => true
-  validates :scores, :numericality => { :only_integer => true }
+  validates :student, :date, :score, :presence => true
+  validates :score, :numericality => { :only_integer => true }
 end
