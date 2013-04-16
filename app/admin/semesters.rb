@@ -1,16 +1,7 @@
 ActiveAdmin.register Semester do
-  config.filters = false
+  filter :year
   
   config.batch_actions = false
-  
-  scope :all, :default => true
-  if SemesterType.table_exists?
-    SemesterType.all.each do |semester_type|
-      self.send(:scope, semester_type.name) do |items|
-        items.where(:semester_type_id => semester_type.id)
-      end
-    end
-  end
   
   config.clear_action_items!
   action_item only:[:index, :show] do
@@ -24,9 +15,8 @@ ActiveAdmin.register Semester do
   menu :label => I18n.t("active_admin.semester.menu")
   
   index :download_links => false, :title => I18n.t("active_admin.semester.title_index") do
-    column :semester_type
-    column :begin_date
-    column :end_date
+    column :year
+    column :title
     column I18n.t("active_admin.semester.group_header") do |semester|
       link_to I18n.t("active_admin.semester.group_link"), [:admin, semester, :study_groups]
     end
@@ -35,18 +25,16 @@ ActiveAdmin.register Semester do
   
   form do |f|
     f.inputs I18n.t("active_admin.semester.details") do
-      f.input :semester_type
-      f.input :begin_date
-      f.input :end_date
+      f.input :year
+      f.input :title
     end
     f.buttons
   end
   
   show :title => :name do
     attributes_table do
-      row :semester_type
-      row :begin_date
-      row :end_date
+      row :year
+      row :title
     end
   end
 end

@@ -80,9 +80,8 @@ uk:
         created_at: "Створений"
         updated_at: "Змінений"
       semester:
-        semester_type: "Тип семестру"
-        begin_date: "Дата початку навчання"
-        end_date: "Дата закінчення навчання"
+        year: "Рік навчання"
+        title: "Назва"
         created_at: "Створена"
         updated_at: "Змінена"
       teacher:

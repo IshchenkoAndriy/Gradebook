@@ -18,8 +18,6 @@ admin.save
 StudyType.delete_all
 
 StudyType.create!(name: "Реферат")
-StudyType.create!(name: "Лабораторна робота")
-StudyType.create!(name: "Практична робота")
 StudyType.create!(name: "Індивідуальне завдання")
 StudyType.create!(name: "Стаття")
 StudyType.create!(name: "Контрольна робота")                  
@@ -39,10 +37,5 @@ DoubleClassType.delete_all
 DoubleClassType.create!(name: "Лекція")               
 DoubleClassType.create!(name: "Лабораторна робота")
 DoubleClassType.create!(name: "Практична робота")   
-DoubleClassType.create!(name: "Консультація")    
+DoubleClassType.create!(name: "Консультація")
 
-# Adding semester types
-SemesterType.delete_all
-
-SemesterType.create!(name: "Бакалавр")
-SemesterType.create!(name: "Магістр")   

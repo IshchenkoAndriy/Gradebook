@@ -35,7 +35,7 @@ ActiveAdmin.register StudentsInGroup do
                 end
               end
               link_to(
-                raw("#{study_group.semester.study_date} #{link_html.to_s}"),
+                raw("#{study_group.semester.name} #{link_html.to_s}"),
                 { :semester_id => study_group.semester_id, :study_group_id => study_group.id  },
                 :class => "table_tools_button").to_s
             end
