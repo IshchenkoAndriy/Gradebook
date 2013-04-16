@@ -18,3 +18,5 @@
 //= require bootstrap-tooltip
 //= require bootstrap-popover
 //= require bootstrap-dropdown
+//= require highcharts
+//= require highcharts/highcharts-more
