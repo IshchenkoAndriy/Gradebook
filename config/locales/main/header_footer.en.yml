@@ -2,7 +2,8 @@ en:
   wellcome: "Hello"
   
   app:
-    logo: "KNTU Statistic"
+    logo: "Gradebook"
+    study_title: "Learning process"
     copyright: "All rights reserved. KNTU 2013"
     author: "Ishchenko A.O KI(PM)-12M"
     description: "Software development dynamics analysis of student achievement in the educational process"

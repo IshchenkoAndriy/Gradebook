@@ -68,10 +68,12 @@ ActiveAdmin.register DoubleClass do
       f.input :teacher
     end
 
-    f.inputs I18n.t('active_admin.schedule.title_index') do
-      f.has_many :schedules do |schedule|
-        schedule.semantic_errors :base
-        generate_form schedule
+    unless f.object.new_record?
+      f.inputs I18n.t('active_admin.schedule.title_index') do
+        f.has_many :schedules do |schedule|
+          schedule.semantic_errors :base
+          generate_form schedule
+        end
       end
     end
     f.actions

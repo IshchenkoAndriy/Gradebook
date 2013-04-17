@@ -5,6 +5,7 @@
 %table.table.table-bordered.table-hover
   - @double_classes.each do |double_class|
     %tr
+      %td= double_class.double_class_type.name
       %td= double_class.name
       %td= double_class.study_group.group.name
 

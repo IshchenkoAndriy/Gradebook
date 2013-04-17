@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#double_classes_dropdown_wrapper{margin: 10px 0}
 #double_classes_dropdown{height: 38px; width: 100%}
 .horizontal_centered{text-align: center !important;}
-.marks_table{overflow-x: auto;}
+.marks_table{overflow-x: auto; width: 940px; display: block}
+.marks_table tbody{display: table; width: 100%;}
