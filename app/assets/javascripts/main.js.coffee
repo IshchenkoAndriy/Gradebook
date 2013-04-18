@@ -3,12 +3,14 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  popover = $('.lang_popover').popover({
+  $('.lang_popover').popover({
     placement: 'bottom',
     html: 'true',
     trigger: 'click'})
 
-  $('#feature_slider').nivoSlider(
-    {
-      effect: 'fade'
-    }).data('nivoslider').stop()
+  if ($('#feature_slider').length)
+    $('#feature_slider').nivoSlider(
+      {
+        effect: 'fade'
+      })
+    $('#feature_slider').data('nivoslider').stop()
