@@ -20,3 +20,4 @@
 //= require bootstrap-dropdown
 //= require highcharts
 //= require highcharts/highcharts-more
+//= require nivo

@@ -15,6 +15,7 @@ gem "haml-rails", ">= 0.3.5"
 gem 'activeadmin'
 
 gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'
+gem 'nivo-rails'
 gem 'highcharts-rails', '~> 3.0.0'
 gem 'bootstrap-sass'
 

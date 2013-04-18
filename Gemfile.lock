@@ -177,6 +177,7 @@ GEM
       subexec (~> 0.2.1)
     multi_json (1.7.2)
     mysql2 (0.3.11)
+    nivo-rails (0.0.1)
     nokogiri (1.5.9)
     orm_adapter (0.4.0)
     pg (0.15.1)
@@ -268,6 +269,7 @@ DEPENDENCIES
   launchy (>= 2.1.2)
   mini_magick
   mysql2
+  nivo-rails
   pg
   quiet_assets (>= 1.0.1)
   rails!

@@ -1,22 +1,12 @@
-<script>
-	$(function(){
-		$("#slides").slides({
-			responsive: true
-		});
-	});
-</script>
-
 <div id="wrapper">
-	<div class="row">
-		<div id="main-slider" class="g12">
-			<div id="slider_container">
-				<div id="slides">
-					<%= image_tag "slides/slide-1.jpg", :width => "100%", :alt => "Slide 1" %>
-					<%= image_tag "slides/slide-2.jpg", :width => "100%", :alt => "Slide 2" %>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+		<div class="">
+            <%= nivo_slider id: 'feature_slider' do %>
+                <%= image_tag "slides/slide-1.jpg" %>
+                <%= image_tag "slides/slide-2.jpg" %>
+            <% end %>
+        </div>
+    </div>
 	
 	
 	

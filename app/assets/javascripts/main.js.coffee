@@ -7,13 +7,8 @@ jQuery ->
     placement: 'bottom',
     html: 'true',
     trigger: 'click'})
-    
-  # showPopover = (e) -> 
-    # popover.popover('show')
-    # e.preventDefault()
-#     
-   # hidePopover = (e) -> 
-    # popover.popover('hide')
-    # e.preventDefault()
-#     
-  # $("#lang").hover( showPopover, hidePopover )
+
+  $('#feature_slider').nivoSlider(
+    {
+      effect: 'fade'
+    }).data('nivoslider').stop()
