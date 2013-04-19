@@ -1,7 +1,22 @@
-= render 'application/statistic_navigation'
+- if @group_double_classes.nil? or @group_double_classes.empty?
+  = render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+- else
+  .row
+    = render 'application/statistic_navigation', breadcrumb_wrapper_class: 'g_9'
+    .g_3
+      .btn-group.pull-right{:id => :double_classes_dropdown}
+        %button.btn.dropdown-toggle{:id => :double_classes_dropdown, 'data-toggle' => 'dropdown'}
+          - if @choosed_double_class.nil?
+            = I18n.t('active_admin.subject.menu')
+          - else
+            = @choosed_double_class.subject.name
+          %span.caret
+        %ul.dropdown-menu
+          - @group_double_classes.each do |double_class|
+            %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name],
+                  url_for( semester_group_students_path(@semester, @study_group, :double_class_id => double_class.id) )
 
 - unless @choosed_double_class.nil?
-
   %h2.horizontal_centered= @choosed_double_class.subject.name
   %h4= @choosed_double_class.double_class_type.name
   %h4= @choosed_double_class.teacher.name

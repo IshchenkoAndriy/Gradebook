@@ -1,5 +1,5 @@
-= render 'application/statistic_navigation'
+= render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
 
-%h3= I18n.t('active_admin.schedule.title_index')
+%h2.horizontal_centered= I18n.t('active_admin.schedule.title_index')
 
 = render 'application/schedule'

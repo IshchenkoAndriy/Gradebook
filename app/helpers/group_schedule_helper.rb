@@ -1,7 +1,7 @@
 module GroupScheduleHelper
 
   def general_css_classes
-    [:word_wrap]
+    []
   end
 
   def full_size_cell_css_classes

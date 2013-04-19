@@ -60,7 +60,9 @@ table.schedule_table td:first-child div:first-child {
 }
 
 .half_width div {
-   max-width: $column_half_width - $border_width;;
+  max-width: $column_half_width - $border_width;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .top_border {
