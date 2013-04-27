@@ -14,42 +14,54 @@
             - count_rows = get_count_rows(day_schedule)
             - count_columns = get_count_columns(day_schedule)
             - if count_rows == 0 and count_columns == 0
-              %div{class: full_size_cell_css_classes}
-                %div= ''
+              .full_width.full_height.left_border.centered_cell= ''
             - elsif count_rows == 1 and count_columns == 1
-              %div{class: full_size_cell_css_classes}
-                %div= day_schedule.first.to_s
+              .full_width.full_height.left_border.centered_cell= day_schedule.first.to_s
+
             - elsif count_rows == 1
               - (1..get_count_columns(day_schedule)).each do |column_index|
-                %div{class: half_width_left_align_cell_css_classes}
+                .vertical_block.left_border
                   - case get_count_rows_for_column(column_index, day_schedule)
                     - when 1
-                      %div{class: half_width_cell_css_classes}
-                        %div= get_rows_for_column(column_index, 1, day_schedule).to_s
+                      = get_rows_for_column(column_index, 1, day_schedule).to_s
                     - when 2
                       - text = get_rows_for_column(column_index, 1, day_schedule).to_s
-                      %div{class: quarter_size_top_align_cell_css_classes + get_font_css_class(text) + [:bottom_border]}= text
+                      %div{class: [:horizontal_block] + get_font_css_class(text)}= text
+                      %div.horizontal_delimeter
                       - text = get_rows_for_column(column_index, 2, day_schedule).to_s
-                      %div{class: quarter_size_top_align_cell_css_classes + get_font_css_class(text)}
-                        %div= text
+                      %div{class: [:horizontal_block] + get_font_css_class(text)}= text
+              .vertical_block_resizer
 
             - elsif count_columns == 1
-              - (1..get_count_rows(day_schedule)).each do |row_index|
-                %div
-                  - case get_count_columns_for_row(row_index, day_schedule)
-                    - when 1
-                      %div{class: half_height_cell_css_class}
-                        %div= get_columns_for_row(1, row_index, day_schedule).to_s
-                    - when 2
-                      - (1..2).each do |column_index|
-                        - text = get_columns_for_row(column_index, row_index, day_schedule).to_s
-                        %div{class: quarter_size_left_align_cell_css_classes + get_font_css_class(text)}
-                          %div= text
+              %div.horizontal_block
+                - case get_count_columns_for_row(1, day_schedule)
+                  - when 1
+                    %div.half_height.full_width.centered_cell.left_border= get_columns_for_row(1, 1, day_schedule).to_s
+                  - when 2
+                    - (1..2).each do |column_index|
+                      - text = get_columns_for_row(column_index, 1, day_schedule).to_s
+                      %div{class: [:left_border, :half_vertical_block] + get_font_css_class(text)}= text
+                    .vertical_block_resizer
+              %div.horizontal_delimeter
+              %div.horizontal_block
+                - case get_count_columns_for_row(2, day_schedule)
+                  - when 1
+                    %div.half_height.full_width.centered_cell.left_border= get_columns_for_row(1, 2, day_schedule).to_s
+                  - when 2
+                    - (1..2).each do |column_index|
+                      - text = get_columns_for_row(column_index, 2, day_schedule).to_s
+                      %div{class: [:left_border, :half_vertical_block] + get_font_css_class(text)}= text
+                    .vertical_block_resizer
 
             - else
-              - (1..get_count_rows(day_schedule)).each do |row_index|
-                %div
-                  - (1..get_count_columns(day_schedule)).each do |column_index|
-                    - text = get_columns_for_row(column_index, row_index, day_schedule).to_s
-                    %div{class: quarter_size_left_align_cell_css_classes + get_font_css_class(text)}
-                      %div= text
+              %div.horizontal_block
+                - (1..get_count_columns(day_schedule)).each do |column_index|
+                  - text = get_columns_for_row(column_index, 1, day_schedule).to_s
+                  %div{class: [:left_border, :half_vertical_block] + get_font_css_class(text)}= text
+                .vertical_block_resizer
+              %div.horizontal_delimeter
+              %div.horizontal_block
+                - (1..get_count_columns(day_schedule)).each do |column_index|
+                  - text = get_columns_for_row(column_index, 2, day_schedule).to_s
+                  %div{class: [:left_border, :half_vertical_block] + get_font_css_class(text)}= text
+                .vertical_block_resizer

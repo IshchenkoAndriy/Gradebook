@@ -30,43 +30,73 @@ table.schedule_table {
   margin:0;
 }
 
-.schedule_general_table_wrapper {width: $column_width; height: $column_height;}
+.schedule_general_table_wrapper {
+  border-top:$border_width solid $border_color;
+  width: $column_width;
+  height: $column_height;
+  max-width: $column_width;
+  max-height: $column_height;
+}
 
 table.schedule_table td, th{
   height:inherit;
   padding:0;
   text-align:center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+table.schedule_table td div {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 table.schedule_table td:first-child div:first-child {
   border-left-color: #ffffff;
 }
 
-.left_align_cell { float: left; }
-.top_align_cell { float: top; }
-
 .half_height {
-  height: $column_half_height - $border_width;
-}
-
-.half_height div {
-  max-height: $column_half_height - $border_width;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  height: $column_half_height;
 }
 
 .half_width {
-  width: $column_half_width - $border_width;
+  width: 50%;
+  max-width: 50%;
 }
 
-.half_width div {
-  max-width: $column_half_width - $border_width;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.horizontal_block{
+  width: 100%;
+  height: 50%;
 }
 
-.top_border {
-  border-top:$border_width solid $border_color;
+.half_vertical_block{
+  vertical-align: middle !important;
+  display: table-cell;
+  text-align: center;
+  width: 50%;
+  max-width: 50%;
+  height: $column_half_height;
+}
+
+.vertical_block{
+  vertical-align: middle !important;
+  display: table-cell;
+  text-align: center;
+  width: 50%;
+  max-width: $column_half_width;
+  height: $column_height;
+}
+
+
+.vertical_block_resizer{
+  display: table-cell;
+  width: 1px;
+}
+
+.horizontal_delimeter{
+  width: 100%;
+  height: 1px;
+  background-color: $border_color;
 }
 
 .left_border {
@@ -74,41 +104,16 @@ table.schedule_table td:first-child div:first-child {
 }
 
 .full_width {
-  width: $column_width - $border_width;
-}
-
-.full_width div {
-  max-width: $column_width - $border_width;
+  width: $column_width;
 }
 
 .full_height {
-  height: $column_height - $border_width;
+  height: $column_height;
 }
 
-.full_height div {
-  max-height: $column_height - $border_width;
-}
-
-.bottom_border {
-  border-bottom:$border_width solid $border_color;
-}
 .centered_cell {
   vertical-align: middle !important;
   display: table-cell;
-}
-
-.auxiliary_center{
-  display: inline-block;
-  vertical-align: middle;
-  width: 0px;
-  height: 100%;
-}
-
-.word_wrap {
-  //word-wrap: break-word;
-  //white-space: pre-line;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .normal_font {

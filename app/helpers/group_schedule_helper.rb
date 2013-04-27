@@ -1,37 +1,5 @@
 module GroupScheduleHelper
 
-  def general_css_classes
-    []
-  end
-
-  def full_size_cell_css_classes
-    general_css_classes + [:full_width, :full_height, :left_border, :top_border, :centered_cell]
-  end
-
-  def half_width_cell_css_classes
-    general_css_classes + [:full_height, :centered_cell]
-  end
-
-  def half_width_left_align_cell_css_classes
-    [:half_width, :full_height, :left_border, :top_border, :left_align_cell]
-  end
-
-  def half_height_cell_css_class
-    [:half_height, :full_width, :top_border, :left_border, :centered_cell]
-  end
-
-  def quarter_size_cell_css_classes
-    general_css_classes + [:half_height, :half_width]
-  end
-
-  def quarter_size_left_align_cell_css_classes
-    quarter_size_cell_css_classes + [:top_border, :left_border, :left_align_cell]
-  end
-
-  def quarter_size_top_align_cell_css_classes
-    quarter_size_cell_css_classes + [:top_align_cell]
-  end
-
   def get_font_css_class(text)
     case text.length
       when 0..20

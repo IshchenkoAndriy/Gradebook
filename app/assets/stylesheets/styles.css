@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic-ext);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic-ext,cyrillic);
 html {height:100%}
 body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;color:#555}
 #navbar,#footer{background:#333;color:#999;font-size:12px}
