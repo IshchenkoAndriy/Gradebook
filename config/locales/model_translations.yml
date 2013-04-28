@@ -58,10 +58,10 @@ uk:
         many: "Типів занять" 
         other: "Типи занять"
       double_class:
-        one:  "Пара" 
-        few:  "Пари" 
-        many: "Пар" 
-        other: "Пари"
+        one:  "Заняття"
+        few:  "Занять"
+        many: "Занять"
+        other: "Заняття"
       schedule:
         one:  ""
         few:  ""
@@ -85,8 +85,8 @@ uk:
         created_at: "Створена"
         updated_at: "Змінена"
       teacher:
-        first_name: "Прізвище"
-        second_name: "Ім'я"
+        first_name: "Ім'я"
+        last_name: "Прізвище"
         patronymic: "По-батькові"
         created_at: "Створена"
         updated_at: "Змінена"
@@ -113,8 +113,8 @@ uk:
         created_at: "Створена"
         updated_at: "Змінена"
       student:
-        first_name: "Прізвище"
-        second_name: "Ім'я"
+        first_name: "Ім'я"
+        last_name: "Прізвище"
         patronymic: "По-батькові"
         created_at: "Створена"
         updated_at: "Змінена"
@@ -135,6 +135,7 @@ uk:
         double_class_type: "Тип"
         subject: "Навчальна дисципліна"
         teacher: "Викладач"
+        presence_score: "Кількість балів за присутність на занятті"
         created_at: "Створена"
         updated_at: "Змінена"
       schedule:
@@ -142,3 +143,4 @@ uk:
         numerator_denominator: "Чисельник/Знаменник"
         double_class_number: "Номер пари"
         day_of_week: "День тижня"
+        classroom_number: "Номер аудиторії"

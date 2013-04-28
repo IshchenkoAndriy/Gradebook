@@ -8,7 +8,7 @@ class StudentsInGroup < ActiveRecord::Base
   validates :subgroup, :numericality => { :only_integer => true }
   validates :scholarship, :hostel, :inclusion => { :in => [true, false] }
   
-  def name
-    self.student.name
+  def full_name
+    self.student.full_name
   end
 end

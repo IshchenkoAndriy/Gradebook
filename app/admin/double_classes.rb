@@ -21,13 +21,13 @@ ActiveAdmin.register DoubleClass do
     column :double_class_type
     column :subject
     column :teacher
+    column :presence_score
 
     default_actions
   end
 
 
   form do |f|
-
     def generate_form(form)
       if form.object.new_record?
         generate_input_fields form
@@ -59,6 +59,7 @@ ActiveAdmin.register DoubleClass do
           [I18n.t('active_admin.schedule.days.saturday'), 6],
           [I18n.t('active_admin.schedule.days.sunday'), 7]
       ]
+      form.input :classroom_number
     end
 
     f.inputs I18n.t("active_admin.double_class.details") do
@@ -66,6 +67,7 @@ ActiveAdmin.register DoubleClass do
       f.input :double_class_type
       f.input :subject
       f.input :teacher
+      f.input :presence_score
     end
 
     unless f.object.new_record?
@@ -85,6 +87,7 @@ ActiveAdmin.register DoubleClass do
       row :double_class_type
       row :subject
       row :teacher
+      row :presence_score
       
       row :created_at
       row :updated_at
@@ -133,6 +136,7 @@ ActiveAdmin.register DoubleClass do
                 I18n.t('active_admin.schedule.invalid_value')
             end
           end
+          row I18n.t('activerecord.attributes.schedule.classroom_number') do schedule.classroom_number end
         end
       end
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416232248) do
+ActiveRecord::Schema.define(:version => 20130428132104) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20130416232248) do
     t.integer  "teacher_id",           :null => false
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "presence_score",       :null => false
   end
 
   create_table "groups", :force => true do |t|
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20130416232248) do
     t.date     "date",            :null => false
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "description",     :null => false
   end
 
   create_table "marks", :force => true do |t|
@@ -110,18 +112,19 @@ ActiveRecord::Schema.define(:version => 20130416232248) do
     t.datetime "updated_at",        :null => false
     t.integer  "lesson_id"
     t.string   "type",              :null => false
+    t.integer  "module",            :null => false
   end
 
   create_table "people", :force => true do |t|
-    t.string   "first_name",                  :null => false
-    t.string   "second_name",                 :null => false
-    t.string   "patronymic",                  :null => false
-    t.string   "birth_day",   :default => "", :null => false
-    t.string   "phone",       :default => "", :null => false
-    t.string   "email",       :default => "", :null => false
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
-    t.string   "type",                        :null => false
+    t.string   "first_name",                 :null => false
+    t.string   "last_name",                  :null => false
+    t.string   "patronymic",                 :null => false
+    t.string   "birth_day",  :default => "", :null => false
+    t.string   "phone",      :default => "", :null => false
+    t.string   "email",      :default => "", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.string   "type",                       :null => false
   end
 
   create_table "presences", :force => true do |t|
@@ -142,6 +145,7 @@ ActiveRecord::Schema.define(:version => 20130416232248) do
     t.integer  "day_of_week",           :null => false
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
+    t.integer  "classroom_number"
   end
 
   create_table "semesters", :force => true do |t|
@@ -149,6 +153,21 @@ ActiveRecord::Schema.define(:version => 20130416232248) do
     t.datetime "updated_at", :null => false
     t.integer  "year",       :null => false
     t.string   "title",      :null => false
+  end
+
+  create_table "slides", :force => true do |t|
+    t.string   "caption"
+    t.string   "url"
+    t.boolean  "active"
+    t.integer  "position"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "students_in_groups", :force => true do |t|

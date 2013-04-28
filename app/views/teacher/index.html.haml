@@ -3,4 +3,4 @@
 %table.table.table-bordered.table-hover
   - @teachers.each do |teacher|
     %tr
-      %td= link_to teacher.name, url_for( semester_teacher_path(@semester, teacher) )
+      %td= link_to teacher.full_name, url_for( semester_teacher_path(@semester, teacher) )

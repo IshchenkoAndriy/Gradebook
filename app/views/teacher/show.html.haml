@@ -1,6 +1,6 @@
 = render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
 
-%h2.horizontal_centered= @teacher.name
+%h2.horizontal_centered= @teacher.full_name
 
 %table.table.table-bordered.table-hover
   - @double_classes.each do |double_class|

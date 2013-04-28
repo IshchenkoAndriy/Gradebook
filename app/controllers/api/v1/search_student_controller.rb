@@ -2,7 +2,7 @@ class Api::V1::SearchStudentController < ApplicationController
   respond_to :json, :xml
   
   def index
-    if params[:first_name] or params[:second_name] or params[:patronymic] or params[:all_fields]
+    if params[:first_name] or params[:last_name] or params[:patronymic] or params[:all_fields]
       @order = (!params[:order].nil? && params[:order].upcase) == "ASC" ? "ASC" : "DESC"
       @students = Student.order("created_at #{@order}").find(:all, :conditions => conditions)
       respond_with(@students.map(&:to_hash))
@@ -19,9 +19,9 @@ class Api::V1::SearchStudentController < ApplicationController
     end
   end
 
-  def second_name_conditions
-    unless params[:second_name].blank?
-      ["second_name LIKE ?", "%#{params[:second_name].gsub(/['%_;]/, '')}%"]
+  def last_name_conditions
+    unless params[:last_name].blank?
+      ["last_name LIKE ?", "%#{params[:last_name].gsub(/['%_;]/, '')}%"]
     end
   end
   
@@ -34,7 +34,7 @@ class Api::V1::SearchStudentController < ApplicationController
   def all_fields_conditions
     unless params[:all_fields].blank?
       all_fields = params[:all_fields].gsub(/['%_;]/, '')
-      ["first_name LIKE ? AND second_name LIKE ? AND patronymic LIKE ?",
+      ["first_name LIKE ? AND last_name LIKE ? AND patronymic LIKE ?",
        "%#{all_fields}%", "%#{all_fields}%", "%#{all_fields}%"]
     end
   end

@@ -150,9 +150,9 @@
         пізвище, ім''я та по-батькові. Параметри first_name, second_name та patronymic
         ігноруються.'
     - :name: first_name
-      :description: Цей параметр вказує шаблон для пошуку студента за пізвищем.
-    - :name: second_name
       :description: Цей параметр вказує шаблон для пошуку студента за ім'ям.
+    - :name: last_name
+      :description: Цей параметр вказує шаблон для пошуку студента за пізвищем.
     - :name: patronymic
       :description: Цей параметр вказує шаблон для пошуку студента по-батькові.
     - :name: order
@@ -161,12 +161,12 @@
     :api_samples:
     - :history:
         :before_url: Запит
-        :url: /api/v1/search_student?second_name=С
+        :url: /api/v1/search_student?first_name=С
         :after_url: поверне студентів, ім'я яких містить підрядок 'С'.
       :file: ./app/views/api/v1/developers/samples/students_3.json
     - :history:
         :before_url: Запит
-        :url: /api/v1/search_student?second_name=с
+        :url: /api/v1/search_student?first_name=с
         :after_url: поверне студентів, ім'я яких містить підрядок 'с'.
       :file: ./app/views/api/v1/developers/samples/students_4.json
 

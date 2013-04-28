@@ -9,7 +9,7 @@ class StudentController < ApplicationController
         {name: I18n.t("active_admin.semester.menu"), url: url_for( semesters_path )},
         {name: @semester.name, url: url_for( semester_groups_path(@semester) )},
         {name: @study_group.group.name, url: url_for( semester_group_students_path(@semester, @study_group) )},
-        {name: @student_in_group.student.name, url: nil}
+        {name: @student_in_group.student.full_name, url: nil}
     ]
 
     respond_to do |format|

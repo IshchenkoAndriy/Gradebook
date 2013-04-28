@@ -1,16 +1,18 @@
 class Person < ActiveRecord::Base
-  attr_accessible :birth_day, :email, :first_name, :patronymic, :phone, :second_name
+  attr_accessible :birth_day, :email, :first_name, :patronymic, :phone, :last_name
   
-  validates :first_name, :second_name, :patronymic, :presence => true
+  validates :first_name, :last_name, :patronymic, :presence => true
   
-  def name
-    self.first_name + " " + self.second_name + " " + self.patronymic
+  def full_name
+    self.last_name + " " + self.first_name + " " + self.patronymic
   end
   
   def to_hash
     Hash[
       :id => self.id,
-      :name => self.name
+      :last_name => self.last_name,
+      :first_name => self.first_name,
+      :patronymic => self.patronymic
     ]
   end
 end

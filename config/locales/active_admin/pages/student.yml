@@ -6,5 +6,5 @@ uk:
       details: "Інформація про студента"
       new_action: "Додати студента"
       edit_action: "Редагувати інформацію"
-      search_first_name: "прізвищу"
-      search_second_name: "імені"
+      search_last_name: "прізвищу"
+      search_first_name: "імені"

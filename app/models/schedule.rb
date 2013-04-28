@@ -23,11 +23,13 @@ class ScheduleValidator < ActiveModel::Validator
 end
 
 class Schedule < ActiveRecord::Base
-  attr_accessible :day_of_week, :double_class_number, :numerator_denominator, :subgroup
+  attr_accessible :day_of_week, :double_class_number, :numerator_denominator, :subgroup, :classroom_number
 
   belongs_to :double_class
 
-  validates :day_of_week, :double_class_number, :numerator_denominator, :subgroup, :presence => true
+  validates :day_of_week, :double_class_number, :numerator_denominator, :subgroup, :classroom_number, :presence => true
+
+  validates :classroom_number, :numericality => { :only_integer => true }
 
   validates :day_of_week, :numericality => {
       :only_integer => true,
@@ -59,7 +61,7 @@ class Schedule < ActiveRecord::Base
   end
 
   def to_s
-    "%s %s" % [self.double_class.subject.name, self.double_class.teacher.first_name]
+    "%s %s %i" % [self.double_class.subject.name, self.double_class.teacher.last_name, self.classroom_number]
   end
 
   def for_all_group?

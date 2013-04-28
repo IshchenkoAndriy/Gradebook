@@ -6,6 +6,5 @@ uk:
       details: "Інформація про викладача"
       new_action: "Додати викладача"
       edit_action: "Редагувати інформацію"
-      search_first_name: "прізвищу"
-      search_second_name: "імені"
-      
+      search_last_name: "прізвищу"
+      search_first_name: "імені"

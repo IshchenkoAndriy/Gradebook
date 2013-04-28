@@ -19,7 +19,7 @@
 - unless @choosed_double_class.nil?
   %h2.horizontal_centered= @choosed_double_class.subject.name
   %h4= @choosed_double_class.double_class_type.name
-  %h4= @choosed_double_class.teacher.name
+  %h4= @choosed_double_class.teacher.full_name
 
 
 %table.table.table-bordered.table-hover.marks_table
@@ -29,7 +29,7 @@
       %th= '%s №%i %s' % [@choosed_double_class.double_class_type.name, index + 1, lesson.date]
   - @students_in_group.each do |student_in_group|
     %tr
-      %td= link_to student_in_group.name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
+      %td= link_to student_in_group.full_name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
       - unless @choosed_double_class.nil?
         - @choosed_double_class.lessons.each do |lesson|
           - student_mark = lesson.lesson_marks.find_by_student_id(student_in_group.student_id)

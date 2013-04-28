@@ -1,8 +1,8 @@
 ActiveAdmin.register Teacher do
   config.batch_actions = false
-  
+
+  filter :last_name, :label => I18n.t('active_admin.teacher.search_last_name')
   filter :first_name, :label => I18n.t('active_admin.teacher.search_first_name')
-  filter :second_name, :label => I18n.t('active_admin.teacher.search_second_name')
   filter :patronymic
   
   config.clear_action_items!
@@ -17,8 +17,8 @@ ActiveAdmin.register Teacher do
   menu :label => I18n.t("active_admin.teacher.menu")
   
   index :download_links => false, :title => I18n.t("active_admin.teacher.title_index") do
+    column :last_name
     column :first_name
-    column :second_name
     column :patronymic
     column :email
     default_actions
@@ -26,18 +26,18 @@ ActiveAdmin.register Teacher do
   
   form do |f|
     f.inputs I18n.t("active_admin.teacher.details") do
+      f.input :last_name
       f.input :first_name
-      f.input :second_name
       f.input :patronymic
       f.input :email
     end
     f.actions
   end
   
-  show :title => :name do
+  show :title => :full_name do
     attributes_table do
+      row :last_name
       row :first_name
-      row :second_name
       row :patronymic
       row :email
     end

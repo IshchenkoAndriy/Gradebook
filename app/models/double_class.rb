@@ -1,5 +1,5 @@
 class DoubleClass < ActiveRecord::Base
-  attr_accessible :study_group_id, :double_class_type_id, :subject_id, :teacher_id, :schedules_attributes
+  attr_accessible :study_group_id, :double_class_type_id, :subject_id, :teacher_id, :schedules_attributes, :presence_score
       
   belongs_to :study_group
   belongs_to :double_class_type
@@ -10,7 +10,9 @@ class DoubleClass < ActiveRecord::Base
   has_many :presences, :dependent => :destroy
   has_many :schedules, :dependent => :destroy
 
-  validates :study_group, :double_class_type, :subject, :teacher, :presence => true
+  validates :study_group, :double_class_type, :subject, :teacher, :presence_score, :presence => true
+
+  validates :presence_score, :numericality => { :only_integer => true }
 
   validate do
     update_create_schedules = schedules.reject(&:marked_for_destruction?)

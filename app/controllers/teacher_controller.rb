@@ -26,7 +26,7 @@ class TeacherController < ApplicationController
     @navigation = [
         {name: I18n.t("active_admin.semester.menu"), url: url_for( semesters_path )},
         {name: @semester.name, url: url_for( semester_groups_path(@semester) )},
-        {name: @teacher.name, url: nil}
+        {name: @teacher.full_name, url: nil}
     ]
 
     respond_to do |format|
