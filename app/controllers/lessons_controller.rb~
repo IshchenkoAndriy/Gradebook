@@ -1,0 +1,52 @@
+class TeacherLessonsController < ApplicationController
+  load_and_authorize_resource :lesson
+
+  def index
+    logger.debug "Teacher id: #{current_user.teacher_id}"
+    @semester = Semester.find_by_id(params[:teacher_semester_id])
+    @double_class = DoubleClass.joins(:study_group).where(:id => params[:teacher_double_class_id],
+                                          :study_groups => { :semester_id => @semester.id }).first
+    authorize! :read, @double_class
+    @lessons = @double_class.lessons.all
+    @new_lesson = @double_class.lessons.new
+
+    @navigation = [
+        {name: I18n.t("active_admin.semester.menu"), url: teacher_semesters_path},
+        {name: @semester.name, url: teacher_semester_teacher_double_classes_path(@semester)},
+        {name: @double_class.name, url: nil},
+    ]
+
+    respond_to do |format|
+      format.html # index.html.haml
+      format.json { render json: @lessons }
+    end
+  end
+
+  #def new
+  #  @double_class = DoubleClass.joins(:study_group).where(:id => params[:teacher_double_class_id],
+  #                                                        :study_groups => { :semester_id => @semester.id }).first
+  #  @lesson = @double_class.lessons.new
+  #
+  #  respond_to do |format|
+  #    format.html # new.html.erb
+  #    format.json { render json: @lesson }
+  #  end
+  #end
+
+  def create
+    @semester = Semester.find_by_id(params[:teacher_semester_id])
+    @double_class = DoubleClass.joins(:study_group).where(:id => params[:teacher_double_class_id],
+                                                          :study_groups => { :semester_id => params[:teacher_semester_id] }).first
+    @lesson = @double_class.lessons.new(params[:lesson])
+
+    respond_to do |format|
+      if @lesson.save
+        format.html { redirect_to teacher_semester_teacher_double_class_teacher_lessons_path(@semester, @double_class), notice: 'Lesson successful saved' }
+        format.json { render json: @lesson, status: :created, location: @lesson }
+      else
+        format.html { redirect_to teacher_semester_teacher_double_class_teacher_lessons_path(@semester, @double_class), alert: @lesson.errors.full_messages.to_s }
+        format.json { render json: @lesson.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+end

@@ -62,7 +62,7 @@ ActiveAdmin.register StudentsInGroup do
     f.buttons
   end
   
-  show :title => :name do
+  show :title => :full_name do
     attributes_table do
       row :student
       row :subgroup

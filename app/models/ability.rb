@@ -5,7 +5,7 @@ class Ability
     
     user ||= User.new # guest user (not logged in)
     
-    can :read, :all
+    can :read, Article
     
     if user.has_capability? 'write_articles'
       can :create, Article
@@ -16,6 +16,15 @@ class Ability
       
     if user.has_capability? 'manage_articles'
       can :manage, Article
+    end
+
+    if user.teacher_id
+      puts "Allow premissions teacher id: #{user.teacher_id} with mail #{user.email}"
+      can :read, Semester
+      can :read, DoubleClass, :teacher_id => user.teacher_id
+      can :manage, Lesson, :double_class => { :teacher_id => user.teacher_id }
+      can :manage, LessonMark, :lesson => { :double_class => { :teacher_id => user.teacher_id } }
+      can :manage, AdditionalMark, :double_class => { :teacher_id => user.teacher_id }
     end
     
     # Define abilities for the passed in user here. For example:

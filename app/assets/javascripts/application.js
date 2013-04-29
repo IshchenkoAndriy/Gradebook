@@ -19,6 +19,7 @@
 //= require bootstrap-popover
 //= require bootstrap-dropdown
 //= require bootstrap-alert
+//= require bootstrap-modal
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require nivo

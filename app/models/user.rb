@@ -6,14 +6,13 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :capabilities_mask
-  # attr_accessible :title, :body
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_many :articles
   
   scope :with_capability, lambda { |capability| {:conditions => "capabilities_mask & #{2**CAPABILITIES.index(capability.to_s)} > 0 "} }
 
-  CAPABILITIES = %w[manage_users manage_students_n_groups manage_all_subjects manage_own_subjects manage_articles write_articles]
+  CAPABILITIES = %w[manage_articles write_articles]
 
   def capabilities=(capability)
     self.capabilities_mask = (capability & CAPABILITIES).map { |r| 2**CAPABILITIES.index(r) }.sum
@@ -26,5 +25,13 @@ class User < ActiveRecord::Base
   def has_capability?(capability)
     capabilities.include? capability.to_s
   end
-  
+
+  def teacher_id
+    puts "mail blank #{self.email.blank?}"
+    unless self.email.blank?
+      @teacher = Teacher.where(email: self.email).first
+      @teacher.id if @teacher
+    end
+  end
+
 end

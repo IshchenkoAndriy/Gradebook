@@ -1,0 +1,37 @@
+-#= render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+
+- if @lesson_marks and not @lesson_marks.empty?
+  %table.table.table-hover
+    - @lesson_marks.each do |lesson_mark|
+      %tr
+        %td= lesson_mark.date
+        %td= lesson_mark.student.full_name
+        %td= lesson_mark.score
+        %td
+          -# Button to trigger modal
+          = link_to 'Edit mark', "#editLessonMarkModal#{lesson_mark.id}", {:class => 'btn', 'data-toggle' => 'modal'}
+
+          -# Modal
+          .modal.hide.fade{:id => "editLessonMarkModal#{lesson_mark.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+            'aria-hidden' => 'true'}
+            .modal-header
+              %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+              %h3= 'New mark'
+            .modal-body
+              = render 'lesson_mark/form', :lesson_mark => lesson_mark
+
+          = link_to 'Delete mark', lesson_lesson_mark_path(@lesson, lesson_mark), :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+- else
+  = 'This lesson do not have marks'
+
+-# Button to trigger modal
+= link_to 'Create new mark', '#createLessonMarkModal', {:class => 'btn', 'data-toggle' => 'modal'}
+
+-# Modal
+.modal.hide.fade{:id => 'createLessonMarkModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+  'aria-hidden' => 'true'}
+  .modal-header
+    %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+    %h3= 'New mark'
+  .modal-body
+    = render 'lesson_mark/form', :lesson_mark => @lesson.lesson_marks.new

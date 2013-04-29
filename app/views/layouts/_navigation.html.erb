@@ -15,6 +15,11 @@
     <li>
     <span> <%= t :wellcome %> <br> <%= current_user.email  %></span>  
     </li>
+    <% if can? :read, Lesson %>
+      <li>
+        <%= link_to('My lessons', teacher_semesters_path) %>
+      </li>
+    <% end %>
 	<li>
     <%= link_to(t(:logout), destroy_user_session_path, :method=>'delete') %>        
     </li>
@@ -55,7 +60,7 @@
 		"data-original-title" => t('languages.select'),
 		:rel => "popover",
 		"data-content" => "<ul role='menu'>" +
-							"<li>#{ link_to "", url_for(:locale => :uk), :id => :uk } #{t 'languages.uk'}</li>" +
+							"<li>#{ link_to '', url_for(:locale => :uk), :id => :uk } #{t 'languages.uk'}</li>" +
 							"<li>#{ link_to '', url_for(:locale => :ru), :id => :ru } #{t 'languages.ru'}</li>" +
 							"</ul>"
 	%>

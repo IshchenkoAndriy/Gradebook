@@ -46,6 +46,17 @@ Kntu::Application.routes.draw do
     end
     resources :teacher, :only => [:index, :show]
   end
+
+  # Teacher pages
+  resources :teacher_semesters, :only => [:index, :show] do
+    resources :double_classes, :only => [:index]
+  end
+  resources :double_classes, :only =>[] do
+    resources :lessons, :only => [:index, :create]
+  end
+  resources :lessons, :only => [:update, :destroy] do
+    resources :lesson_mark
+  end
   
   devise_for :users
 end
