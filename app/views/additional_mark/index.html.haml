@@ -1,0 +1,37 @@
+- if @additional_marks and not @additional_marks.empty?
+  %table.table.table-hover
+    - @additional_marks.each do |additional_mark|
+      %tr
+        %td= additional_mark.date
+        %td= additional_mark.study_type.name
+        %td= additional_mark.study_description
+        %td= additional_mark.student.full_name
+        %td= additional_mark.score
+        %td
+          -# Button to trigger modal
+          = link_to 'Edit additional mark', "#editAdditionalMarkModal#{additional_mark.id}", {:class => 'btn', 'data-toggle' => 'modal'}
+
+          -# Modal
+          .modal.hide.fade{:id => "editAdditionalMarkModal#{additional_mark.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+            'aria-hidden' => 'true'}
+            .modal-header
+              %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+              %h3= 'Edit additional mark'
+            .modal-body
+              = render 'additional_mark/form', :additional_mark => additional_mark
+
+          = link_to 'Delete additional mark', double_class_additional_mark_path(@double_class, additional_mark), :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+- else
+  = 'This lesson do not have additional marks'
+
+-# Button to trigger modal
+= link_to 'Create new additional mark', '#createAdditionalMarkModal', {:class => 'btn', 'data-toggle' => 'modal'}
+
+-# Modal
+.modal.hide.fade{:id => 'createAdditionalMarkModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+  'aria-hidden' => 'true'}
+  .modal-header
+    %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+    %h3= 'New additional mark'
+  .modal-body
+    = render 'additional_mark/form', :additional_mark => @double_class.additional_marks.new

@@ -53,9 +53,11 @@ Kntu::Application.routes.draw do
   end
   resources :double_classes, :only =>[] do
     resources :lessons, :only => [:index, :create]
+    resources :additional_mark
   end
   resources :lessons, :only => [:update, :destroy] do
     resources :lesson_mark
+    resources :presence
   end
   
   devise_for :users

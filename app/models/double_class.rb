@@ -7,7 +7,6 @@ class DoubleClass < ActiveRecord::Base
   belongs_to :teacher
   has_many :additional_marks, :dependent => :destroy
   has_many :lessons, :dependent => :destroy
-  has_many :presences, :dependent => :destroy
   has_many :schedules, :dependent => :destroy
 
   validates :study_group, :double_class_type, :subject, :teacher, :presence_score, :presence => true

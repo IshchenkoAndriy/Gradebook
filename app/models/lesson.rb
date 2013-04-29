@@ -3,6 +3,7 @@ class Lesson < ActiveRecord::Base
 
   belongs_to :double_class
   has_many :lesson_marks, :dependent => :destroy
+  has_many :presences, :dependent => :destroy
 
   validates :double_class, :date, :description, :presence => true
 end

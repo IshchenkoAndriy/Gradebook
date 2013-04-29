@@ -7,6 +7,7 @@
       %th= 'Type'
       %th= 'Description'
       %th= 'Marks'
+      %th= 'Presences'
       %th= 'Actions'
     - @lessons.each do |lesson|
       %tr
@@ -14,6 +15,7 @@
         %td= lesson.double_class.double_class_type.name
         %td= lesson.description
         %td= link_to 'Marks', lesson_lesson_mark_index_path(lesson)
+        %td= link_to 'Presences', lesson_presence_index_path(lesson)
         %td
           = link_to 'Edit lesson', "#editLessonModal#{lesson.id}", {:class => 'btn', 'data-toggle' => 'modal'}
 

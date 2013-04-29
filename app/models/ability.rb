@@ -24,6 +24,7 @@ class Ability
       can :read, DoubleClass, :teacher_id => user.teacher_id
       can :manage, Lesson, :double_class => { :teacher_id => user.teacher_id }
       can :manage, LessonMark, :lesson => { :double_class => { :teacher_id => user.teacher_id } }
+      can :manage, Presence, :lesson => { :double_class => { :teacher_id => user.teacher_id } }
       can :manage, AdditionalMark, :double_class => { :teacher_id => user.teacher_id }
     end
     

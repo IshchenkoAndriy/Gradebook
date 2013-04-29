@@ -1,10 +1,10 @@
 class Presence < ActiveRecord::Base
-  attr_accessible :date, :scores, :was_present, :student_id, :double_class_id
+  attr_accessible :was_present, :student_id, :lesson_id, :module
   
   belongs_to :student
-  belongs_to :double_class
+  belongs_to :lesson
   
-  validates :student, :double_class, :date, :scores, :was_present, :presence => true
-  validates :scores, :numericality => { :only_integer => true }
+  validates :student, :lesson, :presence => true
   validates :was_present, :inclusion => { :in => [true, false] }
+  validates :module, :numericality => { :only_integer => true }
 end

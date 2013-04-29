@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428132104) do
+ActiveRecord::Schema.define(:version => 20130429214032) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -128,13 +128,12 @@ ActiveRecord::Schema.define(:version => 20130428132104) do
   end
 
   create_table "presences", :force => true do |t|
-    t.integer  "student_id",      :null => false
-    t.integer  "double_class_id", :null => false
-    t.date     "date",            :null => false
-    t.boolean  "was_present",     :null => false
-    t.integer  "scores",          :null => false
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.integer  "student_id",  :null => false
+    t.integer  "lesson_id",   :null => false
+    t.boolean  "was_present", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "module",      :null => false
   end
 
   create_table "schedules", :force => true do |t|

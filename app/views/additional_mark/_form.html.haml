@@ -1,0 +1,26 @@
+- if additional_mark.new_record?
+  = simple_form_for(additional_mark, :url => double_class_additional_mark_index_path(@double_class),
+  :method => :post, :html => {:class => 'form-horizontal' }) do |f|
+    .form-inputs
+      = f.association :student, label_method: :full_name, collection: additional_mark.double_class.study_group.students
+      = f.association :study_type, label_method: :name
+      = f.input :study_description
+      = f.input :date
+      = f.input :score
+      = f.input :module
+
+    .form-actions
+      = f.button :submit
+- else
+  = simple_form_for(additional_mark, :url => double_class_additional_mark_path(@double_class, additional_mark),
+  :method => :put, :html => {:class => 'form-horizontal' }) do |f|
+    .form-inputs
+      = f.association :student, label_method: :full_name, collection: additional_mark.double_class.study_group.students
+      = f.association :study_type, label_method: :name
+      = f.input :study_description
+      = f.input :date
+      = f.input :score
+      = f.input :module
+
+    .form-actions
+      = f.button :submit

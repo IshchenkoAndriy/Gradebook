@@ -1,0 +1,37 @@
+
+- if @presences and not @presences.empty?
+  %table.table.table-hover
+    - @presences.each do |presence|
+      %tr
+        %td= presence.student.full_name
+        %td= presence.was_present
+        %td= presence.module
+        %td
+          -# Button to trigger modal
+          = link_to 'Edit mark', "#editPresenceModal#{presence.id}", {:class => 'btn', 'data-toggle' => 'modal'}
+
+          -# Modal
+          .modal.hide.fade{:id => "editPresenceModal#{presence.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+            'aria-hidden' => 'true'}
+            .modal-header
+              %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+              %h3= 'Edit presence'
+            .modal-body
+              = render 'presence/form', :presence => presence
+
+          = link_to 'Delete presence', lesson_presence_path(@lesson, presence), :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+
+- else
+  = 'This lesson do not have presences'
+
+-# Button to trigger modal
+= link_to 'Create new presence', '#createPresenceModal', {:class => 'btn', 'data-toggle' => 'modal'}
+
+-# Modal
+.modal.hide.fade{:id => 'createPresenceModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+  'aria-hidden' => 'true'}
+  .modal-header
+    %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+    %h3= 'New presence'
+  .modal-body
+    = render 'presence/form', :presence => @lesson.presences.new
