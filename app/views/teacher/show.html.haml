@@ -1,4 +1,5 @@
-= render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+- breadcrumb :curator, @semester, @teacher
+= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
 
 %h2.horizontal_centered= @teacher.full_name
 
@@ -10,5 +11,4 @@
       %td= double_class.study_group.group.name
 
 %h3.horizontal_centered= I18n.t('active_admin.schedule.title_index')
-
 = render 'application/schedule'

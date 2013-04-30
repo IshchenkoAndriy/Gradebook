@@ -18,6 +18,8 @@ gem 'ckeditor', :git => 'git://github.com/galetahub/ckeditor.git'
 gem 'nivo-rails'
 gem 'highcharts-rails', '~> 3.0.0'
 gem 'bootstrap-sass'
+gem 'simple-navigation'
+gem 'gretel'
 
 group :development do
 	gem 'webrick', '1.3.1'

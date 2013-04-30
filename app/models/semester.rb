@@ -18,4 +18,9 @@ class Semester < ActiveRecord::Base
       :title => self.title
     ]
   end
+
+  def self.recent_semesters
+    Semester.order('created_at DESC').limit(10)
+  end
+
 end

@@ -6,7 +6,13 @@
 	</li>
   <% end %>
   <li>
-  	<%= link_to t('app.study_title'), semesters_path %>
+
+    <% current_semester = Semester.last %>
+    <% if current_semester %>
+        <%= link_to t('app.study_title'), semester_groups_path(current_semester) %>
+    <% else %>
+        <%= link_to t('app.study_title'), semesters_path %>
+    <% end %>
   </li>
 </ul>
 
@@ -17,7 +23,12 @@
     </li>
     <% if can? :read, Lesson %>
       <li>
-        <%= link_to('My lessons', teacher_semesters_path) %>
+        <% current_semester = Teacher.find(current_user.teacher_id).last_teacher_semester %>
+        <% if current_semester %>
+          <%= link_to('My lessons', teacher_semester_double_classes_path(current_semester)) %>
+        <% else %>
+          <%= link_to('My lessons', teacher_semesters_path) %>
+        <% end %>
       </li>
     <% end %>
 	<li>

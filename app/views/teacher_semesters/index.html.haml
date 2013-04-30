@@ -1,4 +1,5 @@
-= render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+- breadcrumb :teacher_semesters
+= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
 
 - if @semesters
   %table.table.table-hover

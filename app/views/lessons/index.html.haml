@@ -1,4 +1,5 @@
-= render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+- breadcrumb :lessons, @double_class
+= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
 
 - if @lessons and not @lessons.empty?
   %table.table.table-hover
@@ -17,7 +18,7 @@
         %td= link_to 'Marks', lesson_lesson_mark_index_path(lesson)
         %td= link_to 'Presences', lesson_presence_index_path(lesson)
         %td
-          = link_to 'Edit lesson', "#editLessonModal#{lesson.id}", {:class => 'btn', 'data-toggle' => 'modal'}
+          = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editLessonModal#{lesson.id}", {'data-toggle' => 'modal'}
 
           -# Modal
           .modal.hide.fade{:id => "editLessonModal#{lesson.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
@@ -28,7 +29,7 @@
             .modal-body
               = render 'lessons/form', :lesson => lesson
 
-          = link_to 'Delete Lesson', lesson_path(lesson), :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_path(lesson), :confirm => 'Are you sure?', :method => :delete
 - else
   = 'You do not any lessons yet'
 

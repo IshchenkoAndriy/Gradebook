@@ -37,3 +37,5 @@ body {background:#eee;font-family: 'Open Sans', Helvetica, sans-serif;color:#555
 .article-info{background:#eee;color:#888;font-size:12px;padding:5px;margin-top:-10px}
 .article-text{padding:10px 0}
 .article-add{position:absolute;top:20px;right:10px}
+
+.nav-list {margin-top: 1px}

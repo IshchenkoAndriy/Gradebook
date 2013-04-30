@@ -34,6 +34,10 @@ class DoubleClass < ActiveRecord::Base
   def schedules_list
     self.schedules.map { |schedule| schedule.to_hash }
   end
+
+  def title
+    '%s %s %s' % [self.study_group.group.name, self.double_class_type.name, self.name]
+  end
   
   def to_hash
     Hash[

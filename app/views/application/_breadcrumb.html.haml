@@ -1,0 +1,11 @@
+%div{:class => breadcrumb_wrapper_class}
+  %ul.breadcrumb
+    - breadcrumbs do |links|
+      - if links.any?
+        - links[0..-2].each do |link|
+          %li
+            = link_to link.text, link.url
+            %span.divider
+              = '/'
+        %li.active
+          = links.last.text

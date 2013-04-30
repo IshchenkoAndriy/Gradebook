@@ -1,8 +1,10 @@
+- breadcrumb :study_group_students, @study_group
+
 - if @group_double_classes.nil? or @group_double_classes.empty?
-  = render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+  = render 'application/breadcrumb', breadcrumb_wrapper_class: ''
 - else
   .row
-    = render 'application/statistic_navigation', breadcrumb_wrapper_class: 'g_9'
+    = render 'application/breadcrumb', breadcrumb_wrapper_class: 'g_9'
     .g_3
       .btn-group.pull-right{:id => :double_classes_dropdown}
         %button.btn.dropdown-toggle{:id => :double_classes_dropdown, 'data-toggle' => 'dropdown'}
@@ -16,21 +18,38 @@
             %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name],
                   url_for( semester_group_students_path(@semester, @study_group, :double_class_id => double_class.id) )
 
-- unless @choosed_double_class.nil?
+- if @choosed_double_class.nil?
+  .row
+    .well.g_3
+      = render_navigation do |primary|
+        - @recent_semesters.each do |semester|
+          - primary.item :semester, semester.name, semester_groups_path(semester) do |semester_subitem|
+            - semester.study_groups.each do |study_group|
+              - semester_subitem.item :group, study_group.name, semester_group_students_path(semester, study_group), :highlights_on => /groups\/#{study_group.id}/
+            - semester_subitem.dom_class = 'nav nav-list'
+        - primary.dom_class = 'nav nav-list'
+
+    .g_9
+      %table.table.table-hover.marks_table
+        - unless @choosed_double_class.nil?
+          %th= I18n.t('active_admin.student.menu')
+        - @students_in_group.each do |student_in_group|
+          %tr
+            %td= link_to student_in_group.full_name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
+- else
   %h2.horizontal_centered= @choosed_double_class.subject.name
   %h4= @choosed_double_class.double_class_type.name
   %h4= @choosed_double_class.teacher.full_name
 
-
-%table.table.table-bordered.table-hover.marks_table
-  - unless @choosed_double_class.nil?
-    %th= I18n.t('active_admin.student.menu')
-    - @choosed_double_class.lessons.each_with_index do |lesson, index|
-      %th= '%s №%i %s' % [@choosed_double_class.double_class_type.name, index + 1, lesson.date]
-  - @students_in_group.each do |student_in_group|
-    %tr
-      %td= link_to student_in_group.full_name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
-      - unless @choosed_double_class.nil?
-        - @choosed_double_class.lessons.each do |lesson|
-          - student_mark = lesson.lesson_marks.find_by_student_id(student_in_group.student_id)
-          %td.horizontal_centered.centered_cell= student_mark.score unless student_mark.nil?
+  %table.table.table-bordered.table-hover.marks_table
+    - unless @choosed_double_class.nil?
+      %th= I18n.t('active_admin.student.menu')
+      - @choosed_double_class.lessons.each do |lesson|
+        %th= '%s %s' % [@choosed_double_class.double_class_type.name, lesson.description]
+    - @students_in_group.each do |student_in_group|
+      %tr
+        %td= link_to student_in_group.full_name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
+        - unless @choosed_double_class.nil?
+          - @choosed_double_class.lessons.each do |lesson|
+            - student_mark = lesson.lesson_marks.find_by_student_id(student_in_group.student_id)
+            %td.horizontal_centered.centered_cell= student_mark.score unless student_mark.nil?

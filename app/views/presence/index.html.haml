@@ -1,3 +1,5 @@
+- breadcrumb :presences, @lesson
+= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
 
 - if @presences and not @presences.empty?
   %table.table.table-hover
@@ -8,7 +10,7 @@
         %td= presence.module
         %td
           -# Button to trigger modal
-          = link_to 'Edit mark', "#editPresenceModal#{presence.id}", {:class => 'btn', 'data-toggle' => 'modal'}
+          = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editPresenceModal#{presence.id}", {'data-toggle' => 'modal'}
 
           -# Modal
           .modal.hide.fade{:id => "editPresenceModal#{presence.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
@@ -19,7 +21,7 @@
             .modal-body
               = render 'presence/form', :presence => presence
 
-          = link_to 'Delete presence', lesson_presence_path(@lesson, presence), :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_presence_path(@lesson, presence), :confirm => 'Are you sure?', :method => :delete
 
 - else
   = 'This lesson do not have presences'

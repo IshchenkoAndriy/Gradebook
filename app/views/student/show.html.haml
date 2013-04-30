@@ -1,11 +1,11 @@
-= render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+- breadcrumb :student, @student_in_group
+= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
 
 %h2.horizontal_centered= @student_in_group.student.full_name
 
 .row
   .g_12
     %div{:id => 'lesson_marks_chart'}
-
 .row
   .g_6
     %div{:id => 'lesson_presence_pie'}

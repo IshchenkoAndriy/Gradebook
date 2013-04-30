@@ -1,3 +1,6 @@
+- breadcrumb :additional_marks, @double_class
+= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
+
 - if @additional_marks and not @additional_marks.empty?
   %table.table.table-hover
     - @additional_marks.each do |additional_mark|
@@ -9,7 +12,7 @@
         %td= additional_mark.score
         %td
           -# Button to trigger modal
-          = link_to 'Edit additional mark', "#editAdditionalMarkModal#{additional_mark.id}", {:class => 'btn', 'data-toggle' => 'modal'}
+          = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editAdditionalMarkModal#{additional_mark.id}", {'data-toggle' => 'modal'}
 
           -# Modal
           .modal.hide.fade{:id => "editAdditionalMarkModal#{additional_mark.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
@@ -20,7 +23,7 @@
             .modal-body
               = render 'additional_mark/form', :additional_mark => additional_mark
 
-          = link_to 'Delete additional mark', double_class_additional_mark_path(@double_class, additional_mark), :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+          = link_to content_tag( :i, '', :class => 'icon-trash' ), double_class_additional_mark_path(@double_class, additional_mark), :confirm => 'Are you sure?', :method => :delete
 - else
   = 'This lesson do not have additional marks'
 

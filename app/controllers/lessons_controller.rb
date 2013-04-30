@@ -4,16 +4,9 @@ class LessonsController < ApplicationController
 
   def index
     logger.debug "Teacher id: #{current_user.teacher_id}"
-
     @double_class = DoubleClass.find(params[:double_class_id])
     authorize! :read, @double_class
     @lessons = @double_class.lessons.all
-
-    @navigation = [
-        {name: I18n.t("active_admin.semester.menu"), url: teacher_semesters_path},
-        {name: @double_class.study_group.semester.name, url: teacher_semester_double_classes_path(@double_class.study_group.semester)},
-        {name: @double_class.name, url: nil},
-    ]
   end
 
   def create

@@ -1,4 +1,5 @@
--#= render 'application/statistic_navigation', breadcrumb_wrapper_class: ''
+- breadcrumb :lesson_marks, @lesson
+= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
 
 - if @lesson_marks and not @lesson_marks.empty?
   %table.table.table-hover
@@ -9,7 +10,7 @@
         %td= lesson_mark.score
         %td
           -# Button to trigger modal
-          = link_to 'Edit mark', "#editLessonMarkModal#{lesson_mark.id}", {:class => 'btn', 'data-toggle' => 'modal'}
+          = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editLessonMarkModal#{lesson_mark.id}", {'data-toggle' => 'modal'}
 
           -# Modal
           .modal.hide.fade{:id => "editLessonMarkModal#{lesson_mark.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
@@ -20,7 +21,7 @@
             .modal-body
               = render 'lesson_mark/form', :lesson_mark => lesson_mark
 
-          = link_to 'Delete mark', lesson_lesson_mark_path(@lesson, lesson_mark), :class => 'btn', :confirm => 'Are you sure?', :method => :delete
+          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_lesson_mark_path(@lesson, lesson_mark), :confirm => 'Are you sure?', :method => :delete
 - else
   = 'This lesson do not have marks'
 
