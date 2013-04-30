@@ -13,6 +13,6 @@
       - @groups.each do |group|
         %tr
           %td= group.name
-          %td= link_to "Студенти", url_for( semester_group_students_path(@semester, group) )
+          %td= link_to I18n.t('students_title'), url_for( semester_group_students_path(@semester, group) )
           %td= link_to group.teacher.full_name, url_for( semester_teacher_path(@semester, group.teacher) )
-          %td= link_to I18n.t('active_admin.schedule.title_index'), url_for( semester_group_group_schedule_index_path(@semester, group) )
+          %td= link_to I18n.t('schedule_title'), url_for( semester_group_group_schedule_index_path(@semester, group) )

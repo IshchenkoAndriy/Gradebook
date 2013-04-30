@@ -1,7 +1,0 @@
-uk:
-  active_admin:
-    double_class:
-      title_index: "Список занять"
-      details: "Інформація про заняття"
-      new_action: "Додати нове заняття"
-      edit_action: "Редагувати інформацію"

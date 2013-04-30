@@ -4,5 +4,10 @@ class Mark < ActiveRecord::Base
   belongs_to :student
   
   validates :student, :date, :score, :module, :presence => true
-  validates :score, :module, :numericality => { :only_integer => true }
+  validates :score, :numericality => { :only_integer => true,
+                                       :greater_than_or_equal_to => MIN_SCORE_VALUE,
+                                       :less_than_or_equal_to => MAX_SCORE_VALUE }
+  validates :module, :numericality => { :only_integer => true,
+                                        :greater_than_or_equal_to => 1,
+                                        :less_than_or_equal_to => NUMBER_OF_MODULES }
 end

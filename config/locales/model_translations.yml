@@ -58,8 +58,8 @@ uk:
         many: "Типів занять" 
         other: "Типи занять"
       double_class:
-        one:  "Заняття"
-        few:  "Занять"
+        one: "Заняття"
+        few: "Занять"
         many: "Занять"
         other: "Заняття"
       schedule:
@@ -67,6 +67,26 @@ uk:
         few:  ""
         many: ""
         other: ""
+      lesson:
+        one: "Заняття"
+        few: "Занять"
+        many: "Занять"
+        other: "Заняття"
+      lesson_mark:
+        one: "Оцінка"
+        few: "Оцінки"
+        many: "Оцінок"
+        other: "Оцінки"
+      presence:
+        one: "Відвідування"
+        few: "Відвідування"
+        many: "Відвідування"
+        other: "Відвідування"
+      additional_mark:
+        one: "Додаткова оцінка"
+        few: "Додаткові оцінки"
+        many: "Додаткових оцінок"
+        other: "Додаткові оцінки"
     attributes:
       admin_user:
         email: "Електронна пошта"
@@ -144,3 +164,24 @@ uk:
         double_class_number: "Номер пари"
         day_of_week: "День тижня"
         classroom_number: "Номер аудиторії"
+      lesson:
+        date: "Дата заняття"
+        description: "Назва"
+      lesson_mark:
+        lesson: "Заняття"
+        date: "Дата додання оцінки"
+        student: "Студент"
+        score: "Бали"
+        module: "Модуль"
+      presence:
+        lesson: "Заняття"
+        student: "Студент"
+        was_present: "Присунтій?"
+        module: "Модуль"
+      additional_mark:
+        date: "Дата додання оцінки"
+        study_type: "Тип роботи"
+        study_description: "Назва роботи"
+        student: "Студент"
+        score: "Бали"
+        module: "Модуль"

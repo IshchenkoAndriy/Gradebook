@@ -9,7 +9,7 @@
       .btn-group.pull-right{:id => :double_classes_dropdown}
         %button.btn.dropdown-toggle{:id => :double_classes_dropdown, 'data-toggle' => 'dropdown'}
           - if @choosed_double_class.nil?
-            = I18n.t('active_admin.subject.menu')
+            = I18n.t('subjects_title')
           - else
             = @choosed_double_class.subject.name
           %span.caret
@@ -32,7 +32,7 @@
     .g_9
       %table.table.table-hover.marks_table
         - unless @choosed_double_class.nil?
-          %th= I18n.t('active_admin.student.menu')
+          %th= I18n.t('students_title')
         - @students_in_group.each do |student_in_group|
           %tr
             %td= link_to student_in_group.full_name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
@@ -43,7 +43,7 @@
 
   %table.table.table-bordered.table-hover.marks_table
     - unless @choosed_double_class.nil?
-      %th= I18n.t('active_admin.student.menu')
+      %th= I18n.t('students_title')
       - @choosed_double_class.lessons.each do |lesson|
         %th= '%s %s' % [@choosed_double_class.double_class_type.name, lesson.description]
     - @students_in_group.each do |student_in_group|

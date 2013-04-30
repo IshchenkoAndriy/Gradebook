@@ -4,19 +4,19 @@
 - if @lessons and not @lessons.empty?
   %table.table.table-hover
     %tr
-      %th= 'Date'
-      %th= 'Type'
-      %th= 'Description'
-      %th= 'Marks'
-      %th= 'Presences'
-      %th= 'Actions'
+      %th= t('lessons_table.date')
+      %th= t('lessons_table.type')
+      %th= t('lessons_table.description')
+      %th= t('marks_title')
+      %th= t('presence_title')
+      %th= t('lessons_table.actions')
     - @lessons.each do |lesson|
       %tr
         %td= lesson.date
         %td= lesson.double_class.double_class_type.name
         %td= lesson.description
-        %td= link_to 'Marks', lesson_lesson_mark_index_path(lesson)
-        %td= link_to 'Presences', lesson_presence_index_path(lesson)
+        %td= link_to t('marks_title'), lesson_lesson_mark_index_path(lesson)
+        %td= link_to t('presence_title'), lesson_presence_index_path(lesson)
         %td
           = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editLessonModal#{lesson.id}", {'data-toggle' => 'modal'}
 
@@ -25,23 +25,22 @@
             'aria-hidden' => 'true'}
             .modal-header
               %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-              %h3= 'New lesson'
+              %h3= t('edit_lesson_title')
             .modal-body
               = render 'lessons/form', :lesson => lesson
 
-          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_path(lesson), :confirm => 'Are you sure?', :method => :delete
+          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_path(lesson), :confirm => t('lesson_destroy_confirm'), :method => :delete
 - else
-  = 'You do not any lessons yet'
-
+  %h4.horizontal_centered= t('no_lessons_title')
 
 -# Button to trigger modal
-= link_to 'Create new lesson', '#createLessonModal', {:class => 'btn', 'data-toggle' => 'modal'}
+= link_to t('new_lesson_title'), '#createLessonModal', {:class => 'btn', 'data-toggle' => 'modal'}
 
 -# Modal
 .modal.hide.fade{:id => 'createLessonModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
   'aria-hidden' => 'true'}
   .modal-header
     %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-    %h3= 'New lesson'
+    %h3= t('new_lesson_title')
   .modal-body
     = render 'lessons/form', :lesson => @double_class.lessons.new

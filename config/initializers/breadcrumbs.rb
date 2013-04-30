@@ -3,7 +3,7 @@
 Gretel::Crumbs.layout do
   # User crumbs
   crumb :semesters do
-    link I18n.t("active_admin.semester.menu"), semesters_path
+    link I18n.t('breadcrumb.semesters_title'), semesters_path
   end
 
   crumb :semester_study_groups do |semester|
@@ -22,12 +22,12 @@ Gretel::Crumbs.layout do
   end
 
   crumb :schedule do |study_group|
-    link '%s %s' % [study_group.group.name, I18n.t('active_admin.schedule.title_index')], '#'
+    link '%s %s' % [study_group.group.name, I18n.t('breadcrumb.schedule_title')], '#'
     parent :semester_study_groups, study_group.semester
   end
 
   crumb :semester_teachers do |semester|
-    link 'Teacher list', semester_teacher_index_path(semester)
+    link I18n.t('breadcrumb.list_of_teachers_index'), semester_teacher_index_path(semester)
     parent :semester_study_groups, semester
   end
 
@@ -38,7 +38,7 @@ Gretel::Crumbs.layout do
 
   # Teacher crumbs
   crumb :teacher_semesters do
-    link I18n.t("active_admin.semester.menu"), teacher_semesters_path
+    link I18n.t('breadcrumb.semesters_title'), teacher_semesters_path
   end
 
   crumb :double_classes do |semester|
@@ -47,22 +47,22 @@ Gretel::Crumbs.layout do
   end
 
   crumb :lessons do |double_class|
-    link double_class.title + ' Lessons', double_class_lessons_path(double_class)
+    link '%s | %s' % [double_class.title, I18n.t('lessons_title')], double_class_lessons_path(double_class)
     parent :double_classes, double_class.study_group.semester
   end
 
   crumb :lesson_marks do |lesson|
-    link 'Marks', lesson_lesson_mark_index_path(lesson)
+    link I18n.t('marks_title'), lesson_lesson_mark_index_path(lesson)
     parent :lessons, lesson.double_class
   end
 
   crumb :presences do |lesson|
-    link 'Presences', lesson_presence_index_path(lesson)
+    link I18n.t('presence_title'), lesson_presence_index_path(lesson)
     parent :lessons, lesson.double_class
   end
 
   crumb :additional_marks do |double_class|
-    link double_class.title + ' Additional marks', double_class_additional_mark_index_path(double_class)
+    link '%s | %s' % [double_class.title, I18n.t('additional_marks_title')], double_class_additional_mark_index_path(double_class)
     parent :double_classes, double_class.study_group.semester
   end
 end

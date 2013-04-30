@@ -11,7 +11,9 @@ class DoubleClass < ActiveRecord::Base
 
   validates :study_group, :double_class_type, :subject, :teacher, :presence_score, :presence => true
 
-  validates :presence_score, :numericality => { :only_integer => true }
+  validates :presence_score, :numericality => { :only_integer => true,
+                                       :greater_than_or_equal_to => MIN_SCORE_VALUE,
+                                       :less_than_or_equal_to => MAX_SCORE_VALUE }
 
   validate do
     update_create_schedules = schedules.reject(&:marked_for_destruction?)
@@ -36,7 +38,7 @@ class DoubleClass < ActiveRecord::Base
   end
 
   def title
-    '%s %s %s' % [self.study_group.group.name, self.double_class_type.name, self.name]
+    '%s - %s' % [self.study_group.group.name, self.name]
   end
   
   def to_hash

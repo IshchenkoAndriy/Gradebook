@@ -1,0 +1,80 @@
+uk:
+  breadcrumb:
+    semesters_title: "Семестри"
+    schedule_title: "Розклад"
+    list_of_teachers_index: "Список викладачів"
+
+  days:
+    monday: "Понеділок"
+    tuesday: "Вівторок"
+    wednesday: "Середа"
+    thursday: "Четвер"
+    friday: "П'ятниця"
+    saturday: "Субота"
+    sunday: "Неділя"
+
+  students_title: "Студенти"
+  schedule_title: "Розклад"
+  subjects_title: "Навчальні дисципліни"
+
+  no_semesters_title: "Не знайдено семестри в яких ви можете вводити та редагувати данні"
+
+  lessons_title: "Заняття"
+  edit_lesson_title: "Редагувати заняття"
+  new_lesson_title: "Додати нове заняття"
+  no_lessons_title: "Для цього предменту не створено жодного заняття"
+  create_lesson: "Створити заняття"
+  update_lesson: "Оновити заняття"
+  lesson_destroy_confirm: "Ви впевнені, що хочете видалити це заняття?"
+  lesson_description_hint: "В це поле необхідно ввести номер заняття. Допустимі варіанти: №1, №1-2 або #1"
+  lessons_table:
+    date: "Дата заняття"
+    type: "Тип заняття"
+    description: "Назва"
+    actions: "Редагувати/Видалити"
+
+  marks_title: "Оцінки"
+  edit_mark_title: "Редагувати оцінку"
+  new_mark_title: "Додати нову оцінку"
+  no_marks_title: "Для цього заняття не додано жодної оцінки"
+  create_mark: "Створити оцінку"
+  update_mark: "Оновити оцінку"
+  mark_destroy_confirm: "Ви впевнені, що хочете видалити цю оцінку?"
+  marks_table:
+    date: "Дата додання оцінки"
+    student: "Студент"
+    score: "Бали"
+    module: "Модуль"
+    actions: "Редагувати/Видалити"
+
+  presence_title: "Відвідування"
+  edit_presence_title: "Редагувати інформації про відвідування"
+  new_presence_title: "Додати інформації про відвідування"
+  no_presence_title: "Для цього заняття не додано інформації про відвідування"
+  create_presence: "Додати інформації про відвідування"
+  update_presence: "Оновити інформації про відвідування"
+  presence_destroy_confirm: "Ви впевнені, що хочете видалити цю інформації про відвідування?"
+  presence_states:
+    present_title: "Присутній"
+    absent_title: "Відсутній"
+  presence_table:
+      student: "Студент"
+      presence: "Відвідування"
+      module: "Модуль"
+      actions: "Редагувати/Видалити"
+
+  additional_marks_title: "Додаткові оцінки"
+  edit_additional_mark_title: "Редагувати додаткову оцінку"
+  new_additional_mark_title: "Додати нову додаткову оцінку"
+  no_additional_marks_title: "Для цього предмету не додано жодної додаткової оцінки"
+  create_additional_mark: "Створити додаткову оцінку"
+  update_additional_mark: "Оновити додаткову оцінку"
+  additional_mark_destroy_confirm: "Ви впевнені, що хочете видалити цю додаткову оцінку?"
+  additional_marks_table:
+    date: "Дата додання оцінки"
+    study_type: "Тип роботи"
+    study_description: "Назва роботи"
+    student: "Студент"
+    score: "Бали"
+    module: "Модуль"
+    actions: "Редагувати/Видалити"

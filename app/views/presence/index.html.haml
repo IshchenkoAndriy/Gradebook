@@ -3,10 +3,15 @@
 
 - if @presences and not @presences.empty?
   %table.table.table-hover
+    %tr
+      %th= t('presence_table.student')
+      %th= t('presence_table.presence')
+      %th= t('presence_table.module')
+      %th= t('presence_table.actions')
     - @presences.each do |presence|
-      %tr
+      %tr{:class => presence.was_present ? 'success' : 'error' }
         %td= presence.student.full_name
-        %td= presence.was_present
+        %td= presence.was_present ? t('presence_states.present_title') : t('presence_states.absent_title')
         %td= presence.module
         %td
           -# Button to trigger modal
@@ -17,23 +22,23 @@
             'aria-hidden' => 'true'}
             .modal-header
               %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-              %h3= 'Edit presence'
+              %h3= t('edit_presence_title')
             .modal-body
               = render 'presence/form', :presence => presence
 
-          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_presence_path(@lesson, presence), :confirm => 'Are you sure?', :method => :delete
+          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_presence_path(@lesson, presence), :confirm => t('presence_destroy_confirm'), :method => :delete
 
 - else
-  = 'This lesson do not have presences'
+  %h4.horizontal_centered= t('no_presence_title')
 
 -# Button to trigger modal
-= link_to 'Create new presence', '#createPresenceModal', {:class => 'btn', 'data-toggle' => 'modal'}
+= link_to t('new_presence_title'), '#createPresenceModal', {:class => 'btn', 'data-toggle' => 'modal'}
 
 -# Modal
 .modal.hide.fade{:id => 'createPresenceModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
   'aria-hidden' => 'true'}
   .modal-header
     %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-    %h3= 'New presence'
+    %h3= t('new_presence_title')
   .modal-body
     = render 'presence/form', :presence => @lesson.presences.new

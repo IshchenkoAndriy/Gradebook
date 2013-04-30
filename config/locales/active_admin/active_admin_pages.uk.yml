@@ -1,0 +1,119 @@
+uk:
+  active_admin:
+    admin_user:
+      menu: "Адміністратори"
+      title_index: "Список адміністраторів"
+      details: "Інформація про адміністратора"
+      new_action: "Додати адміністратора"
+      edit_action: "Редагувати інформацію"
+
+    double_class:
+      title_index: "Список занять"
+      details: "Інформація про заняття"
+      new_action: "Додати нове заняття"
+      edit_action: "Редагувати інформацію"
+
+    double_class_type:
+      menu: "Типи занять"
+      title_index: "Список типів занять"
+      details: "Інформація про тип занять"
+      new_action: "Додати тип занять"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"
+
+    group:
+      menu: "Групи"
+      title_index: "Список груп"
+      details: "Інформація про прупу"
+      new_action: "Створити групу"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"
+      students_in_group_header: "Студенти"
+      students_in_group_link: "Список студентів"
+      double_class_header: "Заняття"
+      double_class_link: "Список занять"
+      semesters: "Семестри"
+      subjects_link: "Список навчальних дисциплін"
+
+    schedule:
+      title_index: "Розклад"
+      numerator: "Чисельник"
+      denominator: "Знаменник"
+      numerator_and_denominator: "Чисельник і Знаменник"
+      first_n_second_subgroup: "1 і 2"
+      days:
+        monday: "Понеділок"
+        tuesday: "Вівторок"
+        wednesday: "Середа"
+        thursday: "Четвер"
+        friday: "П'ятниця"
+        saturday: "Субота"
+        sunday: "Неділя"
+      invalid_value: "Невірне значення"
+      error_format_string: '%s / %i пара / %s підгрупа / %s | %s | %s | %s'
+      schedule_exist_for_group: 'Розклад на даний вже день існує для групи: '
+      schedule_exist_for_teacher: 'Розклад на даний вже день існує для викладача: '
+
+    semester:
+      menu: "Семестри"
+      title_index: "Список семестрів"
+      details: "Інформація про семестр"
+      new_action: "Додати новий семестр"
+      edit_action: "Редагувати інформацію"
+      group_header: "Групи"
+      group_link: "Список груп"
+
+    student:
+      menu: "Студенти"
+      title_index: "Список студентів"
+      details: "Інформація про студента"
+      new_action: "Додати студента"
+      edit_action: "Редагувати інформацію"
+      search_last_name: "прізвищу"
+      search_first_name: "імені"
+
+    students_in_group:
+      menu: "Студени в групі"
+      new_action: "Додати студента до групи"
+      edit_action: "Редагувати інформацію"
+      title_index: "Список студентів групи"
+
+    study_group:
+      title_index: "Список груп в семестрі"
+      details: "Інформація про групу"
+      new_action: "Додати нову групу до семестру"
+      edit_action: "Редагувати інформацію"
+
+    study_type:
+      menu: "Типи робіт"
+      title_index: "Список типів робіт"
+      details: "Інформація про тип роботи"
+      new_action: "Додати тип роботи"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"
+
+    subject:
+      menu: "Навчальні дисципліни"
+      title_index: "Список навчальних дисциплін"
+      details: "Інформація про навчальну дисципліну"
+      new_action: "Створити навчальну дисципліну"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"
+      search_subject_type: "Форма семестрового контролю"
+
+    subject_type:
+      menu: "Форми семестрового контролю"
+      title_index: "Список форм семестрового контролю"
+      details: "Інформація про форму семестрового контролю"
+      new_action: "Додати форму семестрового контролю"
+      edit_action: "Редагувати інформацію"
+      search_name: "назві"
+
+    teacher:
+      menu: "Викладачі"
+      title_index: "Список викладачів"
+      details: "Інформація про викладача"
+      new_action: "Додати викладача"
+      edit_action: "Редагувати інформацію"
+      search_last_name: "прізвищу"
+      search_first_name: "імені"

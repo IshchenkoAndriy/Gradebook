@@ -7,4 +7,4 @@
       %tr
         %td= link_to semester.name, teacher_semester_double_classes_path(semester)
 - else
-  = 'You do not teach in any semesters yet'
+  %h4.horizontal_centered= t('no_semesters_title')

@@ -3,11 +3,18 @@
 
 - if @lesson_marks and not @lesson_marks.empty?
   %table.table.table-hover
+    %tr
+      %th= t('marks_table.date')
+      %th= t('marks_table.student')
+      %th= t('marks_table.score')
+      %th= t('marks_table.module')
+      %th= t('marks_table.actions')
     - @lesson_marks.each do |lesson_mark|
       %tr
         %td= lesson_mark.date
         %td= lesson_mark.student.full_name
         %td= lesson_mark.score
+        %td= lesson_mark.module
         %td
           -# Button to trigger modal
           = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editLessonMarkModal#{lesson_mark.id}", {'data-toggle' => 'modal'}
@@ -17,22 +24,22 @@
             'aria-hidden' => 'true'}
             .modal-header
               %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-              %h3= 'New mark'
+              %h3= t('edit_mark_title')
             .modal-body
               = render 'lesson_mark/form', :lesson_mark => lesson_mark
 
-          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_lesson_mark_path(@lesson, lesson_mark), :confirm => 'Are you sure?', :method => :delete
+          = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_lesson_mark_path(@lesson, lesson_mark), :confirm => t('mark_destroy_confirm'), :method => :delete
 - else
-  = 'This lesson do not have marks'
+  %h4.horizontal_centered= t('no_marks_title')
 
 -# Button to trigger modal
-= link_to 'Create new mark', '#createLessonMarkModal', {:class => 'btn', 'data-toggle' => 'modal'}
+= link_to t('new_mark_title'), '#createLessonMarkModal', {:class => 'btn', 'data-toggle' => 'modal'}
 
 -# Modal
 .modal.hide.fade{:id => 'createLessonMarkModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
   'aria-hidden' => 'true'}
   .modal-header
     %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-    %h3= 'New mark'
+    %h3= t('new_mark_title')
   .modal-body
     = render 'lesson_mark/form', :lesson_mark => @lesson.lesson_marks.new

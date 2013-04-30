@@ -1,7 +1,0 @@
-uk:
-  active_admin:
-    students_in_group:
-      menu: "Студени в групі"
-      new_action: "Додати студента до групи"
-      edit_action: "Редагувати інформацію"
-      title_index: "Список студентів групи"

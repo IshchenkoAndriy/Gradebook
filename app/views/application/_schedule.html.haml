@@ -1,10 +1,10 @@
 .schedule_div
   %table.schedule_table.table-hover
-    - [I18n.t('active_admin.schedule.days.monday'),
-        I18n.t('active_admin.schedule.days.tuesday'),
-        I18n.t('active_admin.schedule.days.wednesday'),
-        I18n.t('active_admin.schedule.days.thursday'),
-        I18n.t('active_admin.schedule.days.friday')].each do |day_name|
+    - [I18n.t('days.monday'),
+        I18n.t('days.tuesday'),
+        I18n.t('days.wednesday'),
+        I18n.t('days.thursday'),
+        I18n.t('days.friday')].each do |day_name|
       %th= day_name
     - (1..5).each do |double_class|
       %tr

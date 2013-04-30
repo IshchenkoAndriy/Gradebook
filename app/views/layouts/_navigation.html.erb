@@ -25,9 +25,9 @@
       <li>
         <% current_semester = Teacher.find(current_user.teacher_id).last_teacher_semester %>
         <% if current_semester %>
-          <%= link_to('My lessons', teacher_semester_double_classes_path(current_semester)) %>
+          <%= link_to(t('app.my_subjects_title'), teacher_semester_double_classes_path(current_semester)) %>
         <% else %>
-          <%= link_to('My lessons', teacher_semesters_path) %>
+          <%= link_to(t('app.my_subjects_title'), teacher_semesters_path) %>
         <% end %>
       </li>
     <% end %>

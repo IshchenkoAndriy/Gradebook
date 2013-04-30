@@ -15,5 +15,5 @@
           %td= double_class.study_group.group.name
           %td= double_class.double_class_type.name
           %td= double_class.name
-          %td= link_to 'Lessons', double_class_lessons_path(double_class)
-          %td= link_to 'Additional marks', double_class_additional_mark_index_path(double_class)
+          %td= link_to t('lessons_title'), double_class_lessons_path(double_class)
+          %td= link_to t('additional_marks_title'), double_class_additional_mark_index_path(double_class)

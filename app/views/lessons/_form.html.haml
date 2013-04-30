@@ -3,16 +3,16 @@
   :method => :post, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
       = f.input :date
-      = f.input :description
+      = f.input :description, hint: t('lesson_description_hint')
 
     .form-actions
-      = f.button :submit
+      = f.button :submit, t('create_lesson')
 - else
   = simple_form_for(lesson, :url => lesson_path(lesson),
   :method => :put, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
       = f.input :date
-      = f.input :description
+      = f.input :description, hint: t('lesson_description_hint')
 
     .form-actions
-      = f.button :submit
+      = f.button :submit, t('update_lesson')

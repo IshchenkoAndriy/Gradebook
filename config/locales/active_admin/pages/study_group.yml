@@ -1,7 +1,0 @@
-uk:
-  active_admin:
-    study_group:
-      title_index: "Список груп в семестрі"
-      details: "Інформація про групу"
-      new_action: "Додати нову групу до семестру"
-      edit_action: "Редагувати інформацію"
