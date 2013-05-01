@@ -4,5 +4,44 @@
 
 #double_classes_dropdown{height: 38px; width: 100%}
 .horizontal_centered{text-align: center !important;}
-.marks_table{overflow-x: auto; width: 940px; display: block}
-.marks_table tbody{display: table; width: 100%;}
+
+.students_table tbody {
+  display: table;
+  width: 100%;
+}
+
+.students_table {
+  width: 100%;
+  display: block;
+}
+
+.marks_table{
+  overflow-x: auto;
+  width: 80%;
+  display: block;
+  float: left
+}
+
+.marks_table td, th {
+  border-left: 1px solid lightgray;
+}
+
+.marks_table td:first-child, th:first-child {
+  border-left: 0;
+}
+
+.names {
+  display: block;
+  width: 19%;
+  float: left;
+  border-right: 1px solid lightgray;
+  overflow: hidden;
+}
+
+.header_height {
+  height: 50px;
+}
+
+.row_height {
+  height: 40px;
+}
