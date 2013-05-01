@@ -3,7 +3,10 @@
   :method => :post, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
       = f.association :lesson, label_method: :date, :default => lesson_mark.lesson
-      = f.association :student, label_method: :full_name, collection: lesson_mark.lesson.double_class.study_group.students
+      - if lesson_mark.student
+        = f.association :student, label_method: :full_name, collection: lesson_mark.lesson.double_class.study_group.students, :selected => lesson_mark.student_id
+      - else
+        = f.association :student, label_method: :full_name, collection: lesson_mark.lesson.double_class.study_group.students
       = f.input :date
       = f.input :score
       = f.input :module, collection: 1..NUMBER_OF_MODULES

@@ -14,7 +14,7 @@ class AdditionalMarkController < ApplicationController
     authorize! :read, @double_class
 
     if @additional_mark.save
-      redirect_to :back, notice: 'Additional successful saved'
+      redirect_to :back, notice: t('additional_mark_success_created')
     else
       redirect_to :back, alert: @additional_mark.errors.full_messages.to_s
     end
@@ -25,7 +25,7 @@ class AdditionalMarkController < ApplicationController
     authorize! :update, @additional_mark
 
     if @additional_mark.update_attributes(params[:additional_mark])
-      redirect_to :back, notice: 'Additional mark  successful updated'
+      redirect_to :back, notice: t('additional_mark_success_updated')
     else
       redirect_to :back, alert: @additional_mark.errors.full_messages.join(', ')
     end
@@ -36,6 +36,6 @@ class AdditionalMarkController < ApplicationController
     authorize! :destroy, @additional_mark
     @additional_mark.destroy
 
-    redirect_to :back, notice: 'Additional mark successful deleted'
+    redirect_to :back, notice: t('additional_mark_success_destroyed')
   end
 end

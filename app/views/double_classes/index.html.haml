@@ -7,7 +7,6 @@
       - @teacher_semesters.each do |semester|
         - primary.item :semester, semester.name, teacher_semester_double_classes_path(semester)
       - primary.dom_class = 'nav nav-list'
-
   .g_9
     %table.table.table-hover
       - @double_classes.each do |double_class|
@@ -15,5 +14,6 @@
           %td= double_class.study_group.group.name
           %td= double_class.double_class_type.name
           %td= double_class.name
+          %td= link_to t('visual_editor_title'), double_class_visual_editor_index_path(double_class)
           %td= link_to t('lessons_title'), double_class_lessons_path(double_class)
           %td= link_to t('additional_marks_title'), double_class_additional_mark_index_path(double_class)

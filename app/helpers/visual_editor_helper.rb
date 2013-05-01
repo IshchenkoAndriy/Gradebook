@@ -1,0 +1,2 @@
+module VisualEditorHelper
+end

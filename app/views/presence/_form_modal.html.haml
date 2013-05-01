@@ -1,0 +1,8 @@
+-# Modal
+.modal.hide.fade{:id => id, :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+  'aria-hidden' => 'true'}
+  .modal-header
+    %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+    %h3= presence.new_record? ? t('new_presence_title') : t('edit_presence_title')
+  .modal-body
+    = render 'presence/form', :presence => presence

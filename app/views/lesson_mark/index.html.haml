@@ -18,28 +18,10 @@
         %td
           -# Button to trigger modal
           = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editLessonMarkModal#{lesson_mark.id}", {'data-toggle' => 'modal'}
-
-          -# Modal
-          .modal.hide.fade{:id => "editLessonMarkModal#{lesson_mark.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
-            'aria-hidden' => 'true'}
-            .modal-header
-              %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-              %h3= t('edit_mark_title')
-            .modal-body
-              = render 'lesson_mark/form', :lesson_mark => lesson_mark
-
           = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_lesson_mark_path(@lesson, lesson_mark), :confirm => t('mark_destroy_confirm'), :method => :delete
+          = render 'lesson_mark/modal_form', :id => "editLessonMarkModal#{lesson_mark.id}", :lesson_mark => lesson_mark
 - else
   %h4.horizontal_centered= t('no_marks_title')
 
--# Button to trigger modal
 = link_to t('new_mark_title'), '#createLessonMarkModal', {:class => 'btn', 'data-toggle' => 'modal'}
-
--# Modal
-.modal.hide.fade{:id => 'createLessonMarkModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
-  'aria-hidden' => 'true'}
-  .modal-header
-    %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-    %h3= t('new_mark_title')
-  .modal-body
-    = render 'lesson_mark/form', :lesson_mark => @lesson.lesson_marks.new
+= render 'lesson_mark/modal_form', :id => 'createLessonMarkModal', :lesson_mark => @lesson.lesson_marks.new

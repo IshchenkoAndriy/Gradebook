@@ -18,7 +18,7 @@ class LessonMarkController < ApplicationController
     @new_lesson_mark = Lesson.find(params[:lesson_id]).lesson_marks.new(params[:lesson_mark])
 
     if @new_lesson_mark.save
-      redirect_to :back, notice: 'Lesson mark successful saved'
+      redirect_to :back, notice: t('mark_success_created')
     else
       redirect_to :back, alert: @new_lesson_mark.errors.full_messages.join(', ')
     end
@@ -32,7 +32,7 @@ class LessonMarkController < ApplicationController
     @lesson_mark = LessonMark.find(params[:id])
 
     if @lesson_mark.update_attributes(params[:lesson_mark])
-      redirect_to :back, notice: 'Lesson mark successful updated'
+      redirect_to :back, notice: t('mark_success_updated')
     else
       redirect_to :back, alert: @lesson_mark.errors.full_messages.join(', ')
     end
@@ -42,7 +42,7 @@ class LessonMarkController < ApplicationController
     @lesson_mark = LessonMark.find(params[:id])
     @lesson_mark.destroy
 
-    redirect_to :back
+    redirect_to :back, notice: t('mark_success_destroyed')
   end
 
 end

@@ -19,28 +19,10 @@
         %td= link_to t('presence_title'), lesson_presence_index_path(lesson)
         %td
           = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editLessonModal#{lesson.id}", {'data-toggle' => 'modal'}
-
-          -# Modal
-          .modal.hide.fade{:id => "editLessonModal#{lesson.id}", :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
-            'aria-hidden' => 'true'}
-            .modal-header
-              %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-              %h3= t('edit_lesson_title')
-            .modal-body
-              = render 'lessons/form', :lesson => lesson
-
           = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_path(lesson), :confirm => t('lesson_destroy_confirm'), :method => :delete
+          = render 'lessons/modal_form', :id => "editLessonModal#{lesson.id}", :lesson => lesson
 - else
   %h4.horizontal_centered= t('no_lessons_title')
 
--# Button to trigger modal
 = link_to t('new_lesson_title'), '#createLessonModal', {:class => 'btn', 'data-toggle' => 'modal'}
-
--# Modal
-.modal.hide.fade{:id => 'createLessonModal', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
-  'aria-hidden' => 'true'}
-  .modal-header
-    %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
-    %h3= t('new_lesson_title')
-  .modal-body
-    = render 'lessons/form', :lesson => @double_class.lessons.new
+= render 'lessons/modal_form', :id => 'createLessonModal', :lesson => @double_class.lessons.new

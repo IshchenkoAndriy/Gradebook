@@ -27,6 +27,9 @@ uk:
   update_lesson: "Оновити заняття"
   lesson_destroy_confirm: "Ви впевнені, що хочете видалити це заняття?"
   lesson_description_hint: "В це поле необхідно ввести номер заняття. Допустимі варіанти: №1, №1-2 або #1"
+  lesson_success_created: "Заняття успішно створено"
+  lesson_success_updated: "Заняття успішно оновлено"
+  lesson_success_destroyed: "Заняття успішно знищено"
   lessons_table:
     date: "Дата заняття"
     type: "Тип заняття"
@@ -40,6 +43,9 @@ uk:
   create_mark: "Створити оцінку"
   update_mark: "Оновити оцінку"
   mark_destroy_confirm: "Ви впевнені, що хочете видалити цю оцінку?"
+  mark_success_created: "Оцінка успішно створена"
+  mark_success_updated: "Оцінка успішно оновлена"
+  mark_success_destroyed: "Оцінка успішно знищена"
   marks_table:
     date: "Дата додання оцінки"
     student: "Студент"
@@ -54,6 +60,9 @@ uk:
   create_presence: "Додати інформації про відвідування"
   update_presence: "Оновити інформації про відвідування"
   presence_destroy_confirm: "Ви впевнені, що хочете видалити цю інформації про відвідування?"
+  presence_success_created: "Інформації про відвідування успішно додана"
+  presence_success_updated: "Інформації про відвідування успішно оновлена"
+  presence_success_destroyed: "Інформації про відвідування успішно знищена"
   presence_states:
     present_title: "Присутній"
     absent_title: "Відсутній"
@@ -70,6 +79,9 @@ uk:
   create_additional_mark: "Створити додаткову оцінку"
   update_additional_mark: "Оновити додаткову оцінку"
   additional_mark_destroy_confirm: "Ви впевнені, що хочете видалити цю додаткову оцінку?"
+  additional_mark_success_created: "Додаткова оцінка успішно створена"
+  additional_mark_success_updated: "Додаткова оцінка успішно оновлена"
+  additional_mark_success_destroyed: "Додаткова оцінка успішно знищена"
   additional_marks_table:
     date: "Дата додання оцінки"
     study_type: "Тип роботи"
@@ -78,3 +90,10 @@ uk:
     score: "Бали"
     module: "Модуль"
     actions: "Редагувати/Видалити"
+
+  visual_editor_title: "Графічний редактор"
+  visual_editor:
+    new_lesson_title: "Додати заняття"
+    new_additional_mark_title: "Додаткова оцінку"
+    present_short: "Прис."
+    absent_short: "Відс."

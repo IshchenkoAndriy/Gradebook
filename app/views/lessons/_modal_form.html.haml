@@ -1,0 +1,8 @@
+-# Modal
+.modal.hide.fade{:id => id, :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel',
+  'aria-hidden' => 'true'}
+  .modal-header
+    %button{:type => 'button', :class => 'close', 'data-dismiss' => 'modal', 'aria-hidden' => 'true'}= '×'
+    %h3= lesson.new_record? ? t('new_lesson_title') : t('edit_lesson_title')
+  .modal-body
+    = render 'lessons/form', :lesson => lesson

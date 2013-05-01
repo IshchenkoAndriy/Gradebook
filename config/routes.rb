@@ -52,8 +52,9 @@ Kntu::Application.routes.draw do
     resources :double_classes, :only => [:index]
   end
   resources :double_classes, :only =>[] do
-    resources :lessons, :only => [:index, :create]
+    resources :lessons, :only => [:index, :new, :create]
     resources :additional_mark
+    resources :visual_editor, :only => [:index]
   end
   resources :lessons, :only => [:update, :destroy] do
     resources :lesson_mark

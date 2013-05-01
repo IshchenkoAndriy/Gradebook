@@ -46,6 +46,11 @@ Gretel::Crumbs.layout do
     parent :teacher_semesters
   end
 
+  crumb :visual_editor do |double_class|
+    link '%s | %s' % [double_class.title, I18n.t('visual_editor_title')], double_class_visual_editor_index_path(double_class)
+    parent :double_classes, double_class.study_group.semester
+  end
+
   crumb :lessons do |double_class|
     link '%s | %s' % [double_class.title, I18n.t('lessons_title')], double_class_lessons_path(double_class)
     parent :double_classes, double_class.study_group.semester
