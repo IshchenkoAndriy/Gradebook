@@ -9,7 +9,7 @@
 
     <% current_semester = Semester.last %>
     <% if current_semester %>
-        <%= link_to t('app.study_title'), semester_groups_path(current_semester) %>
+        <%= link_to t('app.study_title'), semester_study_groups_path(current_semester) %>
     <% else %>
         <%= link_to t('app.study_title'), semesters_path %>
     <% end %>

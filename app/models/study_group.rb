@@ -14,4 +14,8 @@ class StudyGroup < ActiveRecord::Base
   def name
     self.group.name
   end
+
+  def all_students
+    self.students.order('last_name ASC').all
+  end
 end

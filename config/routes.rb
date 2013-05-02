@@ -36,15 +36,16 @@ Kntu::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   
   mount Ckeditor::Engine => '/ckeditor'
-  
+
+  # Student pages
   resources :articles
   resources :semesters, :only => [:index, :show] do
-    resources :groups, :only => [:index] do
-      resources :students, :only => [:index]
-      resources :student, :only => [:show]
-      resources :group_schedule, :only => [:index]
-    end
+    resources :study_groups, :only => [:index]
     resources :teacher, :only => [:index, :show]
+  end
+  resources :study_groups, :only => [] do
+    resources :students, :only => [:index, :show]
+    resources :group_schedule, :only => [:index]
   end
 
   # Teacher pages

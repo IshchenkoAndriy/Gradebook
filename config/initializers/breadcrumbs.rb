@@ -1,18 +1,18 @@
 # Remember to restart your application after editing this file.
 
 Gretel::Crumbs.layout do
-  # User crumbs
+  # Student crumbs
   crumb :semesters do
     link I18n.t('breadcrumb.semesters_title'), semesters_path
   end
 
   crumb :semester_study_groups do |semester|
-    link semester.name, semester_groups_path(semester)
+    link semester.name, semester_study_groups_path(semester)
     parent :semesters
   end
 
   crumb :study_group_students do |study_group|
-    link study_group.group.name, semester_group_students_path(study_group.semester, study_group)
+    link study_group.group.name, study_group_students_path(study_group)
     parent :semester_study_groups, study_group.semester
   end
 

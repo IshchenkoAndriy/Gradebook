@@ -4,4 +4,4 @@
 %table.table.table-hover
   - @semesters.each do |semester|
     %tr
-      %td= link_to semester.name, url_for( semester_groups_path(semester) )
+      %td= link_to semester.name, url_for( semester_study_groups_path(semester) )
