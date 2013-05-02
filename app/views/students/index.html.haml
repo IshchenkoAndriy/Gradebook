@@ -41,29 +41,33 @@
   %h4= @choosed_double_class.double_class_type.name
   %h4= @choosed_double_class.teacher.full_name
 
-  %div
-    %table.table.names
+  .row
+    %table.g_12
       %tr
-        %th.header_height.horizontal_centered.centered_cell= I18n.t('students_title')
-      - @students_in_group.each do |student_in_group|
-        %tr
-          %td.row_height.horizontal_centered.centered_cell= link_to student_in_group.full_name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
+        %td.td_names
+          %table.table.names
+            %tr
+              %th.header_height.horizontal_centered.centered_cell= I18n.t('students_title')
+            - @students_in_group.each do |student_in_group|
+              %tr
+                %td.row_height.horizontal_centered.centered_cell= link_to student_in_group.full_name, url_for( semester_group_student_path(@semester, @study_group, student_in_group) )
 
-    %table.table.marks_table
-      %tr
-        - unless @choosed_double_class.nil?
-          - @choosed_double_class.lessons.each do |lesson|
-            %th.header_height.horizontal_centered.centered_cell= '%s %s' % [@choosed_double_class.double_class_type.name, lesson.description]
-      - @students_in_group.each do |student_in_group|
-        %tr
-          - unless @choosed_double_class.nil?
-            - @choosed_double_class.lessons.each do |lesson|
-              - student_mark = lesson.lesson_marks.find_by_student_id(student_in_group.student_id)
-              - student_presence = lesson.presences.find_by_student_id(student_in_group.student_id)
-              %td.row_height.horizontal_centered.centered_cell
-                = student_mark.score unless student_mark.nil?
-                - unless student_presence.nil?
-                  - if student_presence.was_present
-                    %span.badge.badge-success= t('presence_states.present_title')
-                  - else
-                    %span.badge.badge-important= t('presence_states.absent_title')
+        %td.td_marks
+          %table.table.marks_table
+            %tr
+              - unless @choosed_double_class.nil?
+                - @choosed_double_class.lessons.each do |lesson|
+                  %th.header_height.horizontal_centered.centered_cell= '%s %s' % [@choosed_double_class.double_class_type.name, lesson.description]
+            - @students_in_group.each do |student_in_group|
+              %tr
+                - unless @choosed_double_class.nil?
+                  - @choosed_double_class.lessons.each do |lesson|
+                    - student_mark = lesson.lesson_marks.find_by_student_id(student_in_group.student_id)
+                    - student_presence = lesson.presences.find_by_student_id(student_in_group.student_id)
+                    %td.row_height.horizontal_centered.centered_cell
+                      = student_mark.score unless student_mark.nil?
+                      - unless student_presence.nil?
+                        - if student_presence.was_present
+                          %span.badge.badge-success= t('presence_states.present_title')
+                        - else
+                          %span.badge.badge-important= t('presence_states.absent_title')

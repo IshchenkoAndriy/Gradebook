@@ -17,9 +17,8 @@
 
 .marks_table{
   overflow-x: auto;
-  width: 80%;
+  width: 100%;
   display: block;
-  float: left
 }
 
 .marks_table td, th {
@@ -31,11 +30,7 @@
 }
 
 .names {
-  display: block;
-  width: 19%;
-  float: left;
   border-right: 1px solid lightgray;
-  overflow: hidden;
 }
 
 .header_height {
@@ -44,4 +39,18 @@
 
 .row_height {
   height: 40px;
+}
+
+.td_names {
+  vertical-align: top;
+  min-width: 170px;
+  width: 170px;
+  padding: 0;
+}
+
+.td_marks {
+  width: 100%;
+  max-width: 100px;
+  vertical-align: top;
+  padding: 0;
 }
