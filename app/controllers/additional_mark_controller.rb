@@ -1,4 +1,6 @@
 class AdditionalMarkController < ApplicationController
+  load_and_authorize_resource :double_class, :only => [:index, :create]
+  load_and_authorize_resource :additional_mark, :only => [:update, :destroy]
 
   def index
     logger.debug "Teacher id: #{current_user.teacher_id}"

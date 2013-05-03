@@ -12,7 +12,7 @@ class DoubleClass < ActiveRecord::Base
   validates :study_group, :double_class_type, :subject, :teacher, :presence_score, :presence => true
 
   validates :presence_score, :numericality => { :only_integer => true,
-                                       :greater_than_or_equal_to => MIN_SCORE_VALUE,
+                                       :greater_than_or_equal_to => 0,
                                        :less_than_or_equal_to => MAX_SCORE_VALUE }
 
   validate do
