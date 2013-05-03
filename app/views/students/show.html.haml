@@ -1,20 +1,25 @@
 - breadcrumb :student, @student_in_group
-= render 'application/breadcrumb', breadcrumb_wrapper_class: ''
+
+- if @subjects.empty?
+  = render 'application/breadcrumb', breadcrumb_wrapper_class: ''
+- else
+  .row
+    = render 'application/breadcrumb', breadcrumb_wrapper_class: 'g_8'
+    .g_4
+      .btn-group.pull-right{:id => :subjects_dropdown}
+        %button.btn.dropdown-toggle{:id => :subjects_dropdown, 'data-toggle' => 'dropdown'}
+          - if @choosed_subject.nil?
+            = I18n.t('subjects_title')
+          - else
+            = @choosed_subject.name
+          %span.caret
+        %ul.dropdown-menu
+          - unless @choosed_subject.nil?
+            %li= link_to t('all_subjects'), url_for( study_group_student_path(@student_in_group.study_group_id, @student_in_group.student_id) )
+          - @subjects.each do |subject|
+            %li= link_to subject.name, url_for( study_group_student_path(@student_in_group.study_group_id, @student_in_group.student_id, :subject_id => subject.id) )
 
 %h2.horizontal_centered= @student_in_group.student.full_name
-
-.btn-group.pull-right{:id => :subjects_dropdown}
-  %button.btn.dropdown-toggle{:id => :subjects_dropdown, 'data-toggle' => 'dropdown'}
-    - if @choosed_subject.nil?
-      = I18n.t('subjects_title')
-    - else
-      = @choosed_subject.name
-    %span.caret
-  %ul.dropdown-menu
-    - unless @choosed_subject.nil?
-      %li= link_to t('all_subjects'), url_for( study_group_student_path(@student_in_group.study_group_id, @student_in_group.student_id) )
-    - @subjects.each do |subject|
-      %li= link_to subject.name, url_for( study_group_student_path(@student_in_group.study_group_id, @student_in_group.student_id, :subject_id => subject.id) )
 
 - if @choosed_subject.nil?
   %div{:id => 'modulus_chart'}

@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#double_classes_dropdown{height: 38px; width: 100%}
+#double_classes_dropdown, #subjects_dropdown {
+  height: 38px;
+  width: 100%
+}
+
 .horizontal_centered{text-align: center !important;}
 
 .students_table tbody {
