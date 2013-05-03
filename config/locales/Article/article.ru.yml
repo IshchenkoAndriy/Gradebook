@@ -6,7 +6,7 @@ ru:
     show:
       action: 'Посмотреть'
     create:
-      action: "Новая новость"
+      action: "Добавить новость"
       notice: 'Новость была успешно создана.'
     update:
       action: 'Редактировать'

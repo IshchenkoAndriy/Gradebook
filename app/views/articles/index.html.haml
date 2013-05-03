@@ -1,0 +1,17 @@
+%h1= t 'article.news'
+- @articles.each do |article|
+  .article
+    %h3= article.title
+    .article-info
+      = article.user.email
+      .pull-right
+        - if can? :read, article
+          = link_to t('article.show.action'), article
+        - if can? :edit, article
+          = link_to t('article.update.action'), edit_article_path(article)
+        - if can? :destroy, article
+          = link_to t('article.destroy.action'), article, method: :delete, data: { confirm: 'Are you sure?' }
+    .article-text= raw article.text
+
+- if can? :create, Article
+  .article-add= link_to t('article.create.action'), new_article_path

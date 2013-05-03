@@ -1,0 +1,8 @@
+%p= @article.user.email
+%p= @article.title
+%p=  raw @article.text
+
+- if can? :update, @article
+  = link_to t('article.update.action'), edit_article_path(@article)
+  |
+= link_to t('article.back'), articles_path

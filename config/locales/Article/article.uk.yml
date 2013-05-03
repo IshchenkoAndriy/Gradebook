@@ -6,7 +6,7 @@ uk:
     show:
       action: 'Переглянути'
     create:
-      action: "Нова новина"
+      action: "Додати новину"
       notice: 'Новина була успішно створена.'
     update:
       action: 'Редагувати'
