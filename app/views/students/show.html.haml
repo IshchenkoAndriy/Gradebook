@@ -12,9 +12,9 @@
     %span.caret
   %ul.dropdown-menu
     - unless @choosed_subject.nil?
-      %li= link_to t('all_subjects'), url_for( study_group_student_path(@student_in_group.student_id) )
+      %li= link_to t('all_subjects'), url_for( study_group_student_path(@student_in_group.study_group_id, @student_in_group.student_id) )
     - @subjects.each do |subject|
-      %li= link_to subject.name, url_for( study_group_student_path(@student_in_group.student_id, :subject_id => subject.id) )
+      %li= link_to subject.name, url_for( study_group_student_path(@student_in_group.study_group_id, @student_in_group.student_id, :subject_id => subject.id) )
 
 - if @choosed_subject.nil?
   %div{:id => 'modulus_chart'}
