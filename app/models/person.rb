@@ -2,7 +2,9 @@ class Person < ActiveRecord::Base
   attr_accessible :birth_day, :email, :first_name, :patronymic, :phone, :last_name
   
   validates :first_name, :last_name, :patronymic, :presence => true
-  
+
+  default_scope :order => 'last_name ASC'
+
   def full_name
     self.last_name + " " + self.first_name + " " + self.patronymic
   end

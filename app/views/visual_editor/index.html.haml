@@ -33,7 +33,7 @@
         %td.imagine-lesson
 
       -# Table data
-      - @double_class.study_group.students_in_groups.order('subgroup ASC').sort_by{|student_in_group| student_in_group.student.last_name}.each do |student_in_group|
+      - @double_class.study_group.students_in_groups.each do |student_in_group|
         %tr
           %td.centered_cell= student_in_group.subgroup
           %td= student_in_group.full_name

@@ -8,6 +8,8 @@ class StudentsInGroup < ActiveRecord::Base
   validates :subgroup, :numericality => { :only_integer => true }
   validates :scholarship, :hostel, :inclusion => { :in => [true, false] }
   validates_uniqueness_of :student_id, :scope => [:study_group_id]
+
+  default_scope joins(:student).order('people.last_name ASC, subgroup ASC')
   
   def full_name
     self.student.full_name
