@@ -14,17 +14,13 @@
             %br
             = lesson.date
             %br
-            = link_to content_tag( :i, '', :class => 'icon-pencil' ), "#editLessonModal#{lesson.id}", {'data-toggle' => 'modal'}
-            = render 'lessons/modal_form', :id => "editLessonModal#{lesson.id}", :lesson => lesson
-
-            = link_to content_tag( :i, '', :class => 'icon-trash' ),
-              lesson_path(lesson), :confirm => t('lesson_destroy_confirm'), :method => :delete
+            = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_lesson_path(lesson, :format => :js), :remote => true
+            = link_to content_tag( :i, '', :class => 'icon-trash' ),lesson_path(lesson), :confirm => t('lesson_destroy_confirm'), :method => :delete
 
         %th.centered_cell.imagine-lesson
-          = link_to t('visual_editor.new_lesson_title'), '#newLessonModal', {'data-toggle' => 'modal'}
+          = link_to t('visual_editor.new_lesson_title'), new_double_class_lesson_path(@double_class, :format => :js), :remote => true
           %br
-          = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), '#newLessonModal', {'data-toggle' => 'modal'}
-          = render 'lessons/modal_form', :id => 'newLessonModal', :lesson => @double_class.lessons.new
+          = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_double_class_lesson_path(@double_class, :format => :js), :remote => true
 
       -# Table data
       - @double_class.study_group.students.each do |student|
@@ -37,17 +33,11 @@
                 %span.badge.badge-info= lesson_mark.module
                 = lesson_mark.score
                 %div
-                  - lesson_mark_form_id = "editLessonMarkModal-#{lesson.id}-#{student.id}"
-                  = link_to content_tag( :i, '', :class => 'icon-pencil' ), '#%s' % [lesson_mark_form_id], {'data-toggle' => 'modal'}
+                  = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_lesson_lesson_mark_path(lesson, lesson_mark, :format => :js), :remote => true
                   = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_lesson_mark_path(lesson, lesson_mark), :confirm => t('mark_destroy_confirm'), :method => :delete
-                  .left-align
-                    = render 'lesson_mark/modal_form', :id => lesson_mark_form_id, :lesson_mark => lesson_mark
             - else
               %td.new.centered_cell
-                - lesson_mark_form_id = "newLessonMarkModal-#{lesson.id}-#{student.id}"
-                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), '#%s' % [lesson_mark_form_id], {'data-toggle' => 'modal'}
-                .left-align
-                  = render 'lesson_mark/modal_form', :id => lesson_mark_form_id, :lesson_mark => lesson.lesson_marks.new(student_id: student.id)
+                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_lesson_mark_path(lesson, :student_id => student.id, :format => :js), :remote => true
             - lesson_presence = lesson.presences.where(student_id: student.id).first
             - if lesson_presence
               %td.lesson_cell.centered_cell.center-align
@@ -57,17 +47,11 @@
                 - else
                   %span.badge.badge-important= t('visual_editor.absent_short')
                 %div
-                - lesson_presence_form_id = "editLessonPresenceModal-#{lesson.id}-#{student.id}"
-                = link_to content_tag( :i, '', :class => 'icon-pencil' ), '#%s' % [lesson_presence_form_id], {'data-toggle' => 'modal'}
+                = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_lesson_presence_path(lesson, lesson_presence, :format => :js), :remote => true
                 = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_presence_path(lesson, lesson_presence), :confirm => t('presence_destroy_confirm'), :method => :delete
-                .left-align
-                  = render 'presence/form_modal', :id => lesson_presence_form_id, :presence => lesson_presence
             - else
               %td.new.centered_cell
-                - lesson_presence_form_id = "newLessonPresenceModal-#{lesson.id}-#{student.id}"
-                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), '#%s' % [lesson_presence_form_id], {'data-toggle' => 'modal'}
-                .left-align
-                  = render 'presence/form_modal', :id => lesson_presence_form_id, :presence => lesson.presences.new(student_id: student.id)
+                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_presence_path(lesson, :student_id => student.id, :format => :js), :remote => true
           %td.imagine-lesson
           - @double_class.additional_marks.where(student_id: student.id).each do |additional_mark|
             %td.lesson_cell.centered_cell.center-align
@@ -75,12 +59,9 @@
               = additional_mark.score
               %span.badge.badge-warning= additional_mark.study_type.name
               %div
-                - additional_mark_form_id = "editAdditionalMarkModal-#{additional_mark.id}"
-                = link_to content_tag( :i, '', :class => 'icon-pencil' ), '#%s' % [additional_mark_form_id], {'data-toggle' => 'modal'}
-                = render 'additional_mark/modal_form', :id => additional_mark_form_id, :additional_mark => additional_mark
-
+                = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_double_class_additional_mark_path(@double_class, additional_mark, :format => :js), :remote => true
                 = link_to content_tag( :i, '', :class => 'icon-trash' ), double_class_additional_mark_path(@double_class, additional_mark), :confirm => t('additional_mark_destroy_confirm'), :method => :delete
           %td.centered_cell.center-align.imagine-lesson
-            - additional_mark_form_id = "newAdditionalMarkModal-#{student.id}"
-            = link_to t('visual_editor.new_additional_mark_title'), '#%s' % [additional_mark_form_id], {'data-toggle' => 'modal'}
-            = render 'additional_mark/modal_form', :id => additional_mark_form_id, :additional_mark => @double_class.additional_marks.new(student_id: student.id)
+            = link_to t('visual_editor.new_additional_mark_title'), new_double_class_additional_mark_path(@double_class, :student_id => student.id, :format => :js), :remote => true
+
+%div{:id => :modal_form_wrapper}

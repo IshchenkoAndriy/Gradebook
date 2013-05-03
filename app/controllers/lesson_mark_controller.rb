@@ -7,27 +7,33 @@ class LessonMarkController < ApplicationController
     @lesson_marks = @lesson.lesson_marks
   end
 
-  def show
-    @lesson_mark = LessonMark.find(params[:id])
-  end
-
   def new
-    @new_lesson_mark = Lesson.find(params[:lesson_id]).lesson_marks.new
+    @lesson_mark = Lesson.find(params[:lesson_id]).lesson_marks.new(:student_id => params[:student_id])
+    authorize! :create, @lesson_mark
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
-    @new_lesson_mark = Lesson.find(params[:lesson_id]).lesson_marks.new(params[:lesson_mark])
-    authorize! :create, @new_lesson_mark
+    @lesson_mark = Lesson.find(params[:lesson_id]).lesson_marks.new(params[:lesson_mark])
+    authorize! :create, @lesson_mark
 
-    if @new_lesson_mark.save
+    if @lesson_mark.save
       redirect_to :back, notice: t('mark_success_created')
     else
-      redirect_to :back, alert: @new_lesson_mark.errors.full_messages.join(', ')
+      redirect_to :back, alert: @lesson_mark.errors.full_messages.join(', ')
     end
   end
 
   def edit
     @lesson_mark = LessonMark.find(params[:id])
+    authorize! :update, @lesson_mark
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update

@@ -1,5 +1,5 @@
 - if lesson.new_record?
-  = simple_form_for(lesson, :url => double_class_lessons_path(@double_class),
+  = simple_form_for(lesson, :url => double_class_lessons_path(lesson.double_class),
   :method => :post, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
       = f.input :date

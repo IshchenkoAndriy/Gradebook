@@ -3,15 +3,14 @@ class LessonsController < ApplicationController
   load_and_authorize_resource :lesson, :only => [:update, :destroy]
 
   def index
-    logger.debug "Teacher id: #{current_user.teacher_id}"
     @double_class = DoubleClass.find(params[:double_class_id])
     authorize! :read, @double_class
     @lessons = @double_class.lessons.all
   end
 
   def new
-    @double_class = DoubleClass.find(params[:double_class_id])
-    @lesson = @double_class.lessons.new(params[:lesson])
+    @lesson = DoubleClass.find(params[:double_class_id]).lessons.new
+    authorize! :create, @lesson
 
     respond_to do |format|
       format.js
@@ -19,14 +18,22 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @double_class = DoubleClass.find(params[:double_class_id])
-    @lesson = @double_class.lessons.new(params[:lesson])
-    authorize! :read, @double_class
+    @lesson = DoubleClass.find(params[:double_class_id]).lessons.new(params[:lesson])
+    authorize! :create, @lesson
 
     if @lesson.save
       redirect_to :back, notice: t('lesson_success_created')
     else
       redirect_to :back, alert: @lesson.errors.full_messages.to_s
+    end
+  end
+
+  def edit
+    @lesson = Lesson.find(params[:id])
+    authorize! :update, @lesson
+
+    respond_to do |format|
+      format.js
     end
   end
 

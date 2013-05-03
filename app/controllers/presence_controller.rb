@@ -7,14 +7,32 @@ class PresenceController < ApplicationController
     @presences = @lesson.presences
   end
 
-  def create
-    @new_presence = Lesson.find(params[:lesson_id]).presences.new(params[:presence])
-    authorize! :create, @new_presence
+  def new
+    @presence = Lesson.find(params[:lesson_id]).presences.new(:student_id => params[:student_id])
+    authorize! :create, @presence
 
-    if @new_presence.save
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def create
+    @presence = Lesson.find(params[:lesson_id]).presences.new(params[:presence])
+    authorize! :create, @presence
+
+    if @presence.save
       redirect_to :back, notice: t('presence_success_created')
     else
-      redirect_to :back, alert: @new_presence.errors.full_messages.join(', ')
+      redirect_to :back, alert: @presence.errors.full_messages.join(', ')
+    end
+  end
+
+  def edit
+    @presence = Presence.find(params[:id])
+    authorize! :update, @presence
+
+    respond_to do |format|
+      format.js
     end
   end
 

@@ -54,12 +54,12 @@ Kntu::Application.routes.draw do
   end
   resources :double_classes, :only =>[] do
     resources :lessons, :only => [:index, :new, :create]
-    resources :additional_mark, :only => [:index, :create, :update, :destroy]
+    resources :additional_mark, :only => [:index, :new, :create, :edit, :update, :destroy]
     resources :visual_editor, :only => [:index]
   end
-  resources :lessons, :only => [:update, :destroy] do
-    resources :lesson_mark, :only => [:index, :create, :update, :destroy]
-    resources :presence, :only => [:index, :create, :update, :destroy]
+  resources :lessons, :only => [:edit, :update, :destroy] do
+    resources :lesson_mark, :only => [:index, :new, :create, :edit, :update, :destroy]
+    resources :presence, :only => [:index, :new, :create, :edit, :update, :destroy]
   end
   
   devise_for :users
