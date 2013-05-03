@@ -22,4 +22,10 @@
 //= require bootstrap-modal
 //= require highcharts
 //= require highcharts/highcharts-more
+//= require highcharts/modules/data
+//= require highcharts/modules/exporting
 //= require nivo
+//= require i18n
+//= require i18n/en
+//= require i18n/ru
+//= require i18n/uk

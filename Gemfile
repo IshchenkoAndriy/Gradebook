@@ -11,6 +11,7 @@ gem "mini_magick"
 
 gem "coderay"
 gem "haml-rails", ">= 0.3.5"
+gem 'i18n-js'
 
 gem 'activeadmin'
 

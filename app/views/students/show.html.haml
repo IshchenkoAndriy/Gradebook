@@ -3,9 +3,82 @@
 
 %h2.horizontal_centered= @student_in_group.student.full_name
 
-.row
-  .g_12
-    %div{:id => 'lesson_marks_chart'}
-.row
-  .g_6
-    %div{:id => 'lesson_presence_pie'}
+.btn-group.pull-right{:id => :subjects_dropdown}
+  %button.btn.dropdown-toggle{:id => :subjects_dropdown, 'data-toggle' => 'dropdown'}
+    - if @choosed_subject.nil?
+      = I18n.t('subjects_title')
+    - else
+      = @choosed_subject.name
+    %span.caret
+  %ul.dropdown-menu
+    - unless @choosed_subject.nil?
+      %li= link_to t('all_subjects'), url_for( study_group_student_path(@student_in_group.student_id) )
+    - @subjects.each do |subject|
+      %li= link_to subject.name, url_for( study_group_student_path(@student_in_group.student_id, :subject_id => subject.id) )
+
+- if @choosed_subject.nil?
+  %div{:id => 'modulus_chart'}
+  %table.invisible_table{:id => 'modulus'}
+    %thead
+      %tr
+        %th= t('subjects_title')
+        - (1..NUMBER_OF_MODULES).to_a.reverse.each do |study_molule|
+          %th
+            = t('module_title')
+            = study_molule
+    %tbody
+      - @subjects.each_with_index do |subject, index|
+        %tr
+          %td= subject.name
+          - (1..NUMBER_OF_MODULES).to_a.reverse.each do |study_molule|
+            - marks_hash = @module_mark[index][study_molule]
+            %td= marks_hash[:presence_mark] + marks_hash[:lesson_mark] + marks_hash[:additional_mark]
+
+- unless @choosed_subject.nil?
+  %div{:id => 'subject_module_marks_chart'}
+  %table.invisible_table{:id => 'subject_module_marks'}
+    %thead
+      %tr
+        %th= @choosed_subject.name
+        %th= t('additional_marks_title')
+        %th= t('marks_title')
+        %th= t('presence_title')
+    %tbody
+      - (1..NUMBER_OF_MODULES).to_a.each do |study_molule|
+        %tr
+          %td
+            = t('module_title')
+            = study_molule
+            - marks_hash = @module_mark.first[study_molule]
+            %td= marks_hash[:additional_mark]
+            %td= marks_hash[:lesson_mark]
+            %td= marks_hash[:presence_mark]
+
+  - @double_classes_info.each do |double_class_info|
+    %table.invisible_table{:id => 'lesson_marks'}
+      %thead
+        %tr
+          %th= 'lesson'
+          %th= t('score_title')
+      %tbody
+        - double_class_info[:lessons].each do |lesson|
+          %tr
+            %td= lesson[:lessons_name]
+            %td= lesson[:score]
+    .row
+      .g_12
+        %div{:id => 'lesson_marks_chart'}
+
+    - unless double_class_info[:presence].nil?
+      %table.invisible_table{:id => 'lesson_presence'}
+        %thead
+          %tr
+            %th= t('presence_states.present_title')
+            %th= t('presence_states.absent_title')
+        %tbody
+          %tr
+            %td= (double_class_info[:presence] * 100).to_i
+            %td= ((1.to_f - double_class_info[:presence]) * 100).to_i
+      .row
+        .g_12
+          %div{:id => 'lesson_presence_pie'}

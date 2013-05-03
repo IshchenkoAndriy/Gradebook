@@ -16,6 +16,12 @@ uk:
   students_title: "Студенти"
   schedule_title: "Розклад"
   subjects_title: "Навчальні дисципліни"
+  module_title: "Модуль"
+  module_score_title: "Кількість балів:"
+  score_title: "Бали"
+  modules_chart_title: "Бали по предметам за модулі"
+  total_title: "Всього: "
+  all_subjects: "Загальний графік"
 
   no_semesters_title: "Не знайдено семестри в яких ви можете вводити та редагувати данні"
 
