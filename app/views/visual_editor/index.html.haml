@@ -4,30 +4,41 @@
 .row
   .g_12.visual-editor
     %table.table.table-bordered.visual-editor
-      %tr
-        -# Table header
-        %th.centered_cell= t('students_title')
-        - @lessons.each do |lesson|
-          %th.lesson-header{:colspan => 2}
-            = lesson.double_class.double_class_type.name
-            = lesson.description
-            %br
-            = lesson.date
-            %br
-            = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_lesson_path(lesson, :format => :js), :remote => true
-            = link_to content_tag( :i, '', :class => 'icon-trash' ),lesson_path(lesson), :confirm => t('lesson_destroy_confirm'), :method => :delete
+      %thead
+        %tr
+          -# Table header
+          %th
+          %th.centered_cell= t('students_title')
+          - @lessons.each do |lesson|
+            %th.lesson-header{:colspan => 2}
+              = lesson.double_class.double_class_type.name
+              = lesson.description
+              %br
+              = lesson.date
+              %br
+              = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_lesson_path(lesson, :format => :js), :remote => true
+              = link_to content_tag( :i, '', :class => 'icon-trash' ),lesson_path(lesson), :confirm => t('lesson_destroy_confirm'), :method => :delete
 
-        %th.centered_cell.imagine-lesson
-          = link_to t('visual_editor.new_lesson_title'), new_double_class_lesson_path(@double_class, :format => :js), :remote => true
-          %br
-          = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_double_class_lesson_path(@double_class, :format => :js), :remote => true
+          %th.centered_cell.imagine-lesson
+            = link_to t('visual_editor.new_lesson_title'), new_double_class_lesson_path(@double_class, :format => :js), :remote => true
+            %br
+            = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_double_class_lesson_path(@double_class, :format => :js), :remote => true
+
+      %tr
+        %td
+        %td
+        - @lessons.count.times do
+          %td= t('marks_title')
+          %td= t('presence_title')
+        %td.imagine-lesson
 
       -# Table data
-      - @double_class.study_group.students.each do |student|
+      - @double_class.study_group.students_in_groups.order('subgroup ASC').sort_by{|student_in_group| student_in_group.student.last_name}.each do |student_in_group|
         %tr
-          %td= student.full_name
+          %td.centered_cell= student_in_group.subgroup
+          %td= student_in_group.full_name
           - @lessons.each do |lesson|
-            - lesson_mark = lesson.lesson_marks.where(student_id: student.id).first
+            - lesson_mark = lesson.lesson_marks.where(student_id: student_in_group.student_id).first
             - if lesson_mark
               %td.lesson_cell.centered_cell.center-align
                 %span.badge.badge-info= lesson_mark.module
@@ -37,8 +48,8 @@
                   = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_lesson_mark_path(lesson, lesson_mark), :confirm => t('mark_destroy_confirm'), :method => :delete
             - else
               %td.new.centered_cell
-                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_lesson_mark_path(lesson, :student_id => student.id, :format => :js), :remote => true
-            - lesson_presence = lesson.presences.where(student_id: student.id).first
+                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_lesson_mark_path(lesson, :student_id => student_in_group.student_id, :format => :js), :remote => true
+            - lesson_presence = lesson.presences.where(student_id: student_in_group.student_id).first
             - if lesson_presence
               %td.lesson_cell.centered_cell.center-align
                 %span.badge.badge-info= lesson_presence.module
@@ -51,9 +62,9 @@
                 = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_presence_path(lesson, lesson_presence), :confirm => t('presence_destroy_confirm'), :method => :delete
             - else
               %td.new.centered_cell
-                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_presence_path(lesson, :student_id => student.id, :format => :js), :remote => true
+                = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_presence_path(lesson, :student_id => student_in_group.student_id, :format => :js), :remote => true
           %td.imagine-lesson
-          - @double_class.additional_marks.where(student_id: student.id).each do |additional_mark|
+          - @double_class.additional_marks.where(student_id: student_in_group.student_id).each do |additional_mark|
             %td.lesson_cell.centered_cell.center-align
               %span.badge.badge-info= additional_mark.module
               = additional_mark.score
@@ -62,6 +73,6 @@
                 = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_double_class_additional_mark_path(@double_class, additional_mark, :format => :js), :remote => true
                 = link_to content_tag( :i, '', :class => 'icon-trash' ), double_class_additional_mark_path(@double_class, additional_mark), :confirm => t('additional_mark_destroy_confirm'), :method => :delete
           %td.centered_cell.center-align.imagine-lesson
-            = link_to t('visual_editor.new_additional_mark_title'), new_double_class_additional_mark_path(@double_class, :student_id => student.id, :format => :js), :remote => true
+            = link_to t('visual_editor.new_additional_mark_title'), new_double_class_additional_mark_path(@double_class, :student_id => student_in_group.student_id, :format => :js), :remote => true
 
 %div{:id => :modal_form_wrapper}
