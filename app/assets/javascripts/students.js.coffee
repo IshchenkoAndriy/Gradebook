@@ -5,20 +5,33 @@
 jQuery ->
 
   if ($('#names').length && $('#marks').length)
-    $('#marks').scroll( ->
-      $('#lessons').scrollLeft($('#marks').scrollLeft())
-      $('#names').scrollTop($('#marks').scrollTop())
+    parent_table = $('#sizable_table')
+    marks_table = $('#marks')
+    names_table = $('#names')
+    lessons_table = $('#lessons')
+
+    marks_table_rows = $('#marks tr')
+    names_table_rows = $('#names tr')
+    marks_table_columns = $('.table_marks td')
+    parent_table_top_offset = parent_table.offset().top
+    footer_size = $('#footer').height()
+    table_bottom_margin = 20
+    parent_table_header_size = 75
+    table_vertical_margin = parent_table_top_offset + parent_table_header_size + table_bottom_margin + footer_size
+
+    have_hscroll_bar = (parent, child) ->
+      child.innerWidth() >= parent.innerWidth()
+
+    marks_table.scroll( ->
+      lessons_table.scrollLeft(marks_table.scrollLeft())
+      names_table.scrollTop(marks_table.scrollTop())
     )
 
-    resize_table_rows = ->
-      $.each( $('#names tr'), (index, value) ->
-        $('#marks tr')[index].style.height = value.offsetHeight + 'px'
-      )
-
+    resize_table_columns = ->
       $.each( $('.table_marks_header th'), (index, header_cell) ->
         max_value = header_cell.clientWidth
 
-        data_cell = $('.table_marks td')[index]
+        data_cell = marks_table_columns[index]
         if max_value < data_cell.clientWidth
           max_value = data_cell.clientWidth
 
@@ -28,22 +41,43 @@ jQuery ->
         data_cell.style.minWidth = max_value + 'px'
       )
 
-      table_bottom_margin = 20 + 75
-      scrollbar_height = 15
+    resize_table_rows = ->
+      $.each(names_table_rows, (index, value) ->
+        marks_table_rows[index].style.height = value.offsetHeight + 'px'
+      )
 
-      table_height = scrollbar_height
-      if $(window).height() - $('#sizable_table').offset().top - $('#footer').height() - table_bottom_margin > table_height
-        table_height = $(window).height() - $('#sizable_table').offset().top - $('#footer').height() - table_bottom_margin
+    calculate_tables_size = ->
+      if have_hscroll_bar marks_table, marks_table_rows
+        scrollbar_height = 15
+      else
+        scrollbar_height = 0
 
-      $('#marks').css('height', table_height)
-      $('#names').css('height', table_height - scrollbar_height)
-      $('#lessons').css('width', $('#marks').width() - scrollbar_height)
+      min_table_height = scrollbar_height
 
+      calculated_table_height = $(window).height() - table_vertical_margin
+      if calculated_table_height > min_table_height
+        min_table_height = calculated_table_height
 
-    $(document).ready(resize_table_rows)
-    $(window).load(resize_table_rows)
-    $(window).resize(resize_table_rows)
+      marks_table.css('height', min_table_height)
+      names_table.css('height', min_table_height - scrollbar_height)
+      lessons_table.css('width', marks_table.width() - scrollbar_height)
 
+    $(document).ready(  ->
+      resize_table_rows()
+      resize_table_columns()
+      calculate_tables_size()
+    )
+
+    $(window).load( ->
+      resize_table_rows()
+      resize_table_columns()
+      calculate_tables_size()
+    )
+
+    $(window).resize( ->
+      resize_table_rows()
+      calculate_tables_size()
+    )
 
   Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, (color) ->
     {

@@ -57,7 +57,7 @@
           %table.table.table_names{:id => :names}
             - @study_group.all_students.each do |student|
               %tr
-                %td.row_height.horizontal_centered.centered_cell= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )
+                %td.horizontal_centered.centered_cell= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )
 
         %td.td_marks
           %table.table.table_marks{:id => :marks}
@@ -67,7 +67,7 @@
                   - @choosed_double_class.lessons.each do |lesson|
                     - student_mark = lesson.lesson_marks.find_by_student_id(student.id)
                     - student_presence = lesson.presences.find_by_student_id(student.id)
-                    %td.row_height.horizontal_centered.centered_cell
+                    %td.horizontal_centered.centered_cell
                       = student_mark.score unless student_mark.nil?
                       - unless student_presence.nil?
                         - if student_presence.was_present
