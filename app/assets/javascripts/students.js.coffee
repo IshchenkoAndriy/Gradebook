@@ -3,6 +3,34 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
+
+  if ($('#names').length && $('#marks').length)
+    $('#marks').scroll( ->
+      console.log( document.getElementById("marks").scrollHeight )
+      $('#names').scrollTop($('#marks').scrollTop())
+    )
+
+    resize_table_rows = ->
+      $.each( $('#names tr'), (index, value) ->
+        $('#marks tr')[index].style.height = value.offsetHeight + 'px'
+      )
+
+      table_bottom_margin = 20
+      scrollbar_height = 15
+
+      table_height = 0
+      if $(window).height() - $('#sizable_table').offset().top - $('#footer').height() > 0
+        table_height = $(window).height() - $('#sizable_table').offset().top - $('#footer').height() - table_bottom_margin
+
+      $('#marks').css('height', table_height)
+      $('#names').css('height', table_height - scrollbar_height)
+
+
+    $(document).ready(resize_table_rows)
+    $(window).load(resize_table_rows)
+    $(window).resize(resize_table_rows)
+
+
   Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, (color) ->
     {
       radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },

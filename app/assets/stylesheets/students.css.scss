@@ -19,40 +19,43 @@
   display: block;
 }
 
-.marks_table{
+#marks{
   overflow-x: auto;
   width: 100%;
   display: block;
+
+  overflow: auto;
+  margin-bottom: 0;
 }
 
-.marks_table td, th {
+#marks td, th {
   border-left: 1px solid lightgray;
 }
 
-.marks_table td:first-child, th:first-child {
+#marks td:first-child, th:first-child {
   border-left: 0;
 }
 
-.names {
+#names {
   border-right: 1px solid lightgray;
+  display: block;
+
+  overflow-y: hidden;
+  margin-bottom: 0;
 }
 
 .header_height {
   height: 50px;
 }
 
-.row_height {
-  height: 40px;
-}
-
-.td_names {
+#td_names {
   vertical-align: top;
-  min-width: 170px;
-  width: 170px;
+  min-width: 150px;
+  width: 150px;
   padding: 0;
 }
 
-.td_marks {
+#td_marks {
   width: 100%;
   max-width: 100px;
   vertical-align: top;
@@ -61,4 +64,9 @@
 
 .invisible_table {
   display: none;
+}
+
+#sizable_table {
+  overflow: hidden;
+  margin-bottom: 0;
 }
