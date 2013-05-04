@@ -19,8 +19,7 @@
   display: block;
 }
 
-#marks{
-  overflow-x: auto;
+.table_marks {
   width: 100%;
   display: block;
 
@@ -28,34 +27,63 @@
   margin-bottom: 0;
 }
 
-#marks td, th {
+.table_marks td {
   border-left: 1px solid lightgray;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-#marks td:first-child, th:first-child {
+.table_names_header {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 0;
+}
+
+.table_marks_header {
+  width: 100%;
+  display: block;
+
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.table_marks_header th {
+  border-bottom: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.table_marks td:first-child, th:first-child {
   border-left: 0;
 }
 
-#names {
-  border-right: 1px solid lightgray;
-  display: block;
+.table_marks tr:first-child td {
+  border-top: 0;
+}
 
+.table_names {
+  display: block;
   overflow-y: hidden;
   margin-bottom: 0;
+}
+
+.table_names tr:first-child td {
+  border-top: 0;
 }
 
 .header_height {
   height: 50px;
 }
 
-#td_names {
+.td_names {
+  border-right: 1px solid lightgray;
   vertical-align: top;
   min-width: 150px;
   width: 150px;
   padding: 0;
 }
 
-#td_marks {
+.td_marks {
   width: 100%;
   max-width: 100px;
   vertical-align: top;

@@ -42,20 +42,25 @@
   .row
     %table.g_12{:id => :sizable_table}
       %tr
-        %td{:id => :td_names}
-          %table.table{:id => :names}
-            %tr
-              %th.header_height.horizontal_centered.centered_cell= I18n.t('students_title')
+        %td.td_names
+          %table.table.table_names_header
+            %th.header_height.horizontal_centered.centered_cell= I18n.t('students_title')
+
+        %td.td_marks
+          %table.table.table_marks_header{:id => :lessons}
+            - unless @choosed_double_class.nil?
+              - @choosed_double_class.lessons.each do |lesson|
+                %th.header_height.horizontal_centered.centered_cell= '%s %s' % [@choosed_double_class.double_class_type.name, lesson.description]
+
+      %tr
+        %td.td_names
+          %table.table.table_names{:id => :names}
             - @study_group.all_students.each do |student|
               %tr
                 %td.row_height.horizontal_centered.centered_cell= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )
 
-        %td{:id => :td_marks}
-          %table.table{:id => :marks}
-            %tr
-              - unless @choosed_double_class.nil?
-                - @choosed_double_class.lessons.each do |lesson|
-                  %th.header_height.horizontal_centered.centered_cell= '%s %s' % [@choosed_double_class.double_class_type.name, lesson.description]
+        %td.td_marks
+          %table.table.table_marks{:id => :marks}
             - @study_group.all_students.each do |student|
               %tr
                 - unless @choosed_double_class.nil?

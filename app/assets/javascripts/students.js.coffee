@@ -6,7 +6,7 @@ jQuery ->
 
   if ($('#names').length && $('#marks').length)
     $('#marks').scroll( ->
-      console.log( document.getElementById("marks").scrollHeight )
+      $('#lessons').scrollLeft($('#marks').scrollLeft())
       $('#names').scrollTop($('#marks').scrollTop())
     )
 
@@ -15,15 +15,29 @@ jQuery ->
         $('#marks tr')[index].style.height = value.offsetHeight + 'px'
       )
 
-      table_bottom_margin = 20
+      $.each( $('.table_marks_header th'), (index, header_cell) ->
+        max_value = header_cell.clientWidth
+
+        data_cell = $('.table_marks td')[index]
+        if max_value < data_cell.clientWidth
+          max_value = data_cell.clientWidth
+
+        header_cell.style.width = max_value + 'px'
+        header_cell.style.minWidth = max_value + 'px'
+        data_cell.style.width = max_value + 'px'
+        data_cell.style.minWidth = max_value + 'px'
+      )
+
+      table_bottom_margin = 20 + 75
       scrollbar_height = 15
 
-      table_height = 0
-      if $(window).height() - $('#sizable_table').offset().top - $('#footer').height() > 0
+      table_height = scrollbar_height
+      if $(window).height() - $('#sizable_table').offset().top - $('#footer').height() - table_bottom_margin > table_height
         table_height = $(window).height() - $('#sizable_table').offset().top - $('#footer').height() - table_bottom_margin
 
       $('#marks').css('height', table_height)
       $('#names').css('height', table_height - scrollbar_height)
+      $('#lessons').css('width', $('#marks').width() - scrollbar_height)
 
 
     $(document).ready(resize_table_rows)
