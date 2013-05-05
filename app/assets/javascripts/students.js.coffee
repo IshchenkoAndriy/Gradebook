@@ -37,7 +37,7 @@ jQuery ->
 #    ***************************************
 
     have_hscroll_bar = (parent, child) ->
-      child.innerWidth() >= parent.innerWidth()
+      child.innerWidth() > parent.innerWidth()
 
     marks_table.scroll( ->
       lessons_table.scrollLeft(marks_table.scrollLeft())
