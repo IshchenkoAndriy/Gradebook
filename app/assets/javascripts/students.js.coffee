@@ -20,6 +20,22 @@ jQuery ->
     parent_table_header_size = 75
     table_vertical_margin = parent_table_top_offset + parent_table_header_size + table_bottom_margin + footer_size
 
+#    ***************************************
+#    Create the measurement node
+    scrollDiv = document.createElement("div");
+    scrollDiv.className = "scrollbar-measure";
+    document.body.appendChild(scrollDiv);
+
+#    Get the scrollbar width
+    scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+
+#     Delete the DIV
+    document.body.removeChild(scrollDiv);
+
+    if scrollbarWidth <= 0
+      scrollbarWidth = 15
+#    ***************************************
+
     have_hscroll_bar = (parent, child) ->
       child.innerWidth() >= parent.innerWidth()
 
@@ -49,7 +65,7 @@ jQuery ->
 
     calculate_tables_size = ->
       if have_hscroll_bar marks_table, marks_table_rows
-        hscrollbar_height = 16
+        hscrollbar_height = scrollbarWidth
       else
         hscrollbar_height = 0
 
@@ -59,7 +75,7 @@ jQuery ->
       if calculated_table_height > min_table_height
         min_table_height = calculated_table_height
 
-      vscrollbar_height = 16
+      vscrollbar_height = scrollbarWidth
       if calculated_table_height > marks_table_body.outerHeight() + hscrollbar_height
         min_table_height = marks_table_body.outerHeight() + hscrollbar_height
         vscrollbar_height = 0
