@@ -15,8 +15,9 @@
           %span.caret
         %ul.dropdown-menu
           - @study_group.double_classes.each do |double_class|
-            %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name],
-                  url_for( study_group_students_path(@study_group, :double_class_id => double_class.id) )
+            -if double_class.lessons.any?
+              %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name],
+                    url_for( study_group_students_path(@study_group, :double_class_id => double_class.id) )
 
 - if @choosed_double_class.nil?
   .row

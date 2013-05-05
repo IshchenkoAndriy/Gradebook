@@ -11,6 +11,7 @@ jQuery ->
     lessons_table = $('#lessons')
 
     marks_table_rows = $('#marks tr')
+    marks_table_body = $('#marks tbody')
     names_table_rows = $('#names tr')
     marks_table_columns = $('.table_marks td')
     parent_table_top_offset = parent_table.offset().top
@@ -48,19 +49,24 @@ jQuery ->
 
     calculate_tables_size = ->
       if have_hscroll_bar marks_table, marks_table_rows
-        scrollbar_height = 15
+        hscrollbar_height = 16
       else
-        scrollbar_height = 0
+        hscrollbar_height = 0
 
-      min_table_height = scrollbar_height
+      min_table_height = hscrollbar_height
 
       calculated_table_height = $(window).height() - table_vertical_margin
       if calculated_table_height > min_table_height
         min_table_height = calculated_table_height
 
+      vscrollbar_height = 16
+      if calculated_table_height > marks_table_body.outerHeight() + hscrollbar_height
+        min_table_height = marks_table_body.outerHeight() + hscrollbar_height
+        vscrollbar_height = 0
+
       marks_table.css('height', min_table_height)
-      names_table.css('height', min_table_height - scrollbar_height)
-      lessons_table.css('width', marks_table.width() - scrollbar_height)
+      names_table.css('height', min_table_height - hscrollbar_height)
+      lessons_table.css('width', marks_table.width() - vscrollbar_height)
 
     $(document).ready(  ->
       resize_table_rows()
