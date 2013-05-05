@@ -22,9 +22,5 @@
 #
 
 translations:
-- file: "app/assets/javascripts/i18n/en.js"
-  only: 'en.*'
-- file: "app/assets/javascripts/i18n/uk.js"
-  only: 'uk.*'
-- file: "app/assets/javascripts/i18n/ru.js"
-  only: 'ru.*'
+- file: "app/assets/javascripts/i18n/translations.js"
+  only: '*.charts.*'

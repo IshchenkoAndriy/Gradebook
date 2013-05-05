@@ -1,0 +1,52 @@
+[
+    {
+        "id":2,
+        "subject":"Програмування на мові Асемблер",
+        "modules":
+        {
+            "1":
+            {
+                "presence_mark":0,
+                "lesson_mark":0,
+                "additional_mark":33
+            },
+            "2":
+            {
+                "presence_mark":0,
+                "lesson_mark":0,
+                "additional_mark":0
+            },
+            "3":
+            {
+                "presence_mark":0,
+                "lesson_mark":0,
+                "additional_mark":0
+            }
+        }
+    },
+    {
+        "id":3,
+        "subject":"Мережі ЕОМ",
+        "modules":
+        {
+            "1":
+            {
+                "presence_mark":7,
+                "lesson_mark":10,
+                "additional_mark":0
+            },
+            "2":
+            {
+                "presence_mark":0,
+                "lesson_mark":0,
+                "additional_mark":0
+            },
+            "3":
+            {
+                "presence_mark":0,
+                "lesson_mark":0,
+                "additional_mark":0
+            }
+        }
+    }
+]

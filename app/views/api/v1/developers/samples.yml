@@ -171,41 +171,28 @@
       :file: ./app/views/api/v1/developers/samples/students_4.json
 
 :subject:
-  - :title: Список предметів
+  - :title: Інформація про модульні оціни студента по всім предметам
     :descriptions:
-    - :text: Отримання списку предметів для групи в вказаному семестрі здійснюється
-        за адресою
-      :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/subjects
+    - :text: Отримання інформації про модульні оціни студента по всім предметам
+      :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/students/:student_id/subjects
     :request_type_title: ! 'Тип запиту: '
     :request_type: GET
     :request_params:
     - :name: ':semester_id'
-      :description: Цей параметр вказує ідентифікатор семестра, інформацію про предмети,
-        якого необхідно отримати.
+      :description: Цей параметр вказує ідентифікатор семестра.
     - :name: ':group_id'
-      :description: Цей параметр вказує ідентифікатор групи, інформацію про предмети,
-        якої необхідно отримати.
-    :api_samples: []
-  - :title: Інформація про предмет
+      :description: Цей параметр вказує ідентифікатор групи.
+    - :name: ':student_id'
+      :description: Цей параметр вказує ідентифікатор студента.
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: api/v1/semesters/2/groups/1/students/6/subjects
+        :after_url: поверне модульні оціни студента по всім предметам.
+      :file: ./app/views/api/v1/developers/samples/subjects_1.json
+  - :title: Інформація про модульні оціни студента по предмету та оцінки за заняття
     :descriptions:
-    - :text: Отримання інформації про предмет здійснюється за адресою
-      :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/subjects/:id
-    :request_type_title: ! 'Тип запиту: '
-    :request_type: GET
-    :request_params:
-    - :name: ':id'
-      :description: Цей параметр вказує ідентифікатор предмета, інформацію про який
-        необхідно отримати.
-    - :name: ':semester_id'
-      :description: Цей параметр вказує ідентифікатор семестра, інформацію про предмет,
-        якого необхідно отримати.
-    - :name: ':group_id'
-      :description: Цей параметр вказує ідентифікатор групи, інформацію про предмет,
-        якої необхідно отримати.
-    :api_samples: []
-  - :title: Інформація про оціни і пропуски студента
-    :descriptions:
-    - :text: Отримання інформації про оціни і пропуски студента здійснюється за адресою
+    - :text: Отримання інформації про модульні оціни студента по предмету та оцінки за заняття здійснюється за адресою
       :url: server_adress/api/v1/semesters/:semester_id/groups/:group_id/students/:student_id/subjects/:id
     :request_type_title: ! 'Тип запиту: '
     :request_type: GET
@@ -218,4 +205,9 @@
       :description: Цей параметр вказує ідентифікатор групи.
     - :name: ':student_id'
       :description: Цей параметр вказує ідентифікатор студента.
-    :api_samples: []
+    :api_samples:
+    - :history:
+        :before_url: Запит
+        :url: api/v1/semesters/2/groups/1/students/2/subjects/2
+        :after_url: поверне інформації про модульні оціни студента по предмету та оцінки за заняття.
+      :file: ./app/views/api/v1/developers/samples/subjects_2.json

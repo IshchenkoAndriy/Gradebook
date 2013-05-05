@@ -21,9 +21,8 @@ Kntu::Application.routes.draw do
       resources :semesters, :only => [:index, :show] do
         resources :groups, :only => [:index] do
           resources :students, :only => [:index] do
-            resources :subjects, :only => [:show]
+            resources :subjects, :only => [:index, :show]
           end
-          resources :subjects, :only => [:index, :show]
         end
       end
       resources :groups, :only => [:show]

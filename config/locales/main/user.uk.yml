@@ -17,11 +17,8 @@ uk:
   schedule_title: "Розклад"
   subjects_title: "Навчальні дисципліни"
   module_title: "Модуль"
-  module_score_title: "Кількість балів:"
-  score_title: "Бали"
-  modules_chart_title: "Бали по предметам за модулі"
-  total_title: "Всього: "
   all_subjects: "Загальний графік"
+  average_score: "Середній бал"
 
   no_semesters_title: "Не знайдено семестри в яких ви можете вводити та редагувати данні"
 
@@ -103,3 +100,12 @@ uk:
     new_additional_mark_title: "Додаткова оцінка"
     present_short: "Прис."
     absent_short: "Відс."
+
+  charts:
+    modules_chart_title: "Бали по предметам за модулі"
+    score_title: "Бали"
+    module_score_title: "Кількість балів:"
+    marks_title: "Оцінки"
+    presence_title: "Відвідування"
+    total_title: "Всього: "
+

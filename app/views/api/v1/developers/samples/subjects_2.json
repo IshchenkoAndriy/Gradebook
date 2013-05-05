@@ -1,0 +1,63 @@
+{
+    "id":2,
+    "subject":"Програмування на мові Асемблер",
+    "modules":
+    {
+        "1":
+        {
+            "presence_mark":6,
+            "lesson_mark":28,
+            "additional_mark":10
+        },
+        "2":
+        {
+            "presence_mark":3,
+            "lesson_mark":15,
+            "additional_mark":0
+        },
+        "3":
+        {
+            "presence_mark":0,
+            "lesson_mark":20,
+            "additional_mark":0
+        }
+    },
+    "double_classes":
+        [
+            {
+                "lessons":
+                    [
+                        {
+                            "lessons_name":"Лекція #1",
+                            "score":11
+                        },
+                        {
+                            "lessons_name":"Лекція #2",
+                            "score":17
+                        },
+                        {
+                            "lessons_name":"Лекція #3",
+                            "score":null
+                        },
+                        {
+                            "lessons_name":"Лекція #4",
+                            "score":null
+                        },
+                        {
+                            "lessons_name":"Лекція #5",
+                            "score":15
+                        },
+                        {
+                            "lessons_name":"Лекція #6",
+                            "score":null
+                        },
+                        {
+                            "lessons_name":"Лекція #7",
+                            "score":null
+                        }
+                    ],
+                "presence":0.75,
+                "avg_score":3
+            }
+        ]
+}

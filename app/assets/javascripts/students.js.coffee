@@ -133,12 +133,12 @@ jQuery ->
         reversed: true
       },
       title: {
-        text: I18n.t('modules_chart_title')
+        text: I18n.t('charts.modules_chart_title')
       },
       yAxis: {
         allowDecimals: false,
         title: {
-          text: I18n.t('score_title')
+          text: I18n.t('charts.score_title')
         }
         stackLabels: {
           enabled: true,
@@ -150,59 +150,72 @@ jQuery ->
       },
       tooltip: {
         formatter: ->
-          '<b>' + this.x + '</b><br/>' + this.series.name + ' ' + I18n.t('module_score_title') + ' ' + this.y
+          '<b>' + this.x + '</b><br/>' + this.series.name + ' ' + I18n.t('charts.module_score_title') + ' ' + this.y
       }
     })
 
-  if ($('#lesson_marks_chart').length)
-    $('#lesson_marks_chart').highcharts({
-      chart: {
-        type: 'line'
-      }
-      data: {
-        table: document.getElementById('lesson_marks')
-      },
-      title: { text: I18n.t('marks_title') },
-      yAxis: {
-        allowDecimals: false,
-        title: { text: I18n.t('score_title')}
-      }
-    })
-
-  if ($('#lesson_presence_pie').length)
-    $('#lesson_presence_pie').highcharts({
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false
-      },
-      title: {
-        text: I18n.t('presence_title')
-      },
-      tooltip: {
-        pointFormat: '<b>{point.percentage}%</b>',
-        percentageDecimals: 1
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          dataLabels: {
-            enabled: true,
-            color: '#000000',
-            connectorColor: '#000000'
-          }
+  if ($('.lesson_marks').length)
+    $.each($('.lesson_marks'), (index, info_table) ->
+      $('#' + info_table.id + '_chart').highcharts({
+        chart: {
+          type: 'line'
+        },
+        colors: ['#2f7ed8',
+                 '#8bbc21',
+                 '#910000',
+                 '#1aadce',
+                 '#492970',
+                 '#f28f43',
+                 '#77a1e5',
+                 '#c42525',
+                 '#a6c96a'],
+        data: {
+          table: info_table
+        },
+        title: { text: I18n.t('charts.marks_title') },
+        yAxis: {
+          allowDecimals: false,
+          title: { text: I18n.t('charts.score_title')}
         }
-      },
-      series: [{
-        type: 'pie',
-        name: I18n.t('presence_title'),
-        data: [
-          [$('#lesson_presence tr th:last-child').text(), parseInt($('#lesson_presence tr td:last-child').text())],
-          [$('#lesson_presence tr th:first-child').text(), parseInt($('#lesson_presence tr td:first-child').text())]
-        ]
-      }]
-    })
+      })
+    )
+
+  if ($('.lesson_presence').length)
+    $.each($('.lesson_presence'), (index, info_table) ->
+      $('#' + info_table.id + '_pie').highcharts({
+        chart: {
+          plotBackgroundColor: null,
+          plotBorderWidth: null,
+          plotShadow: false
+        },
+        title: {
+          text: I18n.t('charts.presence_title')
+        },
+        tooltip: {
+          pointFormat: '<b>{point.percentage}%</b>',
+          percentageDecimals: 1
+        },
+        plotOptions: {
+          pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+              enabled: true,
+              color: '#000000',
+              connectorColor: '#000000'
+            }
+          }
+        },
+        series: [{
+          type: 'pie',
+          name: I18n.t('charts.presence_title'),
+          data: [
+            [$('#' + info_table.id + ' tr th:last-child').text(), parseInt($('#' + info_table.id + ' tr td:last-child').text())],
+            [$('#' + info_table.id + ' tr th:first-child').text(), parseInt($('#' + info_table.id + ' tr td:first-child').text())]
+          ]
+        }]
+      })
+    )
 
   if ($('#subject_module_marks_chart').length)
     $('#subject_module_marks_chart').highcharts({
@@ -218,7 +231,7 @@ jQuery ->
       yAxis: {
           min: 0,
           title: {
-              text: I18n.t('score_title')
+              text: I18n.t('charts.score_title')
           },
           stackLabels: {
               enabled: true,
@@ -242,7 +255,7 @@ jQuery ->
       },
       tooltip: {
         formatter: ->
-          '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '<br/>' + I18n.t('total_title') + this.point.stackTotal
+          '<b>' + this.x + '</b><br/>' + this.series.name + ': ' + this.y + '<br/>' + I18n.t('charts.total_title') + this.point.stackTotal
       },
       plotOptions: {
           column: {

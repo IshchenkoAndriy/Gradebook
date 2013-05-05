@@ -49,4 +49,19 @@ class DoubleClass < ActiveRecord::Base
       :schedules => self.schedules_list
     ]
   end
+
+  def presence_on_lessons_count(student)
+    Presence.joins(:lesson).where(
+        :lessons => {:double_class_id => self.id},
+        :student_id => student.id,
+        :was_present => true
+    ).count
+  end
+
+  def total_lessons_count(student)
+    Presence.joins(:lesson).where(
+        :lessons => {:double_class_id => self.id},
+        :student_id => student.id
+    ).count
+  end
 end

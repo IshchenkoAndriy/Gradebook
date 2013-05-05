@@ -59,23 +59,26 @@
             %td= marks_hash[:lesson_mark]
             %td= marks_hash[:presence_mark]
 
-  - @double_classes_info.each do |double_class_info|
-    %table.invisible_table{:id => 'lesson_marks'}
-      %thead
-        %tr
-          %th= 'lesson'
-          %th= t('score_title')
-      %tbody
-        - double_class_info[:lessons].each do |lesson|
+  - @double_classes_info.each_with_index do |double_class_info, index|
+    - if double_class_info[:lessons].any?
+      %table.invisible_table.lesson_marks{:id => "lesson_marks_#{index}"}
+        %thead
           %tr
-            %td= lesson[:lessons_name]
-            %td= lesson[:score]
-    .row
-      .g_12
-        %div{:id => 'lesson_marks_chart'}
+            %th= 'lesson'
+            %th= t('charts.score_title')
+            %th= t('average_score')
+        %tbody
+          - double_class_info[:lessons].each do |lesson|
+            %tr
+              %td= lesson[:lessons_name]
+              %td= lesson[:score]
+              %td= double_class_info[:avg_score]
+      .row
+        .g_12
+          %div{:id => "lesson_marks_#{index}_chart"}
 
     - unless double_class_info[:presence].nil?
-      %table.invisible_table{:id => 'lesson_presence'}
+      %table.invisible_table.lesson_presence{:id => "lesson_presence_#{index}"}
         %thead
           %tr
             %th= t('presence_states.present_title')
@@ -86,4 +89,4 @@
             %td= ((1.to_f - double_class_info[:presence]) * 100).to_i
       .row
         .g_12
-          %div{:id => 'lesson_presence_pie'}
+          %div{:id => "lesson_presence_#{index}_pie"}

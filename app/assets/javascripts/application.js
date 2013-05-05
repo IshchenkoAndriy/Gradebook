@@ -26,6 +26,4 @@
 //= require highcharts/modules/exporting
 //= require nivo
 //= require i18n
-//= require i18n/en
-//= require i18n/ru
-//= require i18n/uk
+//= require i18n/translations
