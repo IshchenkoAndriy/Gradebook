@@ -64,10 +64,12 @@
           %table.table.table_marks{:id => :marks}
             - @study_group.all_students.each do |student|
               %tr
+                - student_marks = LessonMark.joins(:lesson => :double_class).where(:lessons => { :double_classes => {:study_group_id => @study_group.id} }, student_id: student.id).all
+                - student_presences = Presence.joins(:lesson => :double_class).where(:lessons => { :double_classes => {:study_group_id => @study_group.id} }, student_id: student.id).all
                 - unless @choosed_double_class.nil?
                   - @choosed_double_class.lessons.each do |lesson|
-                    - student_mark = lesson.lesson_marks.find_by_student_id(student.id)
-                    - student_presence = lesson.presences.find_by_student_id(student.id)
+                    - student_mark = student_marks.find_all { |mark| mark.lesson_id == lesson.id }.first
+                    - student_presence = student_presences.find_all { |presence| presence.lesson_id == lesson.id }.first
                     %td.horizontal_centered.centered_cell
                       = student_mark.score unless student_mark.nil?
                       - unless student_presence.nil?

@@ -37,7 +37,7 @@ table.visual-editor th {
   text-align: center;
 }
 
-table.visual-editor td.new {
+table.visual-editor td.lesson_cell {
   text-align: center;
 }
 
@@ -49,6 +49,12 @@ table.visual-editor td.lesson_cell:hover a {
   display: inline;
 }
 
-table.visual-editor td.new:hover, th.new:hover {
+table.visual-editor td.lesson_cell:hover, th.lesson_cell:hover {
   background-color: #eeeeee;
+}
+
+.module_badge {
+  top: -1em;
+  font-size: 10px;
+  padding: 0 4px 0 4px;
 }

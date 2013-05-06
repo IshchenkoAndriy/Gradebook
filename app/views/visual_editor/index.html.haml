@@ -32,42 +32,45 @@
           %td= t('presence_title')
         %td.imagine-lesson
 
+      - student_marks = LessonMark.joins(:lesson).where(:lessons => { :double_class_id => @double_class.id }).all
+      - student_presences = Presence.joins(:lesson).where(:lessons => { :double_class_id => @double_class.id }).all
+      - additional_marks = AdditionalMark.where(:double_class_id => @double_class.id).all
       -# Table data
       - @double_class.study_group.students_in_groups.each do |student_in_group|
         %tr
           %td.centered_cell= student_in_group.subgroup
           %td= student_in_group.full_name
           - @lessons.each do |lesson|
-            - lesson_mark = lesson.lesson_marks.where(student_id: student_in_group.student_id).first
+            - lesson_mark = student_marks.find_all { |mark| mark.lesson_id == lesson.id && mark.student_id == student_in_group.student_id }.first
+            - lesson_presence = student_presences.find_all { |presence| presence.lesson_id == lesson.id && presence.student_id == student_in_group.student_id }.first
             - if lesson_mark
               %td.lesson_cell.centered_cell.center-align
-                %span.badge.badge-info= lesson_mark.module
                 = lesson_mark.score
+                %sup.module_badge.badge.badge-info= lesson_mark.module
                 %div
                   = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_lesson_lesson_mark_path(lesson, lesson_mark, :format => :js), :remote => true
                   = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_lesson_mark_path(lesson, lesson_mark), :confirm => t('mark_destroy_confirm'), :method => :delete
             - else
-              %td.new.centered_cell
+              %td.lesson_cell.centered_cell
                 = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_lesson_mark_path(lesson, :student_id => student_in_group.student_id, :format => :js), :remote => true
-            - lesson_presence = lesson.presences.where(student_id: student_in_group.student_id).first
             - if lesson_presence
               %td.lesson_cell.centered_cell.center-align
-                %span.badge.badge-info= lesson_presence.module
                 - if lesson_presence.was_present
                   %span.badge.badge-success= t('visual_editor.present_short')
                 - else
                   %span.badge.badge-important= t('visual_editor.absent_short')
+                %sup.module_badge.badge.badge-info= lesson_presence.module
                 %div
                 = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_lesson_presence_path(lesson, lesson_presence, :format => :js), :remote => true
                 = link_to content_tag( :i, '', :class => 'icon-trash' ), lesson_presence_path(lesson, lesson_presence), :confirm => t('presence_destroy_confirm'), :method => :delete
             - else
-              %td.new.centered_cell
+              %td.lesson_cell.centered_cell
                 = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_presence_path(lesson, :student_id => student_in_group.student_id, :format => :js), :remote => true
           %td.imagine-lesson
-          - @double_class.additional_marks.where(student_id: student_in_group.student_id).each do |additional_mark|
+          - additional_marks.find_all { |mark| mark.student_id == student_in_group.student_id }.each do |additional_mark|
             %td.lesson_cell.centered_cell.center-align
-              %span.badge.badge-info= additional_mark.module
               = additional_mark.score
+              %sup.module_badge.badge.badge-info= additional_mark.module
               %span.badge.badge-warning= additional_mark.study_type.name
               %div
                 = link_to content_tag( :i, '', :class => 'icon-pencil' ), edit_double_class_additional_mark_path(@double_class, additional_mark, :format => :js), :remote => true
