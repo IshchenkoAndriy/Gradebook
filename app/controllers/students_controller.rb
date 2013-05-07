@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   
   def index
     @study_group = StudyGroup.find(params[:study_group_id])
-    @choosed_double_class = @study_group.double_classes.find_by_id(params[:double_class_id]) if (params[:double_class_id])
+    @selected_double_class = @study_group.double_classes.find_by_id(params[:double_class_id]) if (params[:double_class_id])
   end
 
   def show

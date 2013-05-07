@@ -8,10 +8,10 @@
     .g_4
       .btn-group.pull-right{:id => :double_classes_dropdown}
         %button.btn.dropdown-toggle{:id => :double_classes_dropdown, 'data-toggle' => 'dropdown'}
-          - if @choosed_double_class.nil?
+          - if @selected_double_class.nil?
             = I18n.t('subjects_title')
           - else
-            = @choosed_double_class.subject.name
+            = @selected_double_class.subject.name
           %span.caret
         %ul.dropdown-menu
           - @study_group.double_classes.each do |double_class|
@@ -19,61 +19,7 @@
               %li= link_to '%s | %s' % [ double_class.double_class_type.name, double_class.subject.name],
                     url_for( study_group_students_path(@study_group, :double_class_id => double_class.id) )
 
-- if @choosed_double_class.nil?
-  .row
-    .well.g_3
-      = render_navigation do |primary|
-        - Semester.recent_semesters.each do |semester|
-          - primary.item :semester, semester.name, semester_study_groups_path(semester) do |semester_subitem|
-            - semester.study_groups.each do |study_group|
-              - semester_subitem.item :group, study_group.name, study_group_students_path(study_group), :highlights_on => /groups\/#{study_group.id}/
-            - semester_subitem.dom_class = 'nav nav-list'
-        - primary.dom_class = 'nav nav-list'
-
-    .g_9
-      %table.table.table-hover.students_table
-        - unless @choosed_double_class.nil?
-          %th= I18n.t('students_title')
-        - @study_group.all_students.each do |student|
-          %tr
-            %td= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )
+- if @selected_double_class.nil?
+  = render 'students/students_table'
 - else
-  %h3.horizontal_centered= @choosed_double_class.subject.name
-
-  .row
-    %table.g_12{:id => :sizable_table}
-      %tr
-        %td.td_names
-          %table.table.table_names_header
-            %th.header_height.horizontal_centered.centered_cell= I18n.t('students_title')
-
-        %td.td_marks
-          %table.table.table_marks_header{:id => :lessons}
-            - unless @choosed_double_class.nil?
-              - @choosed_double_class.lessons.each do |lesson|
-                %th.header_height.horizontal_centered.centered_cell= '%s %s' % [@choosed_double_class.double_class_type.name, lesson.description]
-
-      %tr
-        %td.td_names
-          %table.table.table_names{:id => :names}
-            - @study_group.all_students.each do |student|
-              %tr
-                %td.horizontal_centered.centered_cell= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )
-
-        %td.td_marks
-          %table.table.table_marks{:id => :marks}
-            - @study_group.all_students.each do |student|
-              %tr
-                - student_marks = LessonMark.joins(:lesson => :double_class).where(:lessons => { :double_classes => {:study_group_id => @study_group.id} }, student_id: student.id).all
-                - student_presences = Presence.joins(:lesson => :double_class).where(:lessons => { :double_classes => {:study_group_id => @study_group.id} }, student_id: student.id).all
-                - unless @choosed_double_class.nil?
-                  - @choosed_double_class.lessons.each do |lesson|
-                    - student_mark = student_marks.find_all { |mark| mark.lesson_id == lesson.id }.first
-                    - student_presence = student_presences.find_all { |presence| presence.lesson_id == lesson.id }.first
-                    %td.horizontal_centered.centered_cell
-                      = student_mark.score unless student_mark.nil?
-                      - unless student_presence.nil?
-                        - if student_presence.was_present
-                          %span.badge.badge-success= t('presence_states.present_title')
-                        - else
-                          %span.badge.badge-important= t('presence_states.absent_title')
+  = render 'students/students_mark_table'

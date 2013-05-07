@@ -8,6 +8,8 @@ class DoubleClass < ActiveRecord::Base
   has_many :additional_marks, :dependent => :destroy
   has_many :lessons, :dependent => :destroy
   has_many :schedules, :dependent => :destroy
+  has_many :lesson_marks, :through => :lessons
+  has_many :presences, :through => :lessons
 
   validates :study_group, :double_class_type, :subject, :teacher, :presence_score, :presence => true
 

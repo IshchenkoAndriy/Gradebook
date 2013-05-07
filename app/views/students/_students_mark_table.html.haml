@@ -1,0 +1,35 @@
+%h3.horizontal_centered= @selected_double_class.subject.name
+.row
+  %table.g_12{:id => :sizable_table}
+    %tr
+      %td.td_names
+        %table.table.table_names_header
+          %th.header_height.horizontal_centered.centered_cell= I18n.t('students_title')
+
+      %td.td_marks
+        %table.table.table_marks_header{:id => :lessons}
+          - unless @selected_double_class.nil?
+            - @selected_double_class.lessons.each do |lesson|
+              %th.header_height.horizontal_centered.centered_cell= '%s %s' % [@selected_double_class.double_class_type.name, lesson.description]
+
+    %tr
+      %td.td_names
+        %table.table.table_names{:id => :names}
+          - @study_group.all_students.each do |student|
+            %tr
+              %td.horizontal_centered.centered_cell= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )
+
+      %td.td_marks
+        %table.table.table_marks{:id => :marks}
+          - @study_group.all_students.each do |student|
+            %tr
+              - @selected_double_class.lessons.each do |lesson|
+                - student_mark = @selected_double_class.lesson_marks.find_all { |mark| mark.lesson_id == lesson.id && mark.student_id == student.id }.first
+                - student_presence = @selected_double_class.presences.find_all { |presence| presence.lesson_id == lesson.id && presence.student_id == student.id }.first
+                %td.horizontal_centered.centered_cell
+                  = student_mark.score unless student_mark.nil?
+                  - unless student_presence.nil?
+                    - if student_presence.was_present
+                      %span.badge.badge-success= t('presence_states.present_title')
+                    - else
+                      %span.badge.badge-important= t('presence_states.absent_title')

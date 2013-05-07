@@ -24,25 +24,23 @@
             %br
             = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_double_class_lesson_path(@double_class, :format => :js), :remote => true
 
-      %tr
-        %td
-        %td
-        - @lessons.count.times do
-          %td= t('marks_title')
-          %td= t('presence_title')
-        %td.imagine-lesson
+      - if @lessons.any?
+        %tr
+          %td
+          %td
+          - @lessons.count.times do
+            %td= t('marks_title')
+            %td= t('presence_title')
+          %td.imagine-lesson
 
-      - student_marks = LessonMark.joins(:lesson).where(:lessons => { :double_class_id => @double_class.id }).all
-      - student_presences = Presence.joins(:lesson).where(:lessons => { :double_class_id => @double_class.id }).all
-      - additional_marks = AdditionalMark.where(:double_class_id => @double_class.id).all
       -# Table data
       - @double_class.study_group.students_in_groups.each do |student_in_group|
         %tr
           %td.centered_cell= student_in_group.subgroup
           %td= student_in_group.full_name
           - @lessons.each do |lesson|
-            - lesson_mark = student_marks.find_all { |mark| mark.lesson_id == lesson.id && mark.student_id == student_in_group.student_id }.first
-            - lesson_presence = student_presences.find_all { |presence| presence.lesson_id == lesson.id && presence.student_id == student_in_group.student_id }.first
+            - lesson_mark = @double_class.lesson_marks.find_all { |mark| mark.lesson_id == lesson.id && mark.student_id == student_in_group.student_id }.first
+            - lesson_presence = @double_class.presences.find_all { |presence| presence.lesson_id == lesson.id && presence.student_id == student_in_group.student_id }.first
             - if lesson_mark
               %td.lesson_cell.centered_cell.center-align
                 = lesson_mark.score
@@ -67,7 +65,7 @@
               %td.lesson_cell.centered_cell
                 = link_to content_tag( :i, '', :class => 'icon-plus-sign' ), new_lesson_presence_path(lesson, :student_id => student_in_group.student_id, :format => :js), :remote => true
           %td.imagine-lesson
-          - additional_marks.find_all { |mark| mark.student_id == student_in_group.student_id }.each do |additional_mark|
+          - @double_class.additional_marks.find_all { |mark| mark.student_id == student_in_group.student_id }.each do |additional_mark|
             %td.lesson_cell.centered_cell.center-align
               = additional_mark.score
               %sup.module_badge.badge.badge-info= additional_mark.module
