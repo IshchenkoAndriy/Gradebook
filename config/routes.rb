@@ -29,6 +29,8 @@ Kntu::Application.routes.draw do
       resources :students, :only => [:show]
       resources :search_group, :only => [:index]
       resources :search_student, :only => [:index]
+
+      resources :absent_students, :only => [:index]
     end
   end
   
