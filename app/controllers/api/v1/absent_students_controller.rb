@@ -5,13 +5,14 @@ class Api::V1::AbsentStudentsController < ApplicationController
     begin
       date = Date.strptime(params[:date], '%d.%m.%Y')
 
-      if date.month < 6
-        semester = Semester.where(year: date.year).first
-      else
-        semester = Semester.where(year: date.year).last
-      end
-
-      students = Student.joins(:study_groups).where(:study_groups => {:semester_id => semester.id})
+      students = Student.joins(:presences => :lesson).where(
+        :presences => {
+          :was_present => false,
+          :lesson => {
+              :date => date
+          }
+        }
+      )
 
       absent_data = Array.new
       students.each do |student|
