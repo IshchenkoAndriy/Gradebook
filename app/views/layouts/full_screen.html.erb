@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : t('app.logo') %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : t('app.logo') %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <%= javascript_include_tag "application" %>
+    <script type="text/javascript">
+        I18n.defaultLocale = "<%= I18n.default_locale %>";
+        I18n.locale = "<%= I18n.locale %>";
+        I18n.fallbacks = true;
+    </script>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header id="navbar">
+      <nav>
+        <div class="wrapper"><div class="row"><%= render 'layouts/navigation' %></div></div>
+      </nav>
+    </header>
+    <div id="main" role="main">
+      <div class="content">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+    <footer id="footer">
+	    <div class="wrapper">
+	      <%= render 'layouts/footer' %>
+	    </div>
+    </footer>
+  </body>
+</html>

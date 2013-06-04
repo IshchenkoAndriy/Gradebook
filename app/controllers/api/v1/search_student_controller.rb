@@ -40,7 +40,7 @@ class Api::V1::SearchStudentController < ApplicationController
   end
 
   def conditions
-    [conditions_clauses.join(' AND '), *conditions_options]
+    [conditions_clauses.join(' OR '), *conditions_options]
   end
   
   def conditions_clauses

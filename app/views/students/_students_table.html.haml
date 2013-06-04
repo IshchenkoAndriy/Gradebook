@@ -14,6 +14,6 @@
         %tr
           %th= I18n.t('students_title')
       %tbody
-      - @study_group.all_students.each do |student|
-        %tr
-          %td= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )
+        - @study_group.all_students.each do |student|
+          %tr
+            %td= link_to student.full_name, url_for( study_group_student_path(@study_group, student.id) )

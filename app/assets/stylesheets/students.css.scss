@@ -53,7 +53,7 @@
   padding-right: 0;
 }
 
-.table_marks td:first-child, th:first-child {
+.table_marks td:first-child, .table_marks th:first-child {
   border-left: 0;
 }
 
@@ -97,6 +97,10 @@
 #sizable_table {
   overflow: hidden;
   margin-bottom: 0;
+}
+
+#sizable_table td th, #sizable_table td td {
+  padding: 5px;
 }
 
 /* way the hell off screen */
