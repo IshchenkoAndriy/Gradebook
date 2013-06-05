@@ -5,4 +5,15 @@ class Student < Person
   has_many :presences, :dependent => :destroy
   has_many :relationships
   has_many :parents, :through => :relationships
+
+  def self.absent(date)
+    Student.joins(:presences => :lesson).where(
+      :presences => {
+        :was_present => false,
+        :lesson => {
+            :date => date.to_date
+        }
+      }
+    )
+  end
 end

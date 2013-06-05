@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
   end
 
   def teacher_id
-    puts "mail blank #{self.email.blank?}"
     unless self.email.blank?
       @teacher = Teacher.where(email: self.email).first
       @teacher.id if @teacher

@@ -1,5 +1,16 @@
 uk:
   active_admin:
+    absent_managment:
+      absent_students: "Список відсутніх студентів"
+      sending_list: "Список для відправки повідомлень"
+      send_sms_button: "Надіслати SMS"
+      successful_sended_sms: "SMS успішно створені та поставлені в чергу для відправки"
+      absent_student_message: "Студент був відсутній на заняттях"
+      phone: "Тел."
+
+    managment:
+      menu: "Налаштування"
+
     admin_user:
       menu: "Адміністратори"
       title_index: "Список адміністраторів"

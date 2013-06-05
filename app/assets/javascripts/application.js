@@ -20,10 +20,10 @@
 //= require bootstrap-dropdown
 //= require bootstrap-alert
 //= require bootstrap-modal
+//= require nivo
+//= require i18n
+//= require i18n/translations
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/data
 //= require highcharts/modules/exporting
-//= require nivo
-//= require i18n
-//= require i18n/translations

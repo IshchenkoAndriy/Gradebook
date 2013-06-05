@@ -12,7 +12,7 @@ ActiveAdmin.register StudyType do
     link_to I18n.t("active_admin.study_type.edit_action"), edit_admin_study_type_path(resource)
   end
   
-  menu :label => I18n.t("active_admin.study_type.menu")
+  menu :label => I18n.t("active_admin.study_type.menu"), :parent => I18n.t("active_admin.managment.menu")
   
   index :download_links => false, :title => I18n.t("active_admin.study_type.title_index") do
     column :name

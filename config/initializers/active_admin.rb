@@ -1,5 +1,13 @@
 ActiveAdmin.setup do |config|
 
+  config.namespace :admin do |admin|
+
+    # This block will edit the default menu
+    admin.build_menu do |menu|
+      menu.add :label => I18n.t("active_admin.managment.menu"), :priority => 100
+    end
+  end
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
