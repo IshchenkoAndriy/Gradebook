@@ -25,7 +25,7 @@ uk:
   lessons_title: "Заняття"
   edit_lesson_title: "Редагувати заняття"
   new_lesson_title: "Додати нове заняття"
-  no_lessons_title: "Для цього предменту не створено жодного заняття"
+  no_lessons_title: "Для цього предмету не створено жодного заняття"
   create_lesson: "Створити заняття"
   update_lesson: "Оновити заняття"
   lesson_destroy_confirm: "Ви впевнені, що хочете видалити це заняття?"
@@ -70,10 +70,10 @@ uk:
     present_title: "Присутній"
     absent_title: "Відсутній"
   presence_table:
-      student: "Студент"
-      presence: "Відвідування"
-      module: "Модуль"
-      actions: "Редагувати/Видалити"
+    student: "Студент"
+    presence: "Відвідування"
+    module: "Модуль"
+    actions: "Редагувати/Видалити"
 
   additional_marks_title: "Додаткові оцінки"
   edit_additional_mark_title: "Редагувати додаткову оцінку"

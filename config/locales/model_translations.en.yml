@@ -1,0 +1,158 @@
+en:
+  activerecord:
+    models:
+      admin_user:
+        one: "Adminitsrator"
+        few: "Adminitsrators"
+        many: "Adminitsrators"
+        other: "Adminitsrators"
+      group:
+        one: "Group"
+        few: "Groups"
+        many: "Groups"
+        other: "Groups"
+      semester:
+        one: "Semester"
+        few: "Semesters"
+        many: "Semesters"
+        other: "Semesters"
+      student:
+        one: "Student"
+        few: "Students"
+        many: "Students"
+        other: "Students"
+      teacher:
+        one: "Teacher"
+        two: "Teacher"
+        few: "Teachers"
+        many: "Teachers"
+        other: "Teachers"
+      study_group:
+        one: "Study Group"
+        few: "Study groups"
+        many: "Study groups"
+        other: "Study groups"
+      students_in_group:
+        one: "Student in the group"
+        few: "Students in the group"
+        many: "Students in the group"
+        other: "Students in the group"
+      subject_type:
+        one: "The form of semester control"
+        few: "Forms of semester control"
+        many: "Forms of semester control"
+        other: "Forms of semester control"
+      subject:
+        one: "Discipline"
+        few: "Disciplines"
+        many: "Disciplines"
+        other: "Disciplines"
+      study_type:
+        one: "Type of work"
+        few: "Types of work"
+        many: "Types of work"
+        other: "Types of work"
+      double_class_type:
+        one: "Type of double class"
+        few: "Types of double class"
+        many: "Types of double class"
+        other: "Types of double class"
+      double_class:
+        one: "Double class"
+        few: "Double classes"
+        many: "Double classes"
+        other: "Double classes"
+      schedule:
+        one: ""
+        few: ""
+        many: ""
+        other: ""
+      lesson:
+        one: "Lesson"
+        few: "Lessons"
+        many: "Lessons"
+        other: "Lessons"
+      lesson_mark:
+        one: "Lesson mark"
+        few: "Lesson marks"
+        many: "Lesson marks"
+        other: "Lesson marks"
+      presence:
+        one: "Visiting"
+        few: "Visiting"
+        many: "Visiting"
+        other: "Visiting"
+      additional_mark:
+        one: "Additional mark"
+        few: "Additional marks"
+        many: "Additional marks"
+        other: "Additional marks"
+    attributes:
+      admin_user:
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirm password"
+      semester:
+        year: "Year of Education"
+        title: "Name"
+      teacher:
+        first_name: "First name"
+        last_name: "Last name"
+        patronymic: "Middle"
+      group:
+        name: "Name"
+      students_in_group:
+        student: "Student"
+        scholarship: "Scholarship"
+        hostel: "Hostel"
+        subgroup: "Subgroup"
+      study_group:
+        group: "Group"
+        semester: "Semester"
+        teacher: "Curator"
+      subject:
+        name: "Name"
+        subject_type: "Form of semester control"
+      student:
+        first_name: "First name"
+        last_name: "Last name"
+        patronymic: "Middle"
+      study_type:
+        name: "Name"
+      double_class_type:
+        name: "Name"
+      subject_type:
+        name: "Name"
+      double_class:
+        study_group: "Group"
+        double_class_type: "Type"
+        subject: "Discipline"
+        teacher: "Teacher"
+        presence_score: "Presence score"
+      schedule:
+        subgroup: "Subgroup"
+        numerator_denominator: "Numerator/Denominator"
+        double_class_number: "Double class number"
+        day_of_week: "Weekday"
+        classroom_number: "Classroom number"
+      lesson:
+        date: "Lesson date"
+        description: "Name"
+      lesson_mark:
+        lesson: "Lesson mark"
+        date: "Lesson date"
+        student: "Student"
+        score: "Score"
+        module: "Module"
+      presence:
+        lesson: "Visiting"
+        student: "Student"
+        was_present: "Present?"
+        module: "Module"
+      additional_mark:
+        date: "Additional mark date"
+        study_type: "Type"
+        study_description: "Title"
+        student: "Student"
+        score: "Score"
+        module: "Module"

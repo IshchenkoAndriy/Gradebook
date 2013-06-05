@@ -1,0 +1,187 @@
+ru:
+  activerecord:
+    models:
+      admin_user:
+        one: "Админитсратор"
+        few: "Админитсраторов"
+        many: "Админитсраторов"
+        other: "Админитсраторы"
+      group:
+        one: "Группа"
+        few: "Групп"
+        many: "Групп"
+        other: "Группы"
+      semester:
+        one: "Семестр"
+        few: "Семестров"
+        many: "Семестров"
+        other: "Семестры"
+      student:
+        one: "Студент"
+        few: "Студентов"
+        many: "Студенты"
+        other: "Студенты"
+      teacher:
+        one: "Преподаватель"
+        two: "Преподаватель"
+        few: "Преподавателей"
+        many: "Преподавателей"
+        other: "Преподаватели"
+      study_group:
+        one: "Учебная группа"
+        few: "Учебных групп"
+        many: "Учебных групп"
+        other: "Учебные группы"
+      students_in_group:
+        one: "Студент в группе"
+        few: "Студентов в группе"
+        many: "Студентов в группе"
+        other: "Студентов в группе"
+      subject_type:
+        one: "Форма семестрового контроля"
+        few: "Формы семестрового контроля"
+        many: "Формы семестрового контроля"
+        other: "Формы семестрового контроля"
+      subject:
+        one: "Учебная дисциплина"
+        few: "Учебные дисциплины"
+        many: "Учебных дисциплин"
+        other: "Учебные дисциплины"
+      study_type:
+        one: "Тип работы"
+        few: "Типов работ"
+        many: "Типов работ"
+        other: "Типов работ"
+      double_class_type:
+        one: "Тип занятия"
+        few: "Типов занятий"
+        many: "Типов занятий"
+        other: "Типов занятий"
+      double_class:
+        one: "Занятия"
+        few: "Занятий"
+        many: "Занятий"
+        other: "Занятия"
+      schedule:
+        one: ""
+        few: ""
+        many: ""
+        other: ""
+      lesson:
+        one: "Занятия"
+        few: "Занятий"
+        many: "Занятий"
+        other: "Занятия"
+      lesson_mark:
+        one: "Оценка"
+        few: "Оценки"
+        many: "Оценок"
+        other: "Оценки"
+      presence:
+        one: "Посещение"
+        few: "Посещение"
+        many: "Посещение"
+        other: "Посещение"
+      additional_mark:
+        one: "Дополнительная оценка"
+        few: "Дополнительные оценки"
+        many: "Дополнительных оценок"
+        other: "Дополнительные оценки"
+    attributes:
+      admin_user:
+        email: "Электронная почта"
+        last_sign_in_at: "Время последнего входа"
+        current_sign_in_at: "Время текущего входа"
+        sign_in_count: "Количество входов"
+        last_sign_in_ip: "IP-адрес последнего входа"
+        current_sign_in_ip: "IP-адрес текущего входа"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      semester:
+        year: "Год обучения"
+        title: "Название"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      teacher:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        patronymic: "Отчество"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      group:
+        name: "Название"
+        created_at: "Создана"
+        updated_at: "Измененна"
+      students_in_group:
+        student: "Студент"
+        scholarship: "Стипендия"
+        hostel: "Общежитие"
+        subgroup: "Подгруппа"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      study_group:
+        group: "Группа"
+        semester: "Семестр"
+        teacher: "Куратор"
+        created_at: "Создана"
+        updated_at: "Измененна"
+      subject:
+        name: "Название"
+        subject_type: "Форма семестрового контроля"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      student:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        patronymic: "Отчество"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      study_type:
+        name: "Название"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      double_class_type:
+        name: "Название"
+        created_at: "Создано"
+        updated_at: "Изменено"
+      subject_type:
+        name: "Название"
+        created_at: "Создан"
+        updated_at: "Изменен"
+      double_class:
+        study_group: "Группа"
+        double_class_type: "Тип"
+        subject: "Учебная дисциплина"
+        teacher: "Преподаватель"
+        presence_score: "Количество баллов за присутствие на занятии"
+        created_at: "Создана"
+        updated_at: "Измененна"
+      schedule:
+        subgroup: "Подгруппа"
+        numerator_denominator: "Числитель/Знаменатель"
+        double_class_number: "Номер пары"
+        day_of_week: "День недели"
+        classroom_number: "Номер аудитории"
+      lesson:
+        date: "Дата занятия"
+        description: "Название"
+      lesson_mark:
+        lesson: "Занятия"
+        date: "Дата добавления оценки"
+        student: "Студент"
+        score: "Баллы"
+        module: "Модуль"
+      presence:
+        lesson: "Занятия"
+        student: "Студент"
+        was_present: "Присутствует?"
+        module: "Модуль"
+      additional_mark:
+        date: "Дата добавления оценки"
+        study_type: "Тип работы"
+        study_description: "Название работы"
+        student: "Студент"
+        score: "Баллы"
+        module: "Модуль"
