@@ -12,17 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree .
 //= require ckeditor/init
 //= require cocoon
-//= require_tree .
+//= require nivo
+//= require i18n
+//= require i18n/translations
 //= require bootstrap-tooltip
 //= require bootstrap-popover
 //= require bootstrap-dropdown
 //= require bootstrap-alert
 //= require bootstrap-modal
-//= require nivo
-//= require i18n
-//= require i18n/translations
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/modules/data

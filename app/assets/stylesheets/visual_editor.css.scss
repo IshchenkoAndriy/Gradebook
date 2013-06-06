@@ -41,12 +41,8 @@ table.visual-editor td.lesson_cell {
   text-align: center;
 }
 
-table.visual-editor td.lesson_cell a {
+table.visual-editor td.lesson_cell .actions, table.visual-editor th.lesson-header .actions {
   display: none;
-}
-
-table.visual-editor td.lesson_cell:hover a {
-  display: inline;
 }
 
 table.visual-editor td.lesson_cell:hover, th.lesson_cell:hover {
