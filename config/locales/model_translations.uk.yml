@@ -87,6 +87,16 @@ uk:
         few: "Додаткові оцінки"
         many: "Додаткових оцінок"
         other: "Додаткові оцінки"
+      parents:
+        one: "Батьки"
+        few: "Батьки"
+        many: "Батьки"
+        other: "Батьки"
+      relationship:
+        one: ""
+        few: ""
+        many: ""
+        other: ""
     attributes:
       admin_user:
         email: "Електронна пошта"
@@ -185,3 +195,11 @@ uk:
         student: "Студент"
         score: "Бали"
         module: "Модуль"
+      parent:
+        first_name: "Ім'я"
+        last_name: "Прізвище"
+        patronymic: "По-батькові"
+        phone: "Телефон"
+      relationship:
+        student: "Студент"
+        parent: "Батьки"

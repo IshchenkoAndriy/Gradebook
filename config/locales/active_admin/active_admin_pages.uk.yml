@@ -128,3 +128,7 @@ uk:
       edit_action: "Редагувати інформацію"
       search_last_name: "прізвищу"
       search_first_name: "імені"
+
+    parent:
+      title_index: "Список батьків"
+      details: "Інформація про батьків"

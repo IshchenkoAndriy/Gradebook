@@ -4,8 +4,8 @@ ActiveAdmin.register_page "Dashboard" do
     Student.absent(DateTime.now).each do |student|
       student.parents.each do |parent|
         unless parent.phone.nil?
-          #system("echo '#{I18n.t('active_admin.absent_managment.absent_student_message')}' | sudo gnokii --sendsms #{parent.phone}")
-          system('gnokii --identify')
+          system("echo '#{I18n.t('active_admin.absent_managment.absent_student_message')}' | sudo gnokii --sendsms #{parent.phone}")
+          #system('gnokii --identify')
         end
       end
     end
