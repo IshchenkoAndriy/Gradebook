@@ -1,6 +1,6 @@
 class MainController < ApplicationController
   def index
-    @articles = Article.find(:all, :limit => 3, :order=> 'created_at desc')
+    @articles = Article.order('created_at desc').limit(6).all
   end
   
 end

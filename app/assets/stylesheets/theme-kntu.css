@@ -1,0 +1,81 @@
+.theme-kntu .nivoSlider {
+    position:relative;
+    background:#fff url(default/loading.gif) no-repeat 50% 50%;
+    margin-bottom:10px;
+}
+.theme-kntu .nivoSlider img {
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+.theme-kntu .nivoSlider a {
+    border:0;
+    display:block;
+}
+
+.theme-kntu .nivo-controlNav {
+    text-align: center;
+    padding: 20px 0;
+}
+.theme-kntu .nivo-controlNav a {
+    display:inline-block;
+    width:22px;
+    height:22px;
+    background:url(default/bullets.png) no-repeat;
+    text-indent:-9999px;
+    border:0;
+    margin: 0 2px;
+}
+.theme-kntu .nivo-controlNav a.active {
+    background-position:0 -22px;
+}
+
+.theme-kntu .nivo-directionNav a {
+    display:block;
+    width:30px;
+    height:30px;
+    background:url(kntu/arrows.png) no-repeat;
+    text-indent:-9999px;
+    border:0;
+    opacity: 0;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+
+.theme-kntu:hover .nivo-directionNav a { opacity: 1; }
+.theme-kntu a.nivo-nextNav {
+    background-position:-30px 0;
+    right:15px;
+}
+.theme-kntu a.nivo-prevNav {
+    left:15px;
+}
+
+.theme-kntu .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.theme-kntu .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-kntu .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-kntu .nivo-controlNav.nivo-thumbs-enabled {
+    width: 100%;
+}
+.theme-kntu .nivo-controlNav.nivo-thumbs-enabled a {
+    width: auto;
+    height: auto;
+    background: none;
+    margin-bottom: 5px;
+}
+.theme-kntu .nivo-controlNav.nivo-thumbs-enabled img {
+    display: block;
+    width: 120px;
+    height: auto;
+}
