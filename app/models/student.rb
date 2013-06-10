@@ -11,12 +11,10 @@ class Student < Person
   accepts_nested_attributes_for :relationships, :allow_destroy => true
 
   def self.absent(date)
-    Student.joins(:presences => :lesson).where(
+    Student.joins(:presences).where(
       :presences => {
         :was_present => false,
-        :lesson => {
-            :date => date.to_date
-        }
+        :date => date.to_date
       }
     )
   end

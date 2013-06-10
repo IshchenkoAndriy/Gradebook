@@ -4,7 +4,6 @@
 - if @lessons and not @lessons.empty?
   %table.table.table-hover
     %tr
-      %th= t('lessons_table.date')
       %th= t('lessons_table.type')
       %th= t('lessons_table.description')
       %th= t('marks_title')
@@ -12,7 +11,6 @@
       %th= t('lessons_table.actions')
     - @lessons.each do |lesson|
       %tr
-        %td= lesson.date
         %td= lesson.double_class.double_class_type.name
         %td= lesson.description
         %td= link_to t('marks_title'), lesson_lesson_mark_index_path(lesson)

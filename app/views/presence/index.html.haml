@@ -5,12 +5,14 @@
   %table.table.table-hover
     %tr
       %th= t('presence_table.student')
+      %th= t('presence_table.date')
       %th= t('presence_table.presence')
       %th= t('presence_table.module')
       %th= t('presence_table.actions')
     - @presences.each do |presence|
       %tr{:class => presence.was_present ? 'success' : 'error' }
         %td= presence.student.full_name
+        %td= presence.date
         %td= presence.was_present ? t('presence_states.present_title') : t('presence_states.absent_title')
         %td= presence.module
         %td

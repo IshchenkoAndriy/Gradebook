@@ -2,7 +2,6 @@
   = simple_form_for(lesson, :url => double_class_lessons_path(lesson.double_class),
   :method => :post, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
-      = f.input :date
       = f.input :description, hint: t('lesson_description_hint')
 
     .form-actions
@@ -11,7 +10,6 @@
   = simple_form_for(lesson, :url => lesson_path(lesson),
   :method => :put, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
-      = f.input :date
       = f.input :description, hint: t('lesson_description_hint')
 
     .form-actions

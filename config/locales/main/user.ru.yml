@@ -35,7 +35,6 @@ ru:
   lesson_success_updated: "Занятие успешно обновлено"
   lesson_success_destroyed: "Занятие успешно уничтожено"
   lessons_table:
-    date: "Дата занятия"
     type: "Тип занятия"
     description: "Название"
     actions: "Редактировать/Удалить"
@@ -72,6 +71,7 @@ ru:
     absent_title: "Отсутствует"
   presence_table:
     student: "Студент"
+    date: "Дата занятия"
     presence: "Посещение"
     module: "Модуль"
     actions: "Редактировать/Удалить"

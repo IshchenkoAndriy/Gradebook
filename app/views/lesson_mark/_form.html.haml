@@ -2,7 +2,7 @@
   = simple_form_for(lesson_mark, :url => lesson_lesson_mark_index_path(lesson_mark.lesson),
   :method => :post, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
-      = f.association :lesson, label_method: :date, :default => lesson_mark.lesson
+      = f.association :lesson, label_method: :description, :default => lesson_mark.lesson
       - if lesson_mark.student
         = f.association :student, label_method: :full_name, collection: lesson_mark.lesson.double_class.study_group.students, :selected => lesson_mark.student_id
       - else
@@ -17,7 +17,7 @@
   = simple_form_for(lesson_mark, :url => lesson_lesson_mark_path(lesson_mark.lesson, lesson_mark),
   :method => :put, :html => {:class => 'form-horizontal' }) do |f|
     .form-inputs
-      = f.association :lesson, label_method: :date, :default => lesson_mark.lesson
+      = f.association :lesson, label_method: :description, :default => lesson_mark.lesson
       = f.association :student, label_method: :full_name, collection: lesson_mark.lesson.double_class.study_group.students
       = f.input :date
       = f.input :score

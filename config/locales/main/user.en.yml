@@ -35,7 +35,6 @@ en:
   lesson_success_updated: "Lesson updated successfully"
   lesson_success_destroyed: "Lesson successfully destroyed"
   lessons_table:
-    date: "Lesson date"
     type: "Lesson type"
     description: "name"
     actions: "Edit/Delete"
@@ -72,6 +71,7 @@ en:
     absent_title: "Absent"
   presence_table:
     student: "Student"
+    date: "Lesson date"
     presence: "Visiting"
     module: "Module"
     actions: "Edit/Delete"

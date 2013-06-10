@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130527153905) do
+ActiveRecord::Schema.define(:version => 20130610223500) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -94,7 +94,6 @@ ActiveRecord::Schema.define(:version => 20130527153905) do
 
   create_table "lessons", :force => true do |t|
     t.integer  "double_class_id", :null => false
-    t.date     "date",            :null => false
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "description",     :null => false
@@ -134,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20130527153905) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "module",      :null => false
+    t.date     "date"
   end
 
   create_table "relationships", :force => true do |t|
@@ -159,6 +159,21 @@ ActiveRecord::Schema.define(:version => 20130527153905) do
     t.datetime "updated_at", :null => false
     t.integer  "year",       :null => false
     t.string   "title",      :null => false
+  end
+
+  create_table "slides", :force => true do |t|
+    t.string   "caption"
+    t.string   "url"
+    t.boolean  "active"
+    t.integer  "position"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "students_in_groups", :force => true do |t|

@@ -35,7 +35,6 @@ uk:
   lesson_success_updated: "Заняття успішно оновлено"
   lesson_success_destroyed: "Заняття успішно знищено"
   lessons_table:
-    date: "Дата заняття"
     type: "Тип заняття"
     description: "Назва"
     actions: "Редагувати/Видалити"
@@ -72,6 +71,7 @@ uk:
     absent_title: "Відсутній"
   presence_table:
     student: "Студент"
+    date: "Дата заняття"
     presence: "Відвідування"
     module: "Модуль"
     actions: "Редагувати/Видалити"
