@@ -21,6 +21,10 @@ class StudyGroup < ActiveRecord::Base
     self.students.order('last_name ASC').all
   end
 
+  def all_students_in_group
+    StudentsInGroup.joins(:student).where(:study_group_id => self.id).order('subgroup ASC, people.last_name ASC')
+  end
+
   def import_students
     study_group = self
     unless study_group.students_in_groups.any?
