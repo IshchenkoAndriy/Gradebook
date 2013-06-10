@@ -132,3 +132,12 @@ uk:
     parent:
       title_index: "Список батьків"
       details: "Інформація про батьків"
+
+    user:
+      title_index: "Список користувачів"
+      details: "Інформація про користувача"
+      new_action: "Додати користувача"
+      edit_action: "Редагувати інформацію"
+      capabilities:
+        manage_articles: "Керувати всіма новинами"
+        write_articles: "Лише створювати новини та редагувати їх"

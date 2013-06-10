@@ -161,21 +161,6 @@ ActiveRecord::Schema.define(:version => 20130527153905) do
     t.string   "title",      :null => false
   end
 
-  create_table "slides", :force => true do |t|
-    t.string   "caption"
-    t.string   "url"
-    t.boolean  "active"
-    t.integer  "position"
-    t.integer  "width"
-    t.integer  "height"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
   create_table "students_in_groups", :force => true do |t|
     t.integer  "study_group_id",                    :null => false
     t.integer  "student_id",                        :null => false

@@ -87,6 +87,21 @@ ru:
         few: "Дополнительные оценки"
         many: "Дополнительных оценок"
         other: "Дополнительные оценки"
+      parents:
+        one: "Родители"
+        few: "Родители"
+        many: "Родители"
+        other: "Родители"
+      relationship:
+        one: ""
+        few: ""
+        many: ""
+        other: ""
+      user:
+        one: "Пользователи"
+        few: "Пользователей"
+        many: "Пользователей"
+        other: "Пользователи"
     attributes:
       admin_user:
         email: "Электронная почта"
@@ -185,3 +200,23 @@ ru:
         student: "Студент"
         score: "Баллы"
         module: "Модуль"
+      parent:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        patronymic: "Отчество"
+        phone: "Телефон"
+      relationship:
+        student: "Студент"
+        parent: "Родители"
+      user:
+        email: "Электронная почта"
+        last_sign_in_at: "Время последнего входа"
+        current_sign_in_at: "Время текущего входа"
+        sign_in_count: "Количество входов"
+        last_sign_in_ip: "IP-адрес последнего входа"
+        current_sign_in_ip: "IP-адрес текущего входа"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        capabilities: "Права в системе"
+        created_at: "Создан"
+        updated_at: "Изменен"

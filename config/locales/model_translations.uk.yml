@@ -97,6 +97,11 @@ uk:
         few: ""
         many: ""
         other: ""
+      user:
+        one:  "Користувач"
+        few:  "Користувачів"
+        many: "Користувачів"
+        other: "Користувачі"
     attributes:
       admin_user:
         email: "Електронна пошта"
@@ -203,3 +208,15 @@ uk:
       relationship:
         student: "Студент"
         parent: "Батьки"
+      user:
+        email: "Електронна пошта"
+        last_sign_in_at: "Час останього входу"
+        current_sign_in_at: "Час поточного входу"
+        sign_in_count: "Кількість входів"
+        last_sign_in_ip: "ІР адреса останього входу"
+        current_sign_in_ip: "ІР адреса поточного входу"
+        password: "Пароль"
+        password_confirmation: "Підтвердження паролю"
+        capabilities: "Права в системі"
+        created_at: "Створений"
+        updated_at: "Змінений"
