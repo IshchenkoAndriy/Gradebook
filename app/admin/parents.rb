@@ -1,6 +1,11 @@
 ActiveAdmin.register Parent do
   config.batch_actions = false
 
+  filter :last_name, :label => I18n.t('active_admin.parent.search_last_name')
+  filter :first_name, :label => I18n.t('active_admin.parent.search_first_name')
+  filter :patronymic
+  filter :phone, :label => I18n.t('active_admin.parent.search_phone')
+
   menu :label => I18n.t('activerecord.models.parents.many')
 
   index :download_links => false, :title => I18n.t("active_admin.parent.title_index") do

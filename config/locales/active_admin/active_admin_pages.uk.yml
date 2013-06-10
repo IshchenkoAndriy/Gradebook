@@ -133,6 +133,9 @@ uk:
     parent:
       title_index: "Список батьків"
       details: "Інформація про батьків"
+      search_last_name: "прізвищу"
+      search_first_name: "імені"
+      search_phone: "номеру телефону"
 
     user:
       title_index: "Список користувачів"
