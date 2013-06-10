@@ -11,6 +11,10 @@ ActiveAdmin.register StudentsInGroup do
   action_item only:[:index, :show] do
     link_to I18n.t("active_admin.students_in_group.new_action"), new_admin_semester_study_group_students_in_group_path
   end
+
+  action_item only:[:index], :if => proc{ StudyGroup.where(id: params[:study_group_id]).first.students_in_groups.count == 0 } do
+    link_to I18n.t("active_admin.students_in_group.import_action"), admin_semester_study_group_import_path
+  end
   
   action_item only:[:show] do
     link_to I18n.t("active_admin.students_in_group.edit_action"), edit_admin_semester_study_group_students_in_group_path(:study_group_id => resource.study_group_id, :id => resource.id)

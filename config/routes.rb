@@ -10,6 +10,7 @@ Kntu::Application.routes.draw do
       resources :study_groups do
         resources :double_classes
         resources :students_in_groups
+        match 'import' => 'import#index'
       end
     end
   end
