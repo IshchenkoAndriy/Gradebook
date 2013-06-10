@@ -34,13 +34,13 @@ class Api::V1::SearchStudentController < ApplicationController
   def all_fields_conditions
     unless params[:all_fields].blank?
       all_fields = params[:all_fields].gsub(/['%_;]/, '')
-      ["first_name LIKE ? AND last_name LIKE ? AND patronymic LIKE ?",
+      ["first_name LIKE ? OR last_name LIKE ? OR patronymic LIKE ?",
        "%#{all_fields}%", "%#{all_fields}%", "%#{all_fields}%"]
     end
   end
 
   def conditions
-    [conditions_clauses.join(' OR '), *conditions_options]
+    [conditions_clauses.join(' AND '), *conditions_options]
   end
   
   def conditions_clauses
