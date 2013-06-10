@@ -16,6 +16,7 @@ uk:
   students_title: "Студенти"
   schedule_title: "Розклад"
   subjects_title: "Навчальні дисципліни"
+  students_list_title: "Список студентів групи"
   module_title: "Модуль"
   all_subjects: "Загальний графік"
   average_score: "Середній бал"
