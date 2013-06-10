@@ -16,7 +16,7 @@ jQuery ->
     marks_table_columns = $('.table_marks td')
     parent_table_top_offset = parent_table.offset().top
     footer_size = $('#footer').height()
-    table_bottom_margin = 20
+    table_bottom_margin = 5
     parent_table_header_size = 75
     table_vertical_margin = parent_table_top_offset + parent_table_header_size + table_bottom_margin + footer_size
 

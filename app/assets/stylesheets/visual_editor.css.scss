@@ -33,11 +33,7 @@ table.visual-editor td:first-child, th:first-child {
   border-left-width: 0px !important;
 }
 
-table.visual-editor th {
-  text-align: center;
-}
-
-table.visual-editor td.lesson_cell {
+table.visual-editor th, table.visual-editor td.lesson_cell {
   text-align: center;
 }
 
@@ -45,8 +41,8 @@ table.visual-editor td.lesson_cell .actions, table.visual-editor th.lesson-heade
   display: none;
 }
 
-table.visual-editor td.lesson_cell:hover, th.lesson_cell:hover {
-  background-color: #eeeeee;
+table.visual-editor td.lesson_cell, table.visual-editor th.lesson-header {
+  cursor: pointer;
 }
 
 .module_badge {
